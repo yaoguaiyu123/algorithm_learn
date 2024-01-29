@@ -4,6 +4,8 @@ using std::cout;
 using std::endl;
 #include <string>
 using std::string;
+#include <algorithm>
+using std::sort;
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -122,19 +124,81 @@ using std::string;
 //}
 
 
+//纪念品分组(原)
+//#include<bits/stdc++.h>
+//using namespace std;
+//int w,n;    //每组上限和纪念品的个数
+//int a[30005];
+//bool visit[30005];
+//int cnt;     //分的组数
+//int ssbegin=1;
+//int main()
+//{
+//    cin>>w>>n;
+//    for(int i=1;i<=n;i++)
+//    {
+//        cin>>a[i];
+//    }
+//    sort(a+1,a+n+1);
+//    int i=0;
+//    while(i<n)
+//    {
+//        for(int j=n;j>ssbegin;j--)
+//        {
+//            if(a[ssbegin]+a[j]>w&&!visit[j])
+//            {
+//                visit[j]=true;
+//                cnt++;
+//                i++;
+//            }
+//            else if(a[ssbegin]+a[j]<=w&&!visit[j])
+//            {
+//                visit[j]=true;
+//                visit[ssbegin++]=true;
+//                cnt++;
+//                i+=2;
+//                break;
+//            }
+//        }
+//        if(i==n-1)    //只剩单个未放
+//        {
+//            i++;
+//            cnt++;
+//        }
+//    }
+//    cout<<cnt;
+//    return 0;
+//}
 
 
-
-
-
-
-
-
-
-
-
-
-
+// 纪念品分组
+//int w, n;
+//int arr[30005]; // 记录每个纪念品的价格
+//int cnt = 0;
+//int main()
+//{
+//    cin >> w >> n;
+//    for (int i = 1; i <= n; i++) {
+//        cin >> arr[i];
+//    }
+//    sort(arr + 1, arr + n + 1);
+//    int m = n;
+//    for (int i = 1; i < m;) {
+//        if (arr[i] + arr[m] <= w) {
+//            cnt++;
+//            m--;
+//            i++;
+//        } else {
+//            m--;
+//            cnt++;
+//        }
+//        if (i == m) {
+//            cnt++;
+//        }
+//    }
+//    cout << cnt;
+//    return 0;
+//}
 
 
 
