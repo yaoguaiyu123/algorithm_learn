@@ -9,6 +9,10 @@ using std::sort;
 #include <iomanip>
 #include <set>
 using std::set;
+#include <limits>
+#include <cmath>
+using std::min;
+using std::max;
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -388,14 +392,33 @@ using std::set;
 
 
 // 第十四届蓝桥杯省赛C++ B组第三题
+//int n;
+//int maxV;
+//int minV = -1;
+//int a, b;
+//int main()
+//{
+//    maxV = std::numeric_limits<int>::max();
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0);
+//    cout.tie(0);
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> a >> b;
+//        maxV = min(a / b, maxV);
+//        minV = max(a / (b + 1) + 1, minV);
+//    }
+//    cout << minV << " " << maxV << endl;
+//    return 0;
+//}
+
+
+// 第十四届蓝桥杯省赛C++ B组第四题
 int main()
 {
 
     return 0;
 }
-
-
-
 
 
 
