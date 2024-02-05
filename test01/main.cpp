@@ -13,6 +13,7 @@ using std::set;
 #include <cmath>
 using std::min;
 using std::max;
+#include <vector>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -414,12 +415,69 @@ using std::max;
 
 
 // 第十四届蓝桥杯省赛C++ B组第四题
+// 使用 std::next_permutation 函数，需要确保输入的序列是有序的
+// int T, N;
+// struct Plane {
+//    int t, d, l;
+//};
+// Plane p[15];
+// bool compare(Plane a, Plane b)
+//{
+//    if (a.t < b.t) {
+//        return true;
+//    } else if (a.t == b.t) {
+//        if (a.d < b.d) {
+//            return true;
+//        } else if (a.d == b.d) {
+//            return a.l < b.l;
+//        }
+//    }
+//    return false;
+//}
+
+// int main()
+//{
+//     cin >> T;
+//     bool flag;
+//     while (T-- > 0) {
+//         cin >> N;
+//         flag = false;
+//         for (int i = 0; i < N; ++i) {
+//             cin >> p[i].t >> p[i].d >> p[i].l;
+//         }
+//         sort(p, p + N, compare);
+//         // 使用全排列函数(全排列枚举所有情况)
+//         do {
+//             int nowt = p[0].t; // nowt一直表示第 i-1 架飞机的降落开始时间
+//             int i;
+//             for (i = 1; i < N; ++i) {
+//                 if (p[i].t + p[i].d < p[i - 1].l + nowt) {
+//                     break;
+//                 } else {
+//                     nowt = std::max(p[i - 1].l + nowt, p[i].t);
+//                 }
+//             }
+//             if (i == N) {
+//                 flag = true;
+//                 break;
+//             }
+//         } while (std::next_permutation(p, p + N, compare));
+//         if (flag) {
+//             cout << "YES" << endl;
+//         } else {
+//             cout << "NO" << endl;
+//         }
+//     }
+//     return 0;
+// }
+
+
+// 第十四届蓝桥杯省赛C++ B组第五题
 int main()
 {
 
     return 0;
 }
-
 
 
 
