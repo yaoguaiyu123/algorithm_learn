@@ -1,0 +1,3 @@
+/run/media/root/study/algorithm_learn/build-test01-C_C_2024_01_28-Debug/CMakeFiles/test01.dir
+/run/media/root/study/algorithm_learn/build-test01-C_C_2024_01_28-Debug/CMakeFiles/edit_cache.dir
+/run/media/root/study/algorithm_learn/build-test01-C_C_2024_01_28-Debug/CMakeFiles/rebuild_cache.dir

@@ -471,13 +471,95 @@ using std::max;
 //     return 0;
 // }
 
+// 最长上升子序列
+// 实际上像动态规划的题目需要把经典的dp类型直接背下来
+//int N;
+//int a[100005];
+//int count = 0;
+//int dp[10005];
+//int main()
+//{
+//    cin >> N;
+//    for (int i = 0; i < N; ++i) {
+//        cin >> a[i];
+//    }
+//    for (int i = 0; i < N; ++i) {
+//        dp[i] = 1;
+//        for (int j = 0; j < i; ++j) {
+//            if (a[j] < a[i]) {
+//                dp[i] = std::max(dp[i], dp[j] + 1);
+//            }
+//        }
+//    }
+//    int maxNum = 0;
+//    for (int i = 0; i < N; ++i) {
+//        maxNum = std::max(maxNum, dp[i]);
+//    }
+//    cout << maxNum << endl;
+//    return 0;
+//}
+
 
 // 第十四届蓝桥杯省赛C++ B组第五题
+// 求最少删除的数字，也就是求最长的子序列
+// 还需要进行优化(思路比较复杂)，详情见https://www.cnblogs.com/MAKISE004/p/17379925.html
+// int N;
+// int a[100005], b[100005];
+// int count = 0;
+// int dp[100005];
+// int res(int x)
+//{
+//    while (x > 10) {
+//        x /= 10;
+//    }
+//    return x;
+//}
+
+// int main()
+//{
+//     std::ios::sync_with_stdio(false);
+//     cin.tie(0), cout.tie(0);
+//     cin >> N;
+//     for (int i = 0; i < N; ++i) {
+//         cin >> a[i];
+//         b[i] = res(a[i]);
+//     }
+//     for (int i = 0; i < N; ++i) {
+//         dp[i] = 1;
+//         for (int j = 0; j < i; ++j) {
+//             if (a[j] % 10 == b[i]) {
+//                 dp[i] = std::max(dp[j] + 1, dp[i]);
+//             }
+//         }
+//     }
+//     int maxN = 0;
+//     for (int i = 0; i < N; ++i) {
+//         maxN = std::max(maxN, dp[i]);
+//     }
+//     cout << N - maxN << endl;
+//     return 0;
+// }
+
+
+// 第十四届蓝桥杯省赛C++ B组第六题
 int main()
 {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
