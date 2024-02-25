@@ -246,6 +246,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
@@ -268,6 +270,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/sys/select.h:
 
 /usr/include/sys/cdefs.h:
+
+/usr/include/strings.h:
 
 /usr/include/stdlib.h:
 
@@ -560,6 +564,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/c++/13.2.1/bits/utility.h:
 
 /usr/include/bits/types/__locale_t.h:
+
+/usr/include/string.h:
 
 /usr/include/bits/mathcalls-helper-functions.h:
 

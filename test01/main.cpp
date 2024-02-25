@@ -14,6 +14,7 @@ using std::set;
 using std::min;
 using std::max;
 #include <vector>
+#include <string.h>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -542,11 +543,77 @@ using std::max;
 
 
 // 第十四届蓝桥杯省赛C++ B组第六题
-int main()
-{
+// 深搜或者广搜，需要先在海洋中8个方向搜索，如果搜索到陆地就进行陆地的4方向搜索
+//int t, m, n;
+//int arr[55][55];
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//int ddx[8] = { 0, 0, 1, 1, 1, -1, -1, -1 };
+//int ddy[8] = { -1, 1, -1, 1, 0, -1, 1, 0 };
+//int cnt;
+//void dfs2(int, int);
+//void dfs1(int x, int y)
+//{
+//    // 海洋的搜索
+//    for (int i = 0; i < 8; ++i) {
+//        int xx = x + ddx[i];
+//        int yy = y + ddy[i];
+//        if (xx >= 0 && xx <= m + 1 && yy >= 0 && yy <= n + 1 && arr[xx][yy] != 2) {
+//            if (arr[xx][yy] == 0) {
+////                cout << xx << "  " << yy <<"   arr[xx][yy]= "<<arr[xx][yy] << "   "<<ddx[i] <<"   "<< ddy[i]<< endl;
+//                arr[xx][yy] = 2;
+//                dfs1(xx, yy);
+//                //                arr[xx][yy] = 0;
+//            } else if (arr[xx][yy] == 1) {
+//                arr[xx][yy] = 2;
+//                ++cnt; // 找到一块陆地
+//                dfs2(xx, yy);
+////                for (int i = 1; i <= n; ++i) {
+////                    for (int j = 1; j <= m; ++j) {
+////                        cout << arr[i][j];
+////                    }
+////                    cout << endl;
+////                }
+//                //                arr[xx][yy] = 1;
+//            }
+//        }
+//    }
+//}
 
-    return 0;
-}
+//void dfs2(int x, int y)
+//{
+//    // 陆地的搜索
+//    for (int i = 0; i < 4; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 1 && xx <= m && yy >= 1 && yy <= n && arr[xx][yy] == 1) {
+//            arr[xx][yy] = 2;
+//            dfs2(xx, yy);
+//        }
+//    }
+//}
+
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> t;
+//    while (t--) {
+//        memset(arr,0,sizeof(arr));   //初始化数组
+//        cnt = 0;
+//        cin >> m >> n; // m行n列
+//        for (int i = 1; i <= m; ++i) {
+//                string str;
+//                cin >>str;
+//                for(int j = 1;j<=n;++j){
+//                    arr[i][j] = str[j-1]-'0';
+//                }
+//        }
+//        dfs1(0, 0); // 从0,0处开始海洋的搜索
+//        cout << cnt << endl;
+//    }
+//    return 0;
+//}
 
 
 
