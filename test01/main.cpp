@@ -15,6 +15,7 @@ using std::min;
 using std::max;
 #include <vector>
 #include <string.h>
+#include <limits>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -617,10 +618,97 @@ using std::max;
 
 
 
+// 第十三届蓝桥杯c++b组国赛第三题
+// 思路感觉是贪心
+// 这一个版本时间复杂度过大
+//int n, m; // n种卡牌，m张空卡牌
+//int a[200005];
+//int b[200005];
+//int c[200005];
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> m;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> a[i];
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> b[i];
+//    }
+//    while (m--) {
+//        int minNum = std::numeric_limits<int>::max();
+//        int index = -1;
+//        for (int i = 0; i < n; ++i) {
+//            if (a[i] < minNum && c[i] < b[i]) {
+//                minNum = a[i];
+//                index = i;
+//            }
+//        }
+//        ++a[index];
+//        ++c[index];
+//    }
+//    int minNum = std::numeric_limits<int>::max();
+//    for (int i = 0; i < n; ++i) {
+//        minNum = std::min(minNum, a[i]);
+//    }
+//    cout << minNum << endl;
+//    return 0;
+//}
 
 
 
-
+// 第十三届蓝桥杯c++b组国赛第三题
+// 只过了35%
+//int n, m; // n种卡牌，m张空卡牌
+//struct Data {
+//    int a = 0;
+//    int b = 0;
+//};
+//Data ds[200005];
+//bool Compare(Data& x, Data& y)
+//{
+//    return x.a < y.a;
+//}
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> m;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> ds[i].a;
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> ds[i].b;
+//    }
+//    std::sort(ds, ds + n, Compare);
+//    int pointer = 0; // 指向当前需要补的卡牌的最后一张
+//    while (m) {
+//        for (int i = 0; i <= pointer; ++i) {
+//            if (0 < ds[i].b) {
+//                ++ds[i].a;
+//                --ds[i].b;
+//                --m;
+//            } else {
+//                cout << ds[i].a << endl;
+//                return 0;
+//            }
+//        }
+//        if (ds[pointer].a > ds[pointer + 1].a) {
+//            if (m && ds[pointer + 1].b) {
+//                ++ds[pointer + 1].a;
+//                --ds[pointer + 1].b;
+//                --m;
+//                ++pointer;
+//            }else {
+//                cout << ds[pointer + 1].a << endl;
+//                return 0;
+//            }
+//        }
+//    }
+//    cout << std::min(ds[pointer].a,ds[pointer+1].a) << endl;
+//    return 0;
+//}
 
 
 
