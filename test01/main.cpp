@@ -711,6 +711,116 @@ using std::max;
 //}
 
 
+// 二分查找
+// l,r的初始值 l = 0, r = n - 1,即分别指向数组的第一个和最后一个数字
+// 结束条件 while(l<=r)
+// m  = (l + r)/2
+// r = m - 1 或者 l = m + 1
+//int n;
+//int nums[100005];
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> nums[i];
+//    }
+//    int t;
+//    cin >> t;
+//    int l = 0, r = n - 1, m;
+//    while (l <= r) {
+//        m = (l + r) / 2;   // m = l + (r - l)/2  放置溢出
+//        if (nums[m] > t) {
+//            r = m - 1;
+//        } else if (nums[m] < t) {
+//            l = m + 1;
+//        } else {
+//            cout << m << endl;
+//            return 0;
+//        }
+//    }
+//    cout << -1 << endl;
+//    return 0;
+//}
+
+
+// x图形
+//int n, m; // 行数和列数
+//string strs[105];
+//int judge(int x, int y)
+//{
+//    int xx = x - 1, yy = y - 1;
+//    // 左上
+//    int cnt = 500;
+//    while (xx >= 0 && yy >= 0 && strs[xx][yy] == strs[x][y]) {
+//        --xx;
+//        --yy;
+//    }
+//    cnt = std::min(cnt, x - xx - 1);
+//    // 右上
+//    xx = x - 1;
+//    yy = y + 1;
+//    while (xx >= 0 && yy < m && strs[xx][yy] == strs[x][y]) {
+//        --xx;
+//        ++yy;
+//    }
+//    cnt = std::min(cnt, x - xx - 1);
+//    // 左下
+//    xx = x + 1;
+//    yy = y - 1;
+//    while (xx < n && yy >= 0 && strs[xx][yy] == strs[x][y]) {
+//        ++xx;
+//        --yy;
+//    }
+//    cnt = std::min(cnt, y - yy - 1);
+//    // 右下
+//    xx = x + 1;
+//    yy = y + 1;
+//    while (xx < n && yy < m && strs[xx][yy] == strs[x][y]) {
+//        ++xx;
+//        ++yy;
+//    }
+//    cnt = std::min(cnt, yy - y - 1);
+//    return cnt;
+//}
+//int count_ = 0;
+//int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> strs[i];
+//    }
+//    for (int i = 1; i < n - 1; ++i) {
+//        for (int j = 1; j < m - 1; ++j) {
+//            // 以除了边界的每个点开始尝试遍历判断是不是中心点
+//            int cnt = judge(i, j);
+//            count_ += cnt;
+//        }
+//    }
+//    cout << count_<<endl;
+//    return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
