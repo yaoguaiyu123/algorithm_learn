@@ -804,11 +804,69 @@ using std::max;
 
 
 
+// 路径之谜
+//int n;
+//int brr[25], arr[25]; // 北边靶子上的箭数(yy决定)和西边靶子上的箭数(xx决定)
+//int land[25][25];
+//int dx[4] = { 1, -1, 0, 0 };
+//int dy[4] = { 0, 0, -1, 1 };
+//std::vector<int> v;
+//bool Check() {
+//    for (int i = 0; i < n; i++) {
+//        if (arr[i]) return false;
+//        if (brr[i])  return false;
+//    }
+//    return true;
+//}
+//void dfs(int x, int y)
+//{
+//    if (x == n - 1 && y == n - 1) {
+//        // 到达终点
+//        //        cout << "到达终点" << endl;
 
-
-
-
-
+//        if (Check()) {
+//            for (const auto a : v) {
+//                cout << a << " ";
+//            }
+//            cout << endl;
+//            exit(0);  //找到答案就退出
+//        }
+//    }
+//    for (int i = 0; i < 4; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 0 && xx < n && yy >= 0 && yy < n && land[xx][yy] == 0 && (arr[xx] > 0 && brr[yy] > 0)) {
+//            land[xx][yy] = 1;
+//            v.push_back(xx * n + yy);
+//            --arr[xx];
+//            --brr[yy];
+//            dfs(xx, yy);
+//            v.pop_back();
+//            land[xx][yy] = 0;
+//            ++arr[xx];
+//            ++brr[yy];
+//        }
+//    }
+//}
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> brr[i];
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//    }
+//    // 没有发现有什么规律，通过深搜暴力求解
+//    v.push_back(0);  //起点初始化为0
+//    --arr[0];
+//    --brr[0];
+//    land[0][0] = 1;
+//    dfs(0, 0);
+//    return 0;
+//}
 
 
 
