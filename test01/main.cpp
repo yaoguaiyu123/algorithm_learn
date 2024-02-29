@@ -870,11 +870,61 @@ using std::max;
 
 
 
+
+// 最大连通
+// string arr[32]; // 30行60列
+// int count = 0;
+// int dx[4] = { -1, 1, 0, 0 };
+// int dy[4] = { 0, 0, 1, -1 };
+// int n, m;
+// void dfs(int x, int y, int& c)
+//{
+//    for (int i = 0; i < 4; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 1 && yy >= 1 && xx <= n && yy <= m && arr[xx][yy] == '1') {
+//            arr[xx][yy] = '2';
+//            dfs(xx, yy, ++c);
+//        }
+//    }
+//}
+// int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        arr[i] = " " + arr[i];
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            if (arr[i][j] == '1') {
+//                arr[i][j] = '2';
+//                int c = 1;
+//                dfs(i, j, c);
+//                count = std::max(c, count);
+//            }
+//        }
+//    }
+//    cout << count << endl;
+//    return 0;
+//}
+
+
 int main()
 {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
