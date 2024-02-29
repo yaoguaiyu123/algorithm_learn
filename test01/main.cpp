@@ -870,7 +870,11 @@ using std::max;
 
 
 
+int main()
+{
 
+    return 0;
+}
 
 
 
