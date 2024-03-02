@@ -1163,10 +1163,34 @@ using std::max;
 //}
 
 
-int main()
-{
-    return 0;
-}
+// 奇怪的数列
+//string str;
+//int n;
+//int main()
+//{
+//    cin >> str;
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        string temp;
+//        int cnt = 1;
+//        char c = str[0];
+//        for (int j = 1; j < str.length(); ++j) {
+//            if (str[j] != c) {
+//                temp += std::to_string(cnt);
+//                temp += c;
+//                c = str[j];
+//                cnt = 1;
+//            } else {
+//                cnt++;
+//            }
+//        }
+//        temp += std::to_string(cnt);
+//        temp += c;
+//        str = temp;
+//    }
+//    cout << str << endl;
+//    return 0;
+//}
 
 
 
