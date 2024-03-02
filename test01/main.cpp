@@ -1039,10 +1039,10 @@ using std::max;
 
 // 买不到的数目(暴力解法)
 // 实际上暴力解法在某种程度上也是可行的，但是时间复杂度会比较大
-//int n[3];
-//int res;
-//int dp[100005];
-//int main()
+// int n[3];
+// int res;
+// int dp[100005];
+// int main()
 //{
 //    cin >> n[1] >> n[2];
 //    dp[n[1]] = 1;
@@ -1062,6 +1062,112 @@ using std::max;
 //    cout << res << endl;
 //    return 0;
 //}
+
+
+// 打印大X
+//int n, m;
+//int main()
+//{
+//    cin >> m >> n; // 笔画宽度为m,高度为n
+//    int w = m - 1 + n; // 图形宽度等于笔画宽度-1加上图形的高度
+//    // 先打印前半部分
+//    for (int i = 0; i < n / 2 + 1; ++i) {
+//        int cnt = 0;
+//        // 句号
+//        for (int j = 0; j < i; j++) {
+//            cout << ".";
+//            ++cnt;
+//        }
+//        // 星号
+//        for (int j = 0; j < m; ++j) {
+//            cout << "*";
+//            ++cnt;
+//        }
+//        // 句号
+//        for (int j = 0; j < w - 2 * i - 2 * m; ++j) {
+//            cout << ".";
+//            ++cnt;
+//        }
+//        // 星号
+//        for (int j = 0; j < m && cnt < w - i; ++j) {
+//            cout << "*";
+//            ++cnt;
+//        }
+//        // 句号
+//        for (int j = 0; j < i; j++) {
+//            cout << ".";
+//        }
+//        cout << endl;
+//    }
+//    // 打印后半部分
+//    for (int k = 0; k < n / 2; ++k) {
+//        int i = n / 2 - 1 - k;
+//        int cnt = 0;
+//        // 句号
+//        for (int j = 0; j < i; j++) {
+//            cout << ".";
+//            ++cnt;
+//        }
+//        // 星号
+//        for (int j = 0; j < m; ++j) {
+//            cout << "*";
+//            ++cnt;
+//        }
+//        // 句号
+//        for (int j = 0; j < w - 2 * i - 2 * m; ++j) {
+//            cout << ".";
+//            ++cnt;
+//        }
+//        // 星号
+//        for (int j = 0; j < m && cnt < w - i; ++j) {
+//            cout << "*";
+//            ++cnt;
+//        }
+//        // 句号
+//        for (int j = 0; j < i; j++) {
+//            cout << ".";
+//        }
+//        cout << endl;
+//    }
+//    return 0;
+//}
+
+
+
+// 对局匹配(未完成)
+//int n, k;
+//int a[100005];
+//int dp[100005]; // dp[i]表示前i个人中最多的情况
+//int cnt;
+//bool check(int i, int j)
+//{
+
+//}
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> k;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> a[i];
+//    }
+//    // 找出最多的人，实际上是找一个最长的子序列
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < i; ++j) {
+//            if (check(i, j)) {
+
+//            }
+//        }
+//    }
+//    return 0;
+//}
+
+
+int main()
+{
+    return 0;
+}
+
 
 
 
