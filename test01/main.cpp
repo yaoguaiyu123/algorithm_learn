@@ -1014,16 +1014,54 @@ using std::max;
 //}
 
 
+//买不到的数目(动态规划)
+//int n[3];
+//int res;
+//int dp[100005]; // dp[i]==1表示i是能够凑到的
+//int main()
+//{
+//    cin >> n[1] >> n[2];
+//    dp[0] = 1;
+//    for (int i = 1; i <= 2; ++i) {
+//        for (int j = n[i]; j <= 100000; ++j) {
+//            dp[j] = std::max(dp[j], dp[j - n[i]]);
+//        }
+//    }
+//    for (int i = 1; i <= 100000; ++i) {
+//        if (!dp[i]) {
+//            res = i;
+//        }
+//    }
+//    cout << res << endl;
+//    return 0;
+//}
 
-int main()
-{
 
-    return 0;
-}
-
-
-
-
+// 买不到的数目(暴力解法)
+// 实际上暴力解法在某种程度上也是可行的，但是时间复杂度会比较大
+//int n[3];
+//int res;
+//int dp[100005];
+//int main()
+//{
+//    cin >> n[1] >> n[2];
+//    dp[n[1]] = 1;
+//    dp[n[2]] = 1;
+//    for (int i = 1; i <= 100000; ++i) {
+//        for (int j = 1; j <= i / 2; ++j) {
+//            if (dp[j] != 0 && dp[i - j] != 0) {
+//                dp[i] = 1;
+//            }
+//        }
+//    }
+//    for (int i = 1; i <= 100000; ++i) {
+//        if (!dp[i]) {
+//            res = i;
+//        }
+//    }
+//    cout << res << endl;
+//    return 0;
+//}
 
 
 
