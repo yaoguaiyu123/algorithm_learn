@@ -1334,7 +1334,47 @@ int main()
 
 
 
+// 最大数字
+// 采用搜索的方式,对于每一位，采用+的方式或者-的方式使其尽量大,如果+能比-达到的效果更好就采用+的方式
+// 通过率80%
+//int a, b; //+1执行a次，-1执行b次
+//string n;
+//std::vector<string> strs;
+//void dfs(string str, int w, int a, int b)
+//{
+//    if (w == str.size()) {
+//        strs.push_back(str);
+//        return;
+//    }
 
+//    // w == 0表示首位
+//    int v = str[w] - '0';
+//    // 判断是否可以+的方式
+//    if (9 - v <= a) {
+//        string strt = str;
+//        strt[w] = '9';
+//        dfs(strt, w + 1, a - 9 + v, b);
+//    } else {
+//        string strt = str;
+//        strt[w] = '0' + v + a;
+//        strs.push_back(strt);
+//    }
+//    // 判断是否可以-的方式
+//    if (v + 1 <= b) {
+//        string strt = str;
+//        strt[w] = '9';
+//        dfs(strt, w + 1, a, b - 1 - v);
+//    }
+//    strs.push_back(str);
+//}
+//int main()
+//{
+//    cin >> n >> a >> b;
+//    dfs(n, 0, a, b);
+//    sort(strs.begin(), strs.end());
+//    cout << strs.back() << endl;
+//    return 0;
+//}
 
 
 
