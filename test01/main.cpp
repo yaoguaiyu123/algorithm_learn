@@ -1235,6 +1235,105 @@ using std::max;
 
 
 
+// 日期问题
+// 过了87.5%的案例
+//int a, b, c;
+//char t;
+//int md[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+//std::vector<string> strs;
+//void addDate(int x, int y, int z)
+//{
+//    string str;
+//    if (x <= 59) {
+//        str += "20";
+//    } else {
+//        str += "19";
+//    }
+//    if (x < 10) {
+//        str += "0";
+//    }
+//    str += std::to_string(x);
+//    str += "-";
+//    if (y < 10) {
+//        str += "0";
+//    }
+//    str += std::to_string(y);
+//    str += "-";
+//    if (z < 10) {
+//        str += "0";
+//    }
+//    str += std::to_string(z);
+//    strs.push_back(str);
+//}
+
+//void judge(int a, int b, int c)
+//{
+//    if (a % 4 == 0) {
+//        md[2] = 29;
+//        if (b <= 12 && b >= 1) {
+//            if (c >= 1 && c <= md[b]) {
+//                addDate(a, b, c);
+//            }
+//        }
+//    } else {
+//        md[2] = 28;
+//        if (b <= 12 && b >= 1) {
+//            if (c >= 1 && c <= md[b]) {
+//                addDate(a, b, c);
+//            }
+//        }
+//    }
+//}
+//int main()
+//{
+//    cin >> a;
+//    cin >> t;
+//    cin >> b;
+//    cin >> t;
+//    cin >> c;
+//    // 年月日 日月年 月日年
+//    // 需要将日期从早到晚排列
+//    judge(a, b, c);
+//    judge(c, b, a);
+//    judge(c, a, b);
+//    std::sort(strs.begin(), strs.end());
+//    // 去重
+//    for (int i = 0; i < strs.size() - 1; ++i) {
+//        if (strs[i] == strs[i + 1]) {
+//            for (int j = i + 1; j < strs.size() - 1; ++j) {
+//                strs[j] = strs[j + 1];
+//            }
+//            strs.pop_back();
+//        }
+//    }
+//    for (const auto& e : strs) {
+//        cout << e << endl;
+//    }
+//    return 0;
+//}
+
+
+
+// 分考场
+int n, m;
+int cnt;
+int land[105][105];
+
+int main()
+{
+    cin >> n >> m;
+    for (int i = 0; i < m; ++i) {
+        int a, b;
+        cin >> a >> b;
+        land[a][b] = land[b][a] = 1;   //两个人认识标记为1
+    }
+
+    return 0;
+}
+
+
+
+
 
 
 
