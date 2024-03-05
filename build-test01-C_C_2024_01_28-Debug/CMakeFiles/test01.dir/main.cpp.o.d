@@ -192,4 +192,7 @@ CMakeFiles/test01.dir/main.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc /usr/include/string.h \
- /usr/include/strings.h
+ /usr/include/strings.h /usr/include/c++/13.2.1/list \
+ /usr/include/c++/13.2.1/bits/stl_list.h \
+ /usr/include/c++/13.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/13.2.1/bits/list.tcc

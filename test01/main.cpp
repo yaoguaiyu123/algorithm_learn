@@ -16,6 +16,7 @@ using std::max;
 #include <vector>
 #include <string.h>
 #include <limits>
+#include <list>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -1315,21 +1316,54 @@ using std::max;
 
 
 // 分考场
-int n, m;
-int cnt;
-int land[105][105];
+// 过了40%
+//int n, m;
+//int cnt;
+//int land[105][105];
+//std::list<int> groups[105]; // 105个链表
+//int visit[105];
+// 基本思路就是暴力，找当前所有人依次判断是否能组成一队
+// 通过一个链表串联起来
+// 实际上这种思路是不够严谨的，能过40%已经很不错了
+//void judge(std::list<int>& group, int index)
+//{
+//    for (int i = index; i <= n; ++i) {
+//        if (!visit[i]) {
+//            bool flag = true;
+//            for (const auto& e : group) {
+//                if (land[e][i] == 1) {
+//                    flag = false;
+//                    break;
+//                }
+//            }
+//            // 如果一个都不认识就加入队列
+//            if (flag) {
+//                group.push_back(i);
+//                visit[i] = 1;
+//            }
+//        }
+//    }
+//}
 
-int main()
-{
-    cin >> n >> m;
-    for (int i = 0; i < m; ++i) {
-        int a, b;
-        cin >> a >> b;
-        land[a][b] = land[b][a] = 1;   //两个人认识标记为1
-    }
-
-    return 0;
-}
+//int main()
+//{
+//    cin >> n >> m;   //n个人，m行数据
+//    for (int i = 0; i < m; ++i) {
+//        int a, b;
+//        cin >> a >> b;
+//        land[a][b] = land[b][a] = 1;   //两个人认识标记为1
+//    }
+//    for (int i = 1; i <= n; ++i) { // 依次遍历n个人
+//        if (!visit[i]) {
+//            visit[i] = 1;
+//            groups[i].push_back(i);
+//            judge(groups[i], i + 1);
+//            ++cnt;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
 
 
 
