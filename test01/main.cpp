@@ -1473,30 +1473,33 @@ using std::max;
 
 
 // k倍区间
-//using ll = long long;
 //int n, k;
-//int cnt;
-//int a[100005];
-//ll s[100005];
-//int crr[100005]; // 这个数组记录对应的余数的前缀区间有几个
+//long long cnt;
+//long long  a[100010];
+//int crr[100010]; // 这个数组记录对应的余数的前缀区间有几个
 //int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
-//    crr[0] = 1;
+//    crr[0] = 1;    //如果不设置crr[0] = 1每次算到 %k ==0的时候就没有算上自身
 //    cin >> n >> k;
 //    for (int i = 1; i <= n; ++i) {
 //        cin >> a[i];
-//        s[i] = s[i - 1] + a[i];
-//        ++crr[s[i] % k];
+//        a[i] += a[i - 1]; // s[i]记录a[1]到a[i]的和
+//        cnt += crr[a[i] % k];
+//        ++crr[a[i] % k];
 //    }
-//    cout << cnt << endl;
+//    cout << cnt;
 //    return 0;
 //}
 
 
 
+int main()
+{
 
+    return 0;
+}
 
 
 
