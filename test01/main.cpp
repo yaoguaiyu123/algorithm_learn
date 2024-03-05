@@ -1412,6 +1412,91 @@ using std::max;
 
 
 
+// k倍区间(暴力求解)
+// 这个数据量，暴力应该不行
+//通过率28.6%
+//using ll = long long;
+//int n, k;
+//int a[100005];
+//int cnt;
+//int sum(int i, int j)
+//{
+//    ll res = 0;
+//    for (int x = i; x <= j; ++x) {
+//        res += a[x];
+//    }
+//    return res;
+//}
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> k;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> a[i];
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = i; j < n; ++j) {
+//            if (sum(i, j) % k == 0) {
+//                ++cnt;
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+// 由于上面的k倍区间需要用到前缀和
+// 这里学习前缀和
+// 前缀和的优势:以(o1)的时间复杂度得到某块区间的总和
+// 当然前缀和有2维的，会更加难一些
+//long long s[100005]; // 记录前缀和
+//int a[100005];
+//int n;
+//int l, r;
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> a[i];
+//        s[i] = s[i - 1] + a[i];
+//    }
+//    cin >> l >> r;
+//    cout << s[r] - s[l - 1] <<endl;  //得到[r,l]这个区间的和
+//    return 0;
+//}
+
+
+
+
+// k倍区间
+//using ll = long long;
+//int n, k;
+//int cnt;
+//int a[100005];
+//ll s[100005];
+//int crr[100005]; // 这个数组记录对应的余数的前缀区间有几个
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    crr[0] = 1;
+//    cin >> n >> k;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> a[i];
+//        s[i] = s[i - 1] + a[i];
+//        ++crr[s[i] % k];
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
 
 
 
