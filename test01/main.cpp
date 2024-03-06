@@ -1541,14 +1541,37 @@ using std::max;
 
 
 
+// 字串简写
+// 想法是暴力?数据量过大，暴力不太行
+// 需要用到后一项减前一项，前缀和?
+//int k; // 大于等于k的字符串可以采用这种方式的简写
+//string str;
+//char c1, c2;
+//long long cnt ,sum;
+//int main()
+//{
+//    cin >> k;
+//    cin >> str;
+//    cin >> c1 >> c2;
+//    for (int i = k - 1; i < str.length(); ++i) {
+//        int j = i - k + 1;
+//        if (str[j] == c1) {
+//            ++sum;
+//        }
+//        if (str[i] == c2) {
+//            cnt += sum;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
 int main()
 {
 
     return 0;
 }
-
-
-
 
 
 
