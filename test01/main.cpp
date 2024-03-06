@@ -1495,11 +1495,59 @@ using std::max;
 
 
 
+// 分巧克力
+// 通过率100%
+////学到的东西:过自己的样例的时候，需要测试一下极限情况
+// int n, k; // n块巧克力,k个小朋友
+// struct Cho {
+//     int width;
+//     int height;
+// };
+// Cho chos[100005];
+//  判断是否能以这个长度切
+// bool judge(int x)
+//{
+//     int cnt = 0;
+//     for (int i = 1; i <= n; ++i) {
+//         cnt = cnt + (chos[i].width / x) * (chos[i].height / x);
+//         if (cnt >= k) {
+//             break;
+//         }
+//     }
+//     return cnt >= k;
+// }
+// int main()
+//{
+//     int maxZ = 100000;
+//     cin >> n >> k;
+//     for (int i = 1; i <= n; ++i) {
+//         cin >> chos[i].height >> chos[i].width;
+//         maxZ = std::max(maxZ, std::max(chos[i].width, chos[i].height));  //得到r,r不可能大于最大的边长
+//     }
+//     int l = 1, r = maxZ, m;
+//     // 二分枚举所有长度
+//     while (l <= r) {
+//         m = (l + r) / 2;
+//         if (judge(m)) {
+//             l = m + 1;
+//         } else {
+//             r = m - 1;
+//         }
+//     }
+//     cout << r << endl;
+
+//    return 0;
+//}
+
+
+
 int main()
 {
 
     return 0;
 }
+
+
 
 
 
