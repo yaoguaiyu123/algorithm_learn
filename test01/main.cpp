@@ -1567,12 +1567,142 @@ using std::max;
 //}
 
 
+
+//卡片换位
+//没有什么思路
+//* A
+//**B
+//char land[3][5];
+//int cnt;  //记录当前步数
+//int main()
+//{
+//    for (int i = 1; i <= 3; ++i) {
+//        for (int j = 1; j <= 2; ++j) {
+//            cin >> land[i][j];
+//        }
+//    }
+
+//    return 0;
+//}
+
+
+// 移动距离
+// int w, m, n;
+// int cnt;
+// int main()
+//{
+//    cin >> w >> m >> n;
+//    int dm, dn, xm, ym, xn, yn;
+//    dm = (m - 1) / w;
+//    dn = (n - 1) / w;
+//    if (dm % 2 == 0) {
+//        // 从左往右
+//        xm = dm + 1;
+//        ym = (m - 1) % w + 1;
+//    } else {
+//        // 从右往左
+//        xm = dm + 1;
+//        ym = w - ((m - 1) % w);
+//    }
+//    if (dn % 2 == 0) {
+//        // 从左往右
+//        xn = dn + 1;
+//        yn = (n - 1) % w + 1;
+//    } else {
+//        // 从右往左
+//        xn = dn + 1;
+//        yn = w - ((n - 1) % w);
+//    }
+//    cnt = std::abs(xm - xn) + std::abs(yn - ym);
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+// 数位递增的数
+// 直接模拟感觉,就是数据量比较大，可能需要优化
+// int n, res;
+// std::vector<int> nums; // 存放所有的数位
+// void getWei(int x)
+//{
+//    while (x > 0) {
+//        nums.push_back(x % 10);
+//        x /= 10;
+//    }
+//}
+// bool judge()
+//{
+//    if (nums.size() == 1) {
+//        return true;
+//    }
+//    for (int i = 1; i < nums.size(); ++i) {
+//        if (nums[i - 1] < nums[i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+// int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        nums.clear();
+//        getWei(i);
+//        if (judge()) {
+//            ++res;
+//        }
+//    }
+//    cout << res << endl;
+//    return 0;
+//}
+
+
+
+
+
+// 数字三角形
+// 通过率百分之50,应该还要有所剪枝
+// int n; // 三角形的行数
+// int arr[105][105];
+// int res;
+// void dfs(int x, int y, int l, int r, int s)
+//{
+//    s += arr[x][y];
+//    // 剪枝
+//    if (std::abs(l - r) - 1 > n - x) {
+//        return;
+//    }
+//    if (x > n) {
+//        return;
+//    }
+//    if (x == n && std::abs(l - r) <= 1) {
+//        res = std::max(res, s);
+//    }
+//    // 接下来选择两条路
+//    dfs(x + 1, y, l + 1, r, s);
+//    dfs(x + 1, y + 1, l, r + 1, s);
+//}
+// int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= i; ++j) {
+//            cin >> arr[i][j];
+//        }
+//    }
+//    dfs(1, 1, 0, 0, 0); // 从1,1处开始搜索
+//    cout << res << endl;
+//    return 0;
+//}
+
+
+
+
 int main()
 {
 
     return 0;
 }
-
-
 
 
