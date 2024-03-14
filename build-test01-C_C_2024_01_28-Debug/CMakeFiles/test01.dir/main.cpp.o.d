@@ -195,4 +195,7 @@ CMakeFiles/test01.dir/main.cpp.o: \
  /usr/include/strings.h /usr/include/c++/13.2.1/list \
  /usr/include/c++/13.2.1/bits/stl_list.h \
  /usr/include/c++/13.2.1/bits/allocated_ptr.h \
- /usr/include/c++/13.2.1/bits/list.tcc
+ /usr/include/c++/13.2.1/bits/list.tcc /usr/include/c++/13.2.1/stack \
+ /usr/include/c++/13.2.1/deque /usr/include/c++/13.2.1/bits/stl_deque.h \
+ /usr/include/c++/13.2.1/bits/deque.tcc \
+ /usr/include/c++/13.2.1/bits/stl_stack.h

@@ -92,6 +92,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/bits/cpp_type_traits.h \
   /usr/include/c++/13.2.1/bits/cxxabi_forced.h \
   /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13.2.1/bits/deque.tcc \
   /usr/include/c++/13.2.1/bits/erase_if.h \
   /usr/include/c++/13.2.1/bits/exception.h \
   /usr/include/c++/13.2.1/bits/exception_defines.h \
@@ -140,6 +141,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/bits/stl_algobase.h \
   /usr/include/c++/13.2.1/bits/stl_bvector.h \
   /usr/include/c++/13.2.1/bits/stl_construct.h \
+  /usr/include/c++/13.2.1/bits/stl_deque.h \
   /usr/include/c++/13.2.1/bits/stl_function.h \
   /usr/include/c++/13.2.1/bits/stl_heap.h \
   /usr/include/c++/13.2.1/bits/stl_iterator.h \
@@ -149,6 +151,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/bits/stl_multiset.h \
   /usr/include/c++/13.2.1/bits/stl_pair.h \
   /usr/include/c++/13.2.1/bits/stl_set.h \
+  /usr/include/c++/13.2.1/bits/stl_stack.h \
   /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
   /usr/include/c++/13.2.1/bits/stl_tree.h \
   /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
@@ -176,6 +179,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/cwctype \
   /usr/include/c++/13.2.1/debug/assertions.h \
   /usr/include/c++/13.2.1/debug/debug.h \
+  /usr/include/c++/13.2.1/deque \
   /usr/include/c++/13.2.1/exception \
   /usr/include/c++/13.2.1/ext/aligned_buffer.h \
   /usr/include/c++/13.2.1/ext/alloc_traits.h \
@@ -200,6 +204,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/pstl/pstl_config.h \
   /usr/include/c++/13.2.1/set \
   /usr/include/c++/13.2.1/sstream \
+  /usr/include/c++/13.2.1/stack \
   /usr/include/c++/13.2.1/stdexcept \
   /usr/include/c++/13.2.1/streambuf \
   /usr/include/c++/13.2.1/string \
@@ -267,6 +272,10 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h:
 
+/usr/include/wchar.h:
+
+/usr/include/sys/single_threaded.h:
+
 /usr/include/c++/13.2.1/bits/ranges_algo.h:
 
 /usr/include/c++/13.2.1/bits/basic_ios.h:
@@ -284,10 +293,6 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/c++/13.2.1/bits/uniform_int_dist.h:
 
 /usr/include/c++/13.2.1/bits/memoryfwd.h:
-
-/usr/include/c++/13.2.1/bits/ranges_algobase.h:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/13.2.1/bits/locale_classes.tcc:
 
@@ -447,6 +452,10 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/c++/13.2.1/bits/basic_string.h:
 
+/usr/include/sys/select.h:
+
+/usr/include/c++/13.2.1/bits/alloc_traits.h:
+
 /usr/include/c++/13.2.1/bits/cpp_type_traits.h:
 
 /usr/include/bits/time.h:
@@ -521,6 +530,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/bits/select.h:
 
+/usr/include/c++/13.2.1/bits/deque.tcc:
+
 /usr/include/c++/13.2.1/bits/allocator.h:
 
 /usr/include/bits/types/locale_t.h:
@@ -585,6 +596,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/c++/13.2.1/bits/sstream.tcc:
 
+/usr/include/c++/13.2.1/stack:
+
 /usr/include/c++/13.2.1/string_view:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
@@ -596,6 +609,10 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc:
 
 /usr/include/c++/13.2.1/bits/exception_defines.h:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
+
+/usr/include/c++/13.2.1/bits/ranges_algobase.h:
 
 /usr/include/c++/13.2.1/bits/ranges_base.h:
 
@@ -614,6 +631,14 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/c++/13.2.1/cstddef:
 
 /usr/include/c++/13.2.1/bits/stl_vector.h:
+
+/usr/include/c++/13.2.1/bits/stl_deque.h:
+
+/usr/include/wctype.h:
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/sched.h:
 
 /usr/include/c++/13.2.1/bits/stl_function.h:
 
@@ -635,9 +660,9 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/c++/13.2.1/bits/stl_pair.h:
 
-/usr/include/c++/13.2.1/bits/stl_set.h:
-
 /usr/include/c++/13.2.1/ext/atomicity.h:
+
+/usr/include/c++/13.2.1/bits/stl_stack.h:
 
 /usr/include/c++/13.2.1/bits/stringfwd.h:
 
@@ -656,6 +681,10 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /run/media/root/study/algorithm_learn/test01/main.cpp:
 
 /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/13.2.1/bits/stl_set.h:
+
+/usr/include/c++/13.2.1/deque:
 
 /usr/include/c++/13.2.1/exception:
 
@@ -690,6 +719,12 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/c++/13.2.1/ostream:
 
 /usr/include/c++/13.2.1/pstl/pstl_config.h:
+
+/usr/include/time.h:
+
+/usr/include/c++/13.2.1/bits/max_size_type.h:
+
+/usr/include/c++/13.2.1/sstream:
 
 /usr/include/c++/13.2.1/streambuf:
 
@@ -747,12 +782,6 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/pthread.h:
 
-/usr/include/wctype.h:
-
-/usr/include/bits/fp-fast.h:
-
-/usr/include/sched.h:
-
 /usr/include/bits/wordsize.h:
 
 /usr/include/c++/13.2.1/bits/stl_bvector.h:
@@ -768,17 +797,3 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/strings.h:
 
 /usr/include/sys/cdefs.h:
-
-/usr/include/c++/13.2.1/bits/alloc_traits.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/sys/single_threaded.h:
-
-/usr/include/c++/13.2.1/bits/max_size_type.h:
-
-/usr/include/c++/13.2.1/sstream:
-
-/usr/include/time.h:
-
-/usr/include/wchar.h:

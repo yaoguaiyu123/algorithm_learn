@@ -17,6 +17,7 @@ using std::max;
 #include <string.h>
 #include <limits>
 #include <list>
+#include <stack>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -1698,11 +1699,70 @@ using std::max;
 
 
 
+// 硬币的最小组合
+// 暴力，思路是最少的硬币应该要选最大的面额
+//int main()
+//{
+//    //两个一元硬币，剩下的全是三元硬币
+//    int n = 20240618 / 3 + 2;
+//    cout << n << endl;
+//    return 0;
+//}
+
+
+
+// 正则问题
+// 模拟,深搜
+// |不仅可以是左右，也可以是 | |分割成三份甚至更多
+//int cnt;
+//std::string str;
+//int i;
+//int dfs()
+//{
+//    int res = 0;
+//    while (i < str.length()) {
+//        if (str[i] == '(') {
+//            i++;
+//            res += dfs();
+//            i++;
+//        } else if (str[i] == '|') {
+//            i++;
+//            res = std::max(res, dfs());
+//        } else if (str[i] == ')') {
+//            break;
+//        } else if (str[i] == 'x') {
+//            ++res;
+//            ++i;
+//        }
+//    }
+//    return res;
+//}
+//int main()
+//{
+//    cin >> str;
+//    cnt = dfs();
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
 
 int main()
 {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 
