@@ -1748,12 +1748,192 @@ using std::max;
 
 
 
+// 字母数
+//bool judge(int x)
+//{
+//    while (x > 0) {
+//        int n = x % 16;
+//        if (n < 10) {
+//            return false;
+//        }
+//        x /= 16;
+//    }
+//    return true;
 
-int main()
-{
+//}
+//int main()
+//{
+//    int i = 2023;
+//    while (1) {
+//        bool flag = judge(i);
+//        if (flag) {
+//            cout << i << endl;
+//            break;
+//        }
+//        ++i;
+//    }
+//    return 0;
+//}
 
-    return 0;
-}
+
+
+// 大乘积
+// int arr[30] = { 99, 22, 51, 63, 72, 61, 20, 88, 40, 21, 63, 30, 11, 18, 99, 12, 93, 16, 7, 53, 64, 9, 28, 84,
+//    34, 96, 52, 82, 51, 77 };
+// int cnt;
+// int main()
+//{
+//    // 遍历枚举
+//    for (int i = 0; i < 30; ++i) {
+//        for (int j = i + 1; j < 30; ++j) {
+//            if (arr[i] * arr[j] >= 2022) {
+//                ++cnt;
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+// 第三小
+//int arr[100005];
+//int n;
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//    }
+//    int minnum[3] = { 9999999, 9999999, 9999999 }; // 存放前三小的数
+//    // 先初始化三个数
+//    for (int j = 0; j < 3; ++j) {
+//        if (arr[j] < minnum[0]) {
+//            minnum[2] = minnum[1];
+//            minnum[1] = minnum[0];
+//            minnum[0] = arr[j];
+//        } else if (arr[j] < minnum[1]) {
+//            minnum[2] = minnum[1];
+//            minnum[1] = arr[j];
+//        } else if (arr[j] < minnum[2]) {
+//            minnum[2] = arr[j];
+//        }
+//    }
+//    cout << minnum[2] << " ";
+
+//    for (int j = 3; j < n; ++j) {
+//        if (arr[j] < minnum[0]) {
+//            minnum[2] = minnum[1];
+//            minnum[1] = minnum[0];
+//            minnum[0] = arr[j];
+//        } else if (arr[j] < minnum[1]) {
+//            minnum[2] = minnum[1];
+//            minnum[1] = arr[j];
+//        } else if (arr[j] < minnum[2]) {
+//            minnum[2] = arr[j];
+//        }
+//        cout << minnum[2] << " ";
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+
+// 合根植物
+// 思路是并查集
+// int m, n, k; // m行n列，k行数据
+// int fa[1000005]; // 用于存储所有植物的连根植物
+// int cnt;
+// int find(int x)
+//{
+//    if (x != fa[x]) {
+//        fa[x] = find(fa[x]);
+//    }
+//    return fa[x];
+//}
+// int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> m >> n;
+//    for (int i = 1; i <= m * n; ++i) {
+//        fa[i] = i;
+//    }
+//    cin >> k;
+//    for (int i = 0; i < k; ++i) {
+//        int a, b;
+//        cin >> a >> b;
+//        int f1 = find(a);
+//        int f2 = find(b);
+//        if (f1 != f2) {
+//            fa[f1] = f2;
+//        }
+//    }
+//    for (int i = 1; i <= m * n; ++i) {
+//        if (fa[i] == i) {
+//            ++cnt;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+// 赢球票
+// 思路感觉就是枚举
+// 只过了20%
+//int arr[105]; // 存储卡片排列
+//std::vector<int> tempV;
+//int n; // 卡片数量
+//int cnt;
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//    }
+//    // 枚举所有可能的起点
+//    for (int i = 0; i < n; ++i) {
+//        int tempC = 0;
+//        int j = 1; // 从1开始数
+//        int p = i; // 记录当前的起点位置
+//        tempV.clear();
+//        for (int k = 0; k < n; k++) {
+//            tempV.push_back(arr[k]);
+//        }
+//        while (!tempV.empty()) {
+//            if (j > n) {
+//                break;
+//            }
+//            if (j == tempV[p]) {
+//                tempV.erase(tempV.begin() + p); // 删除下标为p的元素
+//                if (p == tempV.size()) {
+//                    p = 0;
+//                }
+//                j = 1;
+//                tempC++;
+//                continue;
+//            }
+//            ++j;
+//            ++p;
+//            if (p == tempV.size()) {
+//                p = 0;
+//            }
+//        }
+//        cnt = std::max(cnt, tempC);
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+
+
 
 
 
