@@ -1932,9 +1932,366 @@ using std::max;
 
 
 
+// 装箱问题
+// 感觉直接暴力剪枝都可以啊
+// 暴力过了100%
+//int v, n;
+//int arr[35];
+//int minv = 99999;
+//void dfs(int x, int nowv)
+//{
+//    if (x >= n) {
+//        minv = std::min(minv, v - nowv);
+//        return;
+//    }
+//    dfs(x + 1, nowv); // 不选第x个
+//    if (nowv + arr[x] <= v) {
+//        dfs(x + 1, nowv + arr[x]); // 选择第x个
+//    }
+//}
+//int main()
+//{
+//    cin >> v >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//    }
+//    dfs(0, 0);
+//    cout << minv << endl;
+//    return 0;
+//}
+
+
+// 花生采摘
+// 思路感觉就是模拟
+//int m, n, k; // m行n列
+//struct Point {
+//    int x;
+//    int y;
+//    Point(int x, int y) : x(x), y(y) {} // 定义接受两个int参数的构造函数
+//};
+//std::vector<Point> points; // 记录所有有花生的地点
+//int cnt;
+//int land[25][25];
+//bool compare(Point a, Point b)
+//{
+//    return land[a.x][a.y] > land[b.x][b.y];
+//}
+//int main()
+//{
+//    cin >> m >> n >> k;
+//    for (int i = 1; i <= m; ++i) {
+//        for (int j = 1; j <= n; ++j) {
+//            cin >> land[i][j];
+//            if (land[i][j] != 0) {
+//                points.push_back(Point(i, j));
+//            }
+//        }
+//    }
+//    for (int i = 0; i < points.size() - 1; ++i) {
+//        for (int j = i + 1; j < points.size(); ++j) {
+//            if (land[points[j].x][points[j].y] > land[points[i].x][points[i].y]) {
+//                Point temp = points[j];
+//                points[j] = points[i];
+//                points[i] = temp;
+//            }
+//        }
+//    }
+
+//        int t = 0;
+//    t += points[0].x + 1;
+//    cnt += land[points[0].x][points[0].y];
+//    for (int i = 1; i < points.size(); ++i) {
+//        t = t + std::abs(points[i - 1].x - points[i].x) + std::abs(points[i - 1].y - points[i].y);
+//        t = t + 1 + points[i].x;
+//        if (t > k) {
+//            break;
+//        } else {
+//            t = t - points[i].x;
+//            cnt += land[points[i].x][points[i].y];
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
 
 
 
+// 第k小的数
+// 二分过了50%
+// 有时间可以再想想
+//int n, k;
+//int a;
+//int brr[1005];
+//int main()
+//{
+//    cin >> n >> k;
+//    for (int i = 1; i <= n; ++i) {
+//        brr[i] = 99999;
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> a;
+//        if (a < brr[k]) {
+//            // 二分在1到k中查找位置
+//            int l = 1;
+//            int r = k, m;
+//            bool f = true;
+//            while (l <= r) {
+//                m = (l + r) / 2;
+//                if (brr[m] > a) {
+//                    r = m - 1;
+//                } else if (brr[m] < a) {
+//                    l = m + 1;
+//                } else {
+//                    f = false;
+//                    break;
+//                }
+//            }
+//            if (f && brr[m - 1] != a && brr[m + 1] != a) {
+//                for (int j = k; j > l; --j) {
+//                    brr[j] = brr[j - 1];
+//                }
+//                brr[l] = a;
+//            }
+
+//        }
+//    }
+//    cout << brr[k] << endl;
+//    return 0;
+//}
+
+
+
+
+// 多边形面积
+// 使用叉乘计算多边形面积，要求是给出的各点需要按逆时针或者顺时针排列
+//int xrr[105];
+//int yrr[105];
+//int n, s;
+//int minx = 300, miny = 300, maxx = -300, maxy = -300;
+//bool judge(int x, int y)
+//{
+
+//    return false;
+//}
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> xrr[i] >> yrr[i]; // 输入坐标
+//    }
+//    xrr[n] = xrr[0];
+//    yrr[n] = yrr[0];
+
+//    for (int i = 0; i < n; ++i) {
+//        s += (xrr[i] * yrr[i + 1] - xrr[i + 1] * yrr[i]);
+//    }
+//    cout << std::abs(s) / 2 << endl;
+//    return 0;
+//}
+
+
+
+
+// 求和
+// 像这种很多项相加的题目，首先需要想到前缀和
+//int n;
+//long long brr[200005];
+//long long arr[200005]; // 存储前缀和
+//long long sum;
+//long long ans;
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> brr[i];
+//        arr[i] = arr[i - 1] + brr[i];
+//    }
+//    for (int i = 1; i < n; ++i) {
+//        ans = ans + brr[i] * (arr[n] - arr[i]);
+//    }
+//    cout << ans << endl;
+//    return 0;
+//}
+
+
+
+
+// 选数异或
+// ^异或符号
+//long long n, m, x;
+//long long arr[300005];
+//int main()
+//{
+//    cin >> n >> m >> x;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    for (int p = 0; p < m; ++p) {
+//        int l, r;
+//        cin >> l >> r;
+//        bool f = false;
+//        for (int i = l; i < r; ++i) {
+//            for (int j = l; j <= r; ++j) {
+//                long long res = arr[i] ^ arr[j];
+//                if (res == x) {
+//                    cout << "yes" << endl;
+//                    f = true;
+//                    break;
+//                }
+//            }
+//            if (f) {
+//                break;
+//            }
+//        }
+//        if (!f) {
+//            cout << "no" << endl;
+//        }
+//    }
+
+//    return 0;
+//}
+
+
+
+// 九进制转十进制
+// int main()
+//{
+//    int a = 2022;
+//    int b = 2 * std::pow(9, 3) + 2 * 9 + 2;
+//    cout << b << endl;
+//    return 0;
+//}
+
+
+
+// 顺子日期
+// int cnt = 0;
+// int dm[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+// bool judge(int x)
+//{
+//    int a1 = x / 1000;
+//    int a2 = x / 100 % 10;
+//    int a3 = x / 10 % 10;
+//    int a4 = x % 10;
+//    if (a1 + 1 == a2 && a2 + 1 == a3 || a2 + 1 == a3 && a3 + 1 == a4) {
+//        return true;
+//    }
+//    return false;
+//}
+// int main()
+//{
+//    int y = 2022;
+//    int m = 1;
+//    int d = 1;
+//    while (y < 2023) {
+//        int res = m * 100;
+//        res += d;
+//        if (judge(res)) {
+//            cnt++;
+//            cout << res << endl;
+//        }
+//        d++;
+//        if (d > dm[m]) {
+//            d = 1;
+//            m++;
+//            if (m > 12) {
+//                m = 1;
+//                y++;
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+// 刷题统计
+//int main()
+//{
+//    long long a, b, n;
+//    cin >> a >> b >> n;
+//    long long nown = 0, nowd = 0;
+//    long long s = a * 5 + b * 2;
+//    long long weeks = n / s; // 周数
+//    while (nown < n % s) {
+//        if (nowd <= 5) {
+//            nown += a;
+//        } else {
+//            nown += b;
+//        }
+//        nowd++;
+//    }
+//    cout << 7 * weeks + nowd <<endl;
+//    return 0;
+//}
+
+
+// 修剪灌木
+// 感觉就是模拟，剪三趟出结果
+// 也可以找规律直接出结果
+//int main()
+//{
+//    int n;
+//    cin >> n;
+//    for (int i = 1; i <= n / 2; ++i) {
+//        cout << (n - i) * 2 << endl;
+//    }
+//    for (int i = n / 2 + 1; i <= n; ++i) {
+//        cout << (n - 1) * 2 - (n - i) * 2 << endl;
+//    }
+//    return 0;
+//}
+
+
+
+
+// x进制法
+// 过了50%
+//int n; // 表示最高进制
+//int mod = 1000000007;
+//int wa, wb;
+//int ma[100005];
+//int mb[100005];
+//int res[100005]; // 存储每一位的进制
+//int main()
+//{
+//    cin >> n;
+//    cin >> wa;
+//    for (int i = 1; i <= wa; ++i) {
+//        cin >> ma[i];
+//    }
+//    cin >> wb;
+//    for (int i = wa - wb + 1; i <= wb; ++i) {
+//        cin >> mb[i];
+//    }
+
+//    for (int i = 1; i < wa; ++i) {
+//        res[i + 1] = std::max(std::max(ma[i + 1], mb[i + 1]) + 1, 2);
+//    }
+//    long long r1 = ma[1], r2 = mb[1];
+//    for (int i = 1; i < wa; ++i) {
+//        r1 = (r1 * res[i + 1] + ma[i + 1]) % mod;
+//        r2 = (r2 * res[i + 1] + mb[i + 1]) % mod;
+//    }
+
+//    cout << (r1 - r2) % mod << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 统计子矩阵
+int n, m, k; // n行m列
+int land[505][505];
+int main()
+{
+    cin >> n >> m >> k;
+    return 0;
+}
 
 
 
