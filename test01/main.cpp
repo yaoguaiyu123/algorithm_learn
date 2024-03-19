@@ -2325,6 +2325,125 @@ using std::max;
 
 
 
+// 积木画
+// 可以看出实际上就是5种摆法，然后直接搜索的话肯定超时，正确的做法应该是动规
+// 看题解
+//
+//long long mod = 1000000007;
+//long long n;
+//long long dp[10000005][3];    //dp[i][0]表示铺了i个并且上下都铺满，dp[i][1]表示上面差一个,dp[i][2]表示下面差一个
+//得到状态转移方程
+//dp[i][0] = dp[i-2][0] + dp[i-1][1] + dp[i-1][2] + dp[i-1][0]
+//dp[i][1] = dp[i-2][0] + dp[i-1][2]
+//dp[i][2] = dp[i-2][0] + dp[i-1][1]
+
+//int main()
+//{
+//    cin >> n;
+//    dp[1][0] = 1;
+//    dp[2][1] = 1;
+//    dp[2][2] = 1;
+//    dp[0][0] = 1;
+//    dp[1][1] = 1;
+//    dp[1][2] = 1;
+//    dp[2][0] = 2;
+//    for (int i = 3; i <= n; ++i) {
+//        dp[i][0] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod + dp[i - 1][2] % mod + dp[i - 1][0]) % mod;
+//        dp[i][1] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod) % mod;
+//        dp[i][2] = (dp[i - 2][0] % mod + dp[i - 1][2] % mod) % mod;
+//    }
+//    cout << dp[n][0] << endl;
+//    return 0;
+//}
+
+
+
+// 平方差
+// 暴力肯定不行
+// 找规律
+// 过了100%
+// （1）3及3以上的所有奇数都可以表示为两个平方数的差。
+// （2）8及8以上所有4k形式的偶数都可以表示为两个不同平方数的差。
+// （3）除(1)和(2)以外的其他正整数都不可能表示成两平方数的差。
+//long long cnt;
+//long long l, r;
+//int main()
+//{
+//    cin >> l >> r;
+//    // 先判断奇数有多少个
+//    if (l % 2 == 1 && r % 2 == 1) {
+//        cnt += ((r - l) / 2 + 1);
+//    } else if (l % 2 == 0 && r % 2 == 0) {
+//        cnt += (r - l) / 2;
+//    } else {
+//        cnt += (r - l + 1) / 2;
+//    }
+//    // 在判断4的倍数有多少个
+//    if (l % 4 == 0 && r % 4 == 0) {
+//        cnt += ((r - l) / 4 + 1);
+//    } else {
+//        l = l + 4 - (l + 4) % 4;
+//        r = r - r % 4;
+//        cnt += ((r - l) / 4 + 1);
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+// 更小的数
+// 过了100%
+// 枚举的话会超时
+// 思想是小结果影响大结果, 就是说当小的范围判定之后，只要大的范围是相等的，也是符合要求的
+// 方法是中心扩散
+// 直接暴力试试看
+//std::string num;
+//int cnt;
+//bool judge(int x, int y)
+//{
+//    while (x < y && num[x] <= num[y]) {
+//        if (num[x] < num[y]) {
+//            return false;
+//        }
+//        ++x;
+//        --y;
+//    }
+//    if (x >= y) {
+//        return false;
+//    } else if (num[x] > num[y]) {
+//        return true;
+//    }
+//}
+
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> num;
+//    for (int i = 0; i < num.size() - 1; ++i) {
+//        for (int j = i + 1; j < num.size(); ++j) {
+//            if (judge(i, j)) {
+//                ++cnt;
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
