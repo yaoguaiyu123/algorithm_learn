@@ -2285,13 +2285,42 @@ using std::max;
 
 
 // 统计子矩阵
-int n, m, k; // n行m列
-int land[505][505];
-int main()
-{
-    cin >> n >> m >> k;
-    return 0;
-}
+//过了50%
+//int n, m; // n行m列
+//long long k;
+// 在一段区间内快速求和，首先想到前缀和
+// 并且前缀和相减最好是一个矩形的区间
+//int land[505][505];
+//int f[505][505]; // 存储前缀和
+//int cnt;
+//int main()
+//{
+//    cin >> n >> m >> k;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            cin >> land[i][j];
+//            f[i][j] = f[i - 1][j] + f[i][j - 1] - f[i - 1][j - 1] + land[i][j];
+//            //            cout << "f[" << i << "][" << j << "]:" << f[i][j] << endl;
+//        }
+//    }
+//    // 枚举矩阵的左上角和右下角
+//    for (int x1 = 0; x1 <= n; ++x1) {
+//        for (int y1 = 0; y1 <= n; ++y1) {
+//            for (int x2 = x1 + 1; x2 <= n; ++x2) {
+//                for (int y2 = y1 + 1; y2 <= m; ++y2) {
+//                    long long s = f[x2][y2] - f[x1][y2] - f[x2][y1] + f[x1][y1];
+//                    cout << "s = " << s << endl;
+//                    if (s <= k) {
+//                        ++cnt;
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+//    cout << cnt << endl;
+//    return 0;
+//}
 
 
 
