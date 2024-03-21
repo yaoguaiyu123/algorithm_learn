@@ -18,6 +18,9 @@ using std::max;
 #include <limits>
 #include <list>
 #include <stack>
+#include <deque>
+#include <queue>
+#include <set>
 
 // 问题解决日志
 // int w; // 多少组数据
@@ -2433,6 +2436,347 @@ using std::max;
 //}
 
 
+
+// 颜色平衡树
+// 感觉是从根部向上遍历
+//int n;
+//int c[200005]; // 存储每个节点的color
+//int f[200005]; // 存储每个节点的father
+//std::vector<int> dp[200005]; // 存储每个节点构成的树的节点颜色情况
+//int cnt;
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> c[i] >> f[i];
+//        dp[i].push_back(c[i]);
+//    }
+//    for (int i = n; i >= 1; --i) {
+//        for (const auto e : dp[i])
+//            dp[f[i]].push_back(e);
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        if (dp[i].size() == 1) {
+//            cnt++;
+//        } else {
+
+//        }
+//    }
+//    cout << cnt << endl;
+
+
+//    return 0;
+//}
+
+
+
+
+// 单调队列
+// 快速求出每一段区间内的最值
+//std::deque<int> q;
+//int arr[100005];
+//int n, m;
+//int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        //对于超出范围的元素，需要将其删除
+//        while (!q.empty() && i - m + 1 > q.front()) {
+//            q.pop_front();
+//        }
+//        //新来的元素大于等于之前的元素，需要将之前的删除
+//        while (!q.empty() && arr[q.back()] <= arr[i]) {
+//            q.pop_back();
+//        }
+//        //添加新来的元素
+//        q.push_back(i);
+//        if (i >= m - 1) {
+//            cout << arr[q.front()] << " ";
+//        }
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+
+
+// 三国游戏
+// 过了100%
+//long long x, y, z;
+//int n;
+//struct Thing {
+//    int a;
+//    int b;
+//    int c;
+//};
+//int cnt;
+//Thing thing[100005];
+//bool compare1(const Thing& t1, const Thing& t2)
+//{
+//    return t1.a - t1.b - t1.c > t2.a - t2.b - t2.c;
+//}
+//bool compare2(const Thing& t1, const Thing& t2)
+//{
+//    return t1.b - t1.a - t1.c > t2.b - t2.a - t2.c;
+//}
+//bool compare3(const Thing& t1, const Thing& t2)
+//{
+//    return t1.c - t1.a - t1.b > t2.c - t2.a - t2.b;
+//}
+
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> thing[i].a;
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> thing[i].b;
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        cin >> thing[i].c;
+//    }
+//    // 分三种情况讨论
+//    // 分别是魏国win,蜀国win,吴国win
+//    std::sort(thing, thing + n, compare1);
+//    x = y = z = 0;
+//    int i;
+//    for (i = 0; i < n; ++i) {
+//        x += thing[i].a;
+//        y += thing[i].b;
+//        z += thing[i].c;
+//        if (x <= y + z) {
+//            break;
+//        }
+//    }
+//    cnt = std::max(cnt, i);
+
+//    std::sort(thing, thing + n, compare2);
+//    x = y = z = 0;
+//    for (i = 0; i < n; ++i) {
+//        x += thing[i].a;
+//        y += thing[i].b;
+//        z += thing[i].c;
+//        if (y <= x + z) {
+//            break;
+//        }
+//    }
+//    cnt = std::max(cnt, i);
+
+//    std::sort(thing, thing + n, compare3);
+//    x = y = z = 0;
+//    for (i = 0; i < n; ++i) {
+//        x += thing[i].a;
+//        y += thing[i].b;
+//        z += thing[i].c;
+//        if (z <= x + y) {
+//            break;
+//        }
+//    }
+//    cnt = std::max(cnt, i);
+//    if (cnt) {
+//        cout << cnt << endl;
+//    } else {
+//        cout << -1 << endl;
+//    }
+//    return 0;
+//}
+
+
+
+
+// 填充
+// 过了100%
+// std::string str;
+// int cnt;
+// int main()
+//{
+//    cin >> str;
+//    for (int i = 0; i < str.length() - 1; ++i) {
+//        if (str[i] == str[i + 1]) {
+//            ++i;
+//            ++cnt;
+//        } else if (str[i] == '?' || str[i + 1] == '?') {
+//            ++i;
+//            ++cnt;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+
+
+// 翻转
+// 过了100%
+//std::string str1, str2;
+//int D;
+//int main()
+//{
+//    cin >> D;
+//    while (D--) {
+//        cin >> str1 >> str2;
+//        int res = 0;
+//        // 直接顺序遍历?
+//        int i;
+//        for (i = 0; i < str2.length(); ++i) {
+//            if (str2[i] != str1[i]) {
+//                if (i == 0 || i == str2.length() - 1) {
+//                    cout << -1 << endl;
+//                    break;
+//                } else if (str2[i - 1] != str2[i] && str2[i + 1] != str2[i]) {
+//                    ++res;
+//                } else {
+//                    cout << -1 << endl;
+//                    break;
+//                }
+//            }
+//        }
+//        if (i == str2.length()) {
+//            cout << res << endl;
+//        }
+//    }
+//    return 0;
+//}
+
+
+
+// 子矩阵
+// 使用单调队列
+// int mod = 998244353;
+// int n, m, a, b;
+// long long land[1005][1005];
+// long long res;
+// std::deque<int> d;
+// int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> m >> a >> b;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j < m; ++j) {
+//            cin >> land[i][j];
+//        }
+//    }
+//    //二维单调队列,先用一个数组将每一行的单调队列存起来，然后对每一列使用单调队列
+//    return 0;
+//}
+
+
+
+
+// 快速幂,求x的n次幂
+//long long x;
+//int n;
+//long long my_pow(int x, int n)
+//{
+//    if (n > 1) {
+//        long long tmp = my_pow(x, n / 2);
+//        if (n % 2 == 1) {
+//            return tmp * tmp * x;
+//        } else {
+//            return tmp * tmp;
+//        }
+//    } else {
+//        return x;
+//    }
+//}
+
+//int main()
+//{
+//    cin >> x >> n;
+//    long long res = my_pow(x, n);
+//    cout << res <<endl;
+//    return 0;
+//}
+
+
+
+
+// floodfill算法
+// 本质是在找性质相同的一个连通块
+// dfs
+//int main()
+//{
+
+//    return 0;
+//}
+
+
+
+
+// 拉马车
+// 模拟
+std::string str1, str2;
+std::vector<char> v1, v2, v3;
+void judge(std::vector<char>& v, std::vector<char>& v_add)
+{
+    for (int i = v.size() - 2; i >= 0; --i) {
+        if (v[i] == v[v.size() - 1]) {
+            for (int k = v.size() - 1; k >= i; --k) {
+                v_add.push_back(v[k]);
+            }
+            v.erase(v.begin() + i, v.end());
+            break;
+        }
+    }
+}
+int main()
+{
+    cin >> str1 >> str2;
+    for (int i = 0; i < str1.length(); ++i) {
+        v1.push_back(str1[i]);
+    }
+    for (int i = 0; i < str1.length(); ++i) {
+        v2.push_back(str2[i]);
+    }
+    while (v1.size() > 0 && v2.size() > 0) {
+        char temp = v1[0];
+        v1.erase(v1.begin());
+        v3.push_back(temp);
+        judge(v3, v1);
+        if (v1.size() == 0) {
+            break;
+        }
+//        cout << "111:  ";
+//        for (const char& e : v1) {
+//            cout << e;
+//        }
+//        cout << endl;
+        temp = v2[0];
+        v2.erase(v2.begin());
+        v3.push_back(temp);
+        judge(v3, v2);
+        if (v2.size() == 0) {
+            break;
+        }
+//        cout << "222:  ";
+//        for (const char& e : v2) {
+//            cout << e;
+//        }
+//        cout << endl;
+    }
+    if (v1.size()) {
+        for (const char& e : v1) {
+            cout << e;
+        }
+    } else {
+        for (const char& e : v2) {
+            cout << e;
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
 
 
 

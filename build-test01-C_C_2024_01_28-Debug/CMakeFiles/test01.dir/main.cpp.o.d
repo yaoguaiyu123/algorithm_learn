@@ -198,4 +198,5 @@ CMakeFiles/test01.dir/main.cpp.o: \
  /usr/include/c++/13.2.1/bits/list.tcc /usr/include/c++/13.2.1/stack \
  /usr/include/c++/13.2.1/deque /usr/include/c++/13.2.1/bits/stl_deque.h \
  /usr/include/c++/13.2.1/bits/deque.tcc \
- /usr/include/c++/13.2.1/bits/stl_stack.h
+ /usr/include/c++/13.2.1/bits/stl_stack.h /usr/include/c++/13.2.1/queue \
+ /usr/include/c++/13.2.1/bits/stl_queue.h

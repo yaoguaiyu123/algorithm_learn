@@ -150,6 +150,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/bits/stl_list.h \
   /usr/include/c++/13.2.1/bits/stl_multiset.h \
   /usr/include/c++/13.2.1/bits/stl_pair.h \
+  /usr/include/c++/13.2.1/bits/stl_queue.h \
   /usr/include/c++/13.2.1/bits/stl_set.h \
   /usr/include/c++/13.2.1/bits/stl_stack.h \
   /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
@@ -202,6 +203,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
   /usr/include/c++/13.2.1/pstl/execution_defs.h \
   /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13.2.1/pstl/pstl_config.h \
+  /usr/include/c++/13.2.1/queue \
   /usr/include/c++/13.2.1/set \
   /usr/include/c++/13.2.1/sstream \
   /usr/include/c++/13.2.1/stack \
@@ -275,6 +277,8 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/wchar.h:
 
 /usr/include/sys/single_threaded.h:
+
+/usr/include/sys/cdefs.h:
 
 /usr/include/c++/13.2.1/bits/ranges_algo.h:
 
@@ -656,9 +660,7 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/c++/13.2.1/bits/stl_multiset.h:
 
-/usr/include/c++/13.2.1/bits/locale_classes.h:
-
-/usr/include/c++/13.2.1/bits/stl_pair.h:
+/usr/include/c++/13.2.1/bits/stl_queue.h:
 
 /usr/include/c++/13.2.1/ext/atomicity.h:
 
@@ -714,11 +716,21 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 
 /usr/include/c++/13.2.1/new:
 
+/usr/include/strings.h:
+
+/usr/include/c++/13.2.1/numbers:
+
 /usr/include/bits/types/__locale_t.h:
 
 /usr/include/c++/13.2.1/ostream:
 
 /usr/include/c++/13.2.1/pstl/pstl_config.h:
+
+/usr/include/c++/13.2.1/bits/locale_classes.h:
+
+/usr/include/c++/13.2.1/bits/stl_pair.h:
+
+/usr/include/c++/13.2.1/queue:
 
 /usr/include/time.h:
 
@@ -791,9 +803,3 @@ CMakeFiles/test01.dir/main.cpp.o: /run/media/root/study/algorithm_learn/test01/m
 /usr/include/stdio.h:
 
 /usr/include/stdlib.h:
-
-/usr/include/c++/13.2.1/numbers:
-
-/usr/include/strings.h:
-
-/usr/include/sys/cdefs.h:
