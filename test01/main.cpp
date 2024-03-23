@@ -136,13 +136,13 @@ using std::max;
 
 
 // 走出迷宫
-//int n, m;
-//int sx, sy, ex, ey;
-//string arr[502];
-//bool flag = false;
-//int dx[4] = { -1, 1, 0, 0 };
-//int dy[4] = { 0, 0, -1, 1 };
-//void dfs(int x, int y)
+// int n, m;
+// int sx, sy, ex, ey;
+// string arr[502];
+// bool flag = false;
+// int dx[4] = { -1, 1, 0, 0 };
+// int dy[4] = { 0, 0, -1, 1 };
+// void dfs(int x, int y)
 //{
 //    if (x == ex && y == ey) {
 //        flag = true;
@@ -158,7 +158,7 @@ using std::max;
 //        }
 //    }
 //}
-//int main()
+// int main()
 //{
 //    cin >> n >> m;
 //    for (int i = 0; i < n; i++) {
@@ -184,58 +184,58 @@ using std::max;
 //}
 
 
-//纪念品分组(原)
-//#include<bits/stdc++.h>
-//using namespace std;
-//int w,n;    //每组上限和纪念品的个数
-//int a[30005];
-//bool visit[30005];
-//int cnt;     //分的组数
-//int ssbegin=1;
-//int main()
+// 纪念品分组(原)
+// #include<bits/stdc++.h>
+// using namespace std;
+// int w,n;    //每组上限和纪念品的个数
+// int a[30005];
+// bool visit[30005];
+// int cnt;     //分的组数
+// int ssbegin=1;
+// int main()
 //{
-//    cin>>w>>n;
-//    for(int i=1;i<=n;i++)
-//    {
-//        cin>>a[i];
-//    }
-//    sort(a+1,a+n+1);
-//    int i=0;
-//    while(i<n)
-//    {
-//        for(int j=n;j>ssbegin;j--)
-//        {
-//            if(a[ssbegin]+a[j]>w&&!visit[j])
-//            {
-//                visit[j]=true;
-//                cnt++;
-//                i++;
-//            }
-//            else if(a[ssbegin]+a[j]<=w&&!visit[j])
-//            {
-//                visit[j]=true;
-//                visit[ssbegin++]=true;
-//                cnt++;
-//                i+=2;
-//                break;
-//            }
-//        }
-//        if(i==n-1)    //只剩单个未放
-//        {
-//            i++;
-//            cnt++;
-//        }
-//    }
-//    cout<<cnt;
-//    return 0;
-//}
+//     cin>>w>>n;
+//     for(int i=1;i<=n;i++)
+//     {
+//         cin>>a[i];
+//     }
+//     sort(a+1,a+n+1);
+//     int i=0;
+//     while(i<n)
+//     {
+//         for(int j=n;j>ssbegin;j--)
+//         {
+//             if(a[ssbegin]+a[j]>w&&!visit[j])
+//             {
+//                 visit[j]=true;
+//                 cnt++;
+//                 i++;
+//             }
+//             else if(a[ssbegin]+a[j]<=w&&!visit[j])
+//             {
+//                 visit[j]=true;
+//                 visit[ssbegin++]=true;
+//                 cnt++;
+//                 i+=2;
+//                 break;
+//             }
+//         }
+//         if(i==n-1)    //只剩单个未放
+//         {
+//             i++;
+//             cnt++;
+//         }
+//     }
+//     cout<<cnt;
+//     return 0;
+// }
 
 
 // 纪念品分组
-//int w, n;
-//int arr[30005]; // 记录每个纪念品的价格
-//int cnt = 0;
-//int main()
+// int w, n;
+// int arr[30005]; // 记录每个纪念品的价格
+// int cnt = 0;
+// int main()
 //{
 //    cin >> w >> n;
 //    for (int i = 1; i <= n; i++) {
@@ -262,9 +262,9 @@ using std::max;
 
 
 // 统计方形
-//int n, m;
-//unsigned long long cntz, cntc;
-//int main()
+// int n, m;
+// unsigned long long cntz, cntc;
+// int main()
 //{
 //    cin >> n >> m;
 //    // 枚举矩形所有可能的长宽
@@ -320,17 +320,17 @@ using std::max;
 
 
 // 数的计算(暴力搜索)
-//#include <bits/stdc++.h>
-//using namespace std;
-//int n, cnt = 1;
-//void dfs(int a)
+// #include <bits/stdc++.h>
+// using namespace std;
+// int n, cnt = 1;
+// void dfs(int a)
 //{
 //    for (int i = 1; i <= a / 2; i++) {
 //        cnt++;
 //        dfs(i);
 //    }
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);  //关闭同步流
 //    cin >> n;
@@ -400,11 +400,11 @@ using std::max;
 
 
 // 第十四届蓝桥杯省赛C++ B组第三题
-//int n;
-//int maxV;
-//int minV = -1;
-//int a, b;
-//int main()
+// int n;
+// int maxV;
+// int minV = -1;
+// int a, b;
+// int main()
 //{
 //    maxV = std::numeric_limits<int>::max();
 //    std::ios::sync_with_stdio(false);
@@ -480,11 +480,11 @@ using std::max;
 
 // 最长上升子序列
 // 实际上像动态规划的题目需要把经典的dp类型直接背下来
-//int N;
-//int a[100005];
-//int count = 0;
-//int dp[10005];
-//int main()
+// int N;
+// int a[100005];
+// int count = 0;
+// int dp[10005];
+// int main()
 //{
 //    cin >> N;
 //    for (int i = 0; i < N; ++i) {
@@ -550,15 +550,15 @@ using std::max;
 
 // 第十四届蓝桥杯省赛C++ B组第六题
 // 深搜或者广搜，需要先在海洋中8个方向搜索，如果搜索到陆地就进行陆地的4方向搜索
-//int t, m, n;
-//int arr[55][55];
-//int dx[4] = { 0, 0, 1, -1 };
-//int dy[4] = { 1, -1, 0, 0 };
-//int ddx[8] = { 0, 0, 1, 1, 1, -1, -1, -1 };
-//int ddy[8] = { -1, 1, -1, 1, 0, -1, 1, 0 };
-//int cnt;
-//void dfs2(int, int);
-//void dfs1(int x, int y)
+// int t, m, n;
+// int arr[55][55];
+// int dx[4] = { 0, 0, 1, -1 };
+// int dy[4] = { 1, -1, 0, 0 };
+// int ddx[8] = { 0, 0, 1, 1, 1, -1, -1, -1 };
+// int ddy[8] = { -1, 1, -1, 1, 0, -1, 1, 0 };
+// int cnt;
+// void dfs2(int, int);
+// void dfs1(int x, int y)
 //{
 //    // 海洋的搜索
 //    for (int i = 0; i < 8; ++i) {
@@ -586,51 +586,51 @@ using std::max;
 //    }
 //}
 
-//void dfs2(int x, int y)
+// void dfs2(int x, int y)
 //{
-//    // 陆地的搜索
-//    for (int i = 0; i < 4; ++i) {
-//        int xx = x + dx[i];
-//        int yy = y + dy[i];
-//        if (xx >= 1 && xx <= m && yy >= 1 && yy <= n && arr[xx][yy] == 1) {
-//            arr[xx][yy] = 2;
-//            dfs2(xx, yy);
-//        }
-//    }
-//}
+//     // 陆地的搜索
+//     for (int i = 0; i < 4; ++i) {
+//         int xx = x + dx[i];
+//         int yy = y + dy[i];
+//         if (xx >= 1 && xx <= m && yy >= 1 && yy <= n && arr[xx][yy] == 1) {
+//             arr[xx][yy] = 2;
+//             dfs2(xx, yy);
+//         }
+//     }
+// }
 
-//int main()
+// int main()
 //{
-//    std::ios::sync_with_stdio(false);
-//    cin.tie(0), cout.tie(0);
-//    cin >> t;
-//    while (t--) {
-//        memset(arr,0,sizeof(arr));   //初始化数组
-//        cnt = 0;
-//        cin >> m >> n; // m行n列
-//        for (int i = 1; i <= m; ++i) {
-//                string str;
-//                cin >>str;
-//                for(int j = 1;j<=n;++j){
-//                    arr[i][j] = str[j-1]-'0';
-//                }
-//        }
-//        dfs1(0, 0); // 从0,0处开始海洋的搜索
-//        cout << cnt << endl;
-//    }
-//    return 0;
-//}
+//     std::ios::sync_with_stdio(false);
+//     cin.tie(0), cout.tie(0);
+//     cin >> t;
+//     while (t--) {
+//         memset(arr,0,sizeof(arr));   //初始化数组
+//         cnt = 0;
+//         cin >> m >> n; // m行n列
+//         for (int i = 1; i <= m; ++i) {
+//                 string str;
+//                 cin >>str;
+//                 for(int j = 1;j<=n;++j){
+//                     arr[i][j] = str[j-1]-'0';
+//                 }
+//         }
+//         dfs1(0, 0); // 从0,0处开始海洋的搜索
+//         cout << cnt << endl;
+//     }
+//     return 0;
+// }
 
 
 
 // 第十三届蓝桥杯c++b组国赛第三题
 // 思路感觉是贪心
 // 这一个版本时间复杂度过大
-//int n, m; // n种卡牌，m张空卡牌
-//int a[200005];
-//int b[200005];
-//int c[200005];
-//int main()
+// int n, m; // n种卡牌，m张空卡牌
+// int a[200005];
+// int b[200005];
+// int c[200005];
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -665,17 +665,17 @@ using std::max;
 
 // 第十三届蓝桥杯c++b组国赛第三题
 // 只过了35%
-//int n, m; // n种卡牌，m张空卡牌
-//struct Data {
+// int n, m; // n种卡牌，m张空卡牌
+// struct Data {
 //    int a = 0;
 //    int b = 0;
 //};
-//Data ds[200005];
-//bool Compare(Data& x, Data& y)
+// Data ds[200005];
+// bool Compare(Data& x, Data& y)
 //{
 //    return x.a < y.a;
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -721,9 +721,9 @@ using std::max;
 // 结束条件 while(l<=r)
 // m  = (l + r)/2
 // r = m - 1 或者 l = m + 1
-//int n;
-//int nums[100005];
-//int main()
+// int n;
+// int nums[100005];
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -751,9 +751,9 @@ using std::max;
 
 
 // x图形
-//int n, m; // 行数和列数
-//string strs[105];
-//int judge(int x, int y)
+// int n, m; // 行数和列数
+// string strs[105];
+// int judge(int x, int y)
 //{
 //    int xx = x - 1, yy = y - 1;
 //    // 左上
@@ -789,8 +789,8 @@ using std::max;
 //    cnt = std::min(cnt, yy - y - 1);
 //    return cnt;
 //}
-//int count_ = 0;
-//int main()
+// int count_ = 0;
+// int main()
 //{
 //    cin >> n >> m;
 //    for (int i = 0; i < n; ++i) {
@@ -810,20 +810,20 @@ using std::max;
 
 
 // 路径之谜
-//int n;
-//int brr[25], arr[25]; // 北边靶子上的箭数(yy决定)和西边靶子上的箭数(xx决定)
-//int land[25][25];
-//int dx[4] = { 1, -1, 0, 0 };
-//int dy[4] = { 0, 0, -1, 1 };
-//std::vector<int> v;
-//bool Check() {
+// int n;
+// int brr[25], arr[25]; // 北边靶子上的箭数(yy决定)和西边靶子上的箭数(xx决定)
+// int land[25][25];
+// int dx[4] = { 1, -1, 0, 0 };
+// int dy[4] = { 0, 0, -1, 1 };
+// std::vector<int> v;
+// bool Check() {
 //    for (int i = 0; i < n; i++) {
 //        if (arr[i]) return false;
 //        if (brr[i])  return false;
 //    }
 //    return true;
 //}
-//void dfs(int x, int y)
+// void dfs(int x, int y)
 //{
 //    if (x == n - 1 && y == n - 1) {
 //        // 到达终点
@@ -853,7 +853,7 @@ using std::max;
 //        }
 //    }
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -917,7 +917,7 @@ using std::max;
 
 // 包子凑数
 // 暴力破解，只过了一个样例
-//int gcd(int x, int y)
+// int gcd(int x, int y)
 //{
 //    if (y) {
 //        return gcd(y, x % y);
@@ -925,11 +925,11 @@ using std::max;
 //        return x;
 //    }
 //}
-//int n;
-//int arr[105];
-//int cnt;
-//int dp[10000]; // 以10000为界，dp[i] == 1表示i个包子可以凑出来，dp[i] == 0 表示凑不出
-//bool arr_gcd()
+// int n;
+// int arr[105];
+// int cnt;
+// int dp[10000]; // 以10000为界，dp[i] == 1表示i个包子可以凑出来，dp[i] == 0 表示凑不出
+// bool arr_gcd()
 //{
 //    int g = arr[1];
 //    for (int i = 2; i <= n; ++i) {
@@ -940,7 +940,7 @@ using std::max;
 //    }
 //    return g > 1;
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -970,76 +970,76 @@ using std::max;
 //}
 
 
-//包子凑数题解
-//int gcd(int m, int n)
+// 包子凑数题解
+// int gcd(int m, int n)
 //{
-//    if (n) {
-//        return gcd(n, m % n);
-//    } else {
-//        return m;
-//    }
-//}
-//const int MAXN = 105, MAX_DP = 100005; // 又来定义
-//int n, a[MAXN], dp[MAX_DP], ans;
-//bool notCoprime(int* arr) // 返回arr数组中所有数的最大公约数是否大于1
+//     if (n) {
+//         return gcd(n, m % n);
+//     } else {
+//         return m;
+//     }
+// }
+// const int MAXN = 105, MAX_DP = 100005; // 又来定义
+// int n, a[MAXN], dp[MAX_DP], ans;
+// bool notCoprime(int* arr) // 返回arr数组中所有数的最大公约数是否大于1
 //{
-//    int g = arr[0];
-//    for (int i = 1; i < n; i++) {
-//        g = gcd(g, arr[i]);
-//        if (g == 1) {
-//            return false; // 如果g已经为1，不用再循环，直接返回
-//        }
-//    }
-//    return g > 1;
-//} // 定义函数，运行更快
-//int main()
+//     int g = arr[0];
+//     for (int i = 1; i < n; i++) {
+//         g = gcd(g, arr[i]);
+//         if (g == 1) {
+//             return false; // 如果g已经为1，不用再循环，直接返回
+//         }
+//     }
+//     return g > 1;
+// } // 定义函数，运行更快
+// int main()
 //{
-//    cin >> n;
-//    for (int i = 0; i < n; i++) {
-//        cin >> a[i];
-//    }
-//    if (notCoprime(a)) // 如果gcd({A_i})>1
-//    {
-//        cout << "INF";
-//        return 0; // 直接结束
-//    }
-//    dp[0] = 1; // 注意0是被认为能被凑出的
-//    for (int i = 0; i < n; i++) {
-//        for (int j = a[i]; j < MAX_DP; j++) {
-//            dp[j] = std::max(dp[j], dp[j - a[i]]); // 状态转移方程
-//        }
-//    }
-//    for (int i = 1; i < MAX_DP; i++) {
-//        if (!dp[i]) {
-//            ans++; // 如果dp[i]=0,多一个凑不出的数
-//        }
-//    }
-//    cout << ans << endl;
-//    return 0;
-//}
+//     cin >> n;
+//     for (int i = 0; i < n; i++) {
+//         cin >> a[i];
+//     }
+//     if (notCoprime(a)) // 如果gcd({A_i})>1
+//     {
+//         cout << "INF";
+//         return 0; // 直接结束
+//     }
+//     dp[0] = 1; // 注意0是被认为能被凑出的
+//     for (int i = 0; i < n; i++) {
+//         for (int j = a[i]; j < MAX_DP; j++) {
+//             dp[j] = std::max(dp[j], dp[j - a[i]]); // 状态转移方程
+//         }
+//     }
+//     for (int i = 1; i < MAX_DP; i++) {
+//         if (!dp[i]) {
+//             ans++; // 如果dp[i]=0,多一个凑不出的数
+//         }
+//     }
+//     cout << ans << endl;
+//     return 0;
+// }
 
 
-//买不到的数目(动态规划)
-//int n[3];
-//int res;
-//int dp[100005]; // dp[i]==1表示i是能够凑到的
-//int main()
+// 买不到的数目(动态规划)
+// int n[3];
+// int res;
+// int dp[100005]; // dp[i]==1表示i是能够凑到的
+// int main()
 //{
-//    cin >> n[1] >> n[2];
-//    dp[0] = 1;
-//    for (int i = 1; i <= 2; ++i) {
-//        for (int j = n[i]; j <= 100000; ++j) {
-//            dp[j] = std::max(dp[j], dp[j - n[i]]);
-//        }
-//    }
-//    for (int i = 1; i <= 100000; ++i) {
-//        if (!dp[i]) {
-//            res = i;
-//        }
-//    }
-//    cout << res << endl;
-//    return 0;
-//}
+//     cin >> n[1] >> n[2];
+//     dp[0] = 1;
+//     for (int i = 1; i <= 2; ++i) {
+//         for (int j = n[i]; j <= 100000; ++j) {
+//             dp[j] = std::max(dp[j], dp[j - n[i]]);
+//         }
+//     }
+//     for (int i = 1; i <= 100000; ++i) {
+//         if (!dp[i]) {
+//             res = i;
+//         }
+//     }
+//     cout << res << endl;
+//     return 0;
+// }
 
 
 // 买不到的数目(暴力解法)
@@ -1070,8 +1070,8 @@ using std::max;
 
 
 // 打印大X
-//int n, m;
-//int main()
+// int n, m;
+// int main()
 //{
 //    cin >> m >> n; // 笔画宽度为m,高度为n
 //    int w = m - 1 + n; // 图形宽度等于笔画宽度-1加上图形的高度
@@ -1140,15 +1140,15 @@ using std::max;
 
 
 // 对局匹配(未完成)
-//int n, k;
-//int a[100005];
-//int dp[100005]; // dp[i]表示前i个人中最多的情况
-//int cnt;
-//bool check(int i, int j)
+// int n, k;
+// int a[100005];
+// int dp[100005]; // dp[i]表示前i个人中最多的情况
+// int cnt;
+// bool check(int i, int j)
 //{
 
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -1169,9 +1169,9 @@ using std::max;
 
 
 // 奇怪的数列
-//string str;
-//int n;
-//int main()
+// string str;
+// int n;
+// int main()
 //{
 //    cin >> str;
 //    cin >> n;
@@ -1200,10 +1200,10 @@ using std::max;
 
 
 // 带分数
-//int arr[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-//int cnt = 0;
-//int n;
-//int func(int a,int b)
+// int arr[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+// int cnt = 0;
+// int n;
+// int func(int a,int b)
 //{
 //    int sum=0;
 //    for(int i=a;i<=b;i++)
@@ -1212,7 +1212,7 @@ using std::max;
 //    }
 //    return sum;
 //}
-//int main()
+// int main()
 //{
 //    cin >> n;
 //    // 枚举所有的全怕列的可能
@@ -1242,11 +1242,11 @@ using std::max;
 
 // 日期问题
 // 过了87.5%的案例
-//int a, b, c;
-//char t;
-//int md[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-//std::vector<string> strs;
-//void addDate(int x, int y, int z)
+// int a, b, c;
+// char t;
+// int md[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+// std::vector<string> strs;
+// void addDate(int x, int y, int z)
 //{
 //    string str;
 //    if (x <= 59) {
@@ -1271,65 +1271,65 @@ using std::max;
 //    strs.push_back(str);
 //}
 
-//void judge(int a, int b, int c)
+// void judge(int a, int b, int c)
 //{
-//    if (a % 4 == 0) {
-//        md[2] = 29;
-//        if (b <= 12 && b >= 1) {
-//            if (c >= 1 && c <= md[b]) {
-//                addDate(a, b, c);
-//            }
-//        }
-//    } else {
-//        md[2] = 28;
-//        if (b <= 12 && b >= 1) {
-//            if (c >= 1 && c <= md[b]) {
-//                addDate(a, b, c);
-//            }
-//        }
-//    }
-//}
-//int main()
+//     if (a % 4 == 0) {
+//         md[2] = 29;
+//         if (b <= 12 && b >= 1) {
+//             if (c >= 1 && c <= md[b]) {
+//                 addDate(a, b, c);
+//             }
+//         }
+//     } else {
+//         md[2] = 28;
+//         if (b <= 12 && b >= 1) {
+//             if (c >= 1 && c <= md[b]) {
+//                 addDate(a, b, c);
+//             }
+//         }
+//     }
+// }
+// int main()
 //{
-//    cin >> a;
-//    cin >> t;
-//    cin >> b;
-//    cin >> t;
-//    cin >> c;
-//    // 年月日 日月年 月日年
-//    // 需要将日期从早到晚排列
-//    judge(a, b, c);
-//    judge(c, b, a);
-//    judge(c, a, b);
-//    std::sort(strs.begin(), strs.end());
-//    // 去重
-//    for (int i = 0; i < strs.size() - 1; ++i) {
-//        if (strs[i] == strs[i + 1]) {
-//            for (int j = i + 1; j < strs.size() - 1; ++j) {
-//                strs[j] = strs[j + 1];
-//            }
-//            strs.pop_back();
-//        }
-//    }
-//    for (const auto& e : strs) {
-//        cout << e << endl;
-//    }
-//    return 0;
-//}
+//     cin >> a;
+//     cin >> t;
+//     cin >> b;
+//     cin >> t;
+//     cin >> c;
+//     // 年月日 日月年 月日年
+//     // 需要将日期从早到晚排列
+//     judge(a, b, c);
+//     judge(c, b, a);
+//     judge(c, a, b);
+//     std::sort(strs.begin(), strs.end());
+//     // 去重
+//     for (int i = 0; i < strs.size() - 1; ++i) {
+//         if (strs[i] == strs[i + 1]) {
+//             for (int j = i + 1; j < strs.size() - 1; ++j) {
+//                 strs[j] = strs[j + 1];
+//             }
+//             strs.pop_back();
+//         }
+//     }
+//     for (const auto& e : strs) {
+//         cout << e << endl;
+//     }
+//     return 0;
+// }
 
 
 
 // 分考场
 // 过了40%
-//int n, m;
-//int cnt;
-//int land[105][105];
-//std::list<int> groups[105]; // 105个链表
-//int visit[105];
+// int n, m;
+// int cnt;
+// int land[105][105];
+// std::list<int> groups[105]; // 105个链表
+// int visit[105];
 // 基本思路就是暴力，找当前所有人依次判断是否能组成一队
 // 通过一个链表串联起来
 // 实际上这种思路是不够严谨的，能过40%已经很不错了
-//void judge(std::list<int>& group, int index)
+// void judge(std::list<int>& group, int index)
 //{
 //    for (int i = index; i <= n; ++i) {
 //        if (!visit[i]) {
@@ -1349,25 +1349,25 @@ using std::max;
 //    }
 //}
 
-//int main()
+// int main()
 //{
-//    cin >> n >> m;   //n个人，m行数据
-//    for (int i = 0; i < m; ++i) {
-//        int a, b;
-//        cin >> a >> b;
-//        land[a][b] = land[b][a] = 1;   //两个人认识标记为1
-//    }
-//    for (int i = 1; i <= n; ++i) { // 依次遍历n个人
-//        if (!visit[i]) {
-//            visit[i] = 1;
-//            groups[i].push_back(i);
-//            judge(groups[i], i + 1);
-//            ++cnt;
-//        }
-//    }
-//    cout << cnt << endl;
-//    return 0;
-//}
+//     cin >> n >> m;   //n个人，m行数据
+//     for (int i = 0; i < m; ++i) {
+//         int a, b;
+//         cin >> a >> b;
+//         land[a][b] = land[b][a] = 1;   //两个人认识标记为1
+//     }
+//     for (int i = 1; i <= n; ++i) { // 依次遍历n个人
+//         if (!visit[i]) {
+//             visit[i] = 1;
+//             groups[i].push_back(i);
+//             judge(groups[i], i + 1);
+//             ++cnt;
+//         }
+//     }
+//     cout << cnt << endl;
+//     return 0;
+// }
 
 
 
@@ -1375,10 +1375,10 @@ using std::max;
 // 最大数字
 // 采用搜索的方式,对于每一位，采用+的方式或者-的方式使其尽量大,如果+能比-达到的效果更好就采用+的方式
 // 通过率80%
-//int a, b; //+1执行a次，-1执行b次
-//string n;
-//std::vector<string> strs;
-//void dfs(string str, int w, int a, int b)
+// int a, b; //+1执行a次，-1执行b次
+// string n;
+// std::vector<string> strs;
+// void dfs(string str, int w, int a, int b)
 //{
 //    if (w == str.size()) {
 //        strs.push_back(str);
@@ -1405,7 +1405,7 @@ using std::max;
 //    }
 //    strs.push_back(str);
 //}
-//int main()
+// int main()
 //{
 //    cin >> n >> a >> b;
 //    dfs(n, 0, a, b);
@@ -1418,12 +1418,12 @@ using std::max;
 
 // k倍区间(暴力求解)
 // 这个数据量，暴力应该不行
-//通过率28.6%
-//using ll = long long;
-//int n, k;
-//int a[100005];
-//int cnt;
-//int sum(int i, int j)
+// 通过率28.6%
+// using ll = long long;
+// int n, k;
+// int a[100005];
+// int cnt;
+// int sum(int i, int j)
 //{
 //    ll res = 0;
 //    for (int x = i; x <= j; ++x) {
@@ -1431,7 +1431,7 @@ using std::max;
 //    }
 //    return res;
 //}
-//int main()
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -1457,11 +1457,11 @@ using std::max;
 // 这里学习前缀和
 // 前缀和的优势:以(o1)的时间复杂度得到某块区间的总和
 // 当然前缀和有2维的，会更加难一些
-//long long s[100005]; // 记录前缀和
-//int a[100005];
-//int n;
-//int l, r;
-//int main()
+// long long s[100005]; // 记录前缀和
+// int a[100005];
+// int n;
+// int l, r;
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 1; i <= n; ++i) {
@@ -1477,11 +1477,11 @@ using std::max;
 
 
 // k倍区间
-//int n, k;
-//long long cnt;
-//long long  a[100010];
-//int crr[100010]; // 这个数组记录对应的余数的前缀区间有几个
-//int main()
+// int n, k;
+// long long cnt;
+// long long  a[100010];
+// int crr[100010]; // 这个数组记录对应的余数的前缀区间有几个
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -1548,11 +1548,11 @@ using std::max;
 // 字串简写
 // 想法是暴力?数据量过大，暴力不太行
 // 需要用到后一项减前一项，前缀和?
-//int k; // 大于等于k的字符串可以采用这种方式的简写
-//string str;
-//char c1, c2;
-//long long cnt ,sum;
-//int main()
+// int k; // 大于等于k的字符串可以采用这种方式的简写
+// string str;
+// char c1, c2;
+// long long cnt ,sum;
+// int main()
 //{
 //    cin >> k;
 //    cin >> str;
@@ -1572,19 +1572,19 @@ using std::max;
 
 
 
-//卡片换位
-//没有什么思路
+// 卡片换位
+// 没有什么思路
 //* A
 //**B
-//char land[3][5];
-//int cnt;  //记录当前步数
-//int main()
+// char land[3][5];
+// int cnt;  //记录当前步数
+// int main()
 //{
-//    for (int i = 1; i <= 3; ++i) {
-//        for (int j = 1; j <= 2; ++j) {
-//            cin >> land[i][j];
-//        }
-//    }
+//     for (int i = 1; i <= 3; ++i) {
+//         for (int j = 1; j <= 2; ++j) {
+//             cin >> land[i][j];
+//         }
+//     }
 
 //    return 0;
 //}
@@ -1704,7 +1704,7 @@ using std::max;
 
 // 硬币的最小组合
 // 暴力，思路是最少的硬币应该要选最大的面额
-//int main()
+// int main()
 //{
 //    //两个一元硬币，剩下的全是三元硬币
 //    int n = 20240618 / 3 + 2;
@@ -1717,10 +1717,10 @@ using std::max;
 // 正则问题
 // 模拟,深搜
 // |不仅可以是左右，也可以是 | |分割成三份甚至更多
-//int cnt;
-//std::string str;
-//int i;
-//int dfs()
+// int cnt;
+// std::string str;
+// int i;
+// int dfs()
 //{
 //    int res = 0;
 //    while (i < str.length()) {
@@ -1740,7 +1740,7 @@ using std::max;
 //    }
 //    return res;
 //}
-//int main()
+// int main()
 //{
 //    cin >> str;
 //    cnt = dfs();
@@ -1752,7 +1752,7 @@ using std::max;
 
 
 // 字母数
-//bool judge(int x)
+// bool judge(int x)
 //{
 //    while (x > 0) {
 //        int n = x % 16;
@@ -1764,7 +1764,7 @@ using std::max;
 //    return true;
 
 //}
-//int main()
+// int main()
 //{
 //    int i = 2023;
 //    while (1) {
@@ -1800,9 +1800,9 @@ using std::max;
 
 
 // 第三小
-//int arr[100005];
-//int n;
-//int main()
+// int arr[100005];
+// int n;
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 0; i < n; ++i) {
@@ -1888,11 +1888,11 @@ using std::max;
 // 赢球票
 // 思路感觉就是枚举
 // 只过了20%
-//int arr[105]; // 存储卡片排列
-//std::vector<int> tempV;
-//int n; // 卡片数量
-//int cnt;
-//int main()
+// int arr[105]; // 存储卡片排列
+// std::vector<int> tempV;
+// int n; // 卡片数量
+// int cnt;
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 0; i < n; ++i) {
@@ -1938,10 +1938,10 @@ using std::max;
 // 装箱问题
 // 感觉直接暴力剪枝都可以啊
 // 暴力过了100%
-//int v, n;
-//int arr[35];
-//int minv = 99999;
-//void dfs(int x, int nowv)
+// int v, n;
+// int arr[35];
+// int minv = 99999;
+// void dfs(int x, int nowv)
 //{
 //    if (x >= n) {
 //        minv = std::min(minv, v - nowv);
@@ -1952,7 +1952,7 @@ using std::max;
 //        dfs(x + 1, nowv + arr[x]); // 选择第x个
 //    }
 //}
-//int main()
+// int main()
 //{
 //    cin >> v >> n;
 //    for (int i = 0; i < n; ++i) {
@@ -1966,20 +1966,20 @@ using std::max;
 
 // 花生采摘
 // 思路感觉就是模拟
-//int m, n, k; // m行n列
-//struct Point {
+// int m, n, k; // m行n列
+// struct Point {
 //    int x;
 //    int y;
 //    Point(int x, int y) : x(x), y(y) {} // 定义接受两个int参数的构造函数
 //};
-//std::vector<Point> points; // 记录所有有花生的地点
-//int cnt;
-//int land[25][25];
-//bool compare(Point a, Point b)
+// std::vector<Point> points; // 记录所有有花生的地点
+// int cnt;
+// int land[25][25];
+// bool compare(Point a, Point b)
 //{
 //    return land[a.x][a.y] > land[b.x][b.y];
 //}
-//int main()
+// int main()
 //{
 //    cin >> m >> n >> k;
 //    for (int i = 1; i <= m; ++i) {
@@ -2022,10 +2022,10 @@ using std::max;
 // 第k小的数
 // 二分过了50%
 // 有时间可以再想想
-//int n, k;
-//int a;
-//int brr[1005];
-//int main()
+// int n, k;
+// int a;
+// int brr[1005];
+// int main()
 //{
 //    cin >> n >> k;
 //    for (int i = 1; i <= n; ++i) {
@@ -2067,16 +2067,16 @@ using std::max;
 
 // 多边形面积
 // 使用叉乘计算多边形面积，要求是给出的各点需要按逆时针或者顺时针排列
-//int xrr[105];
-//int yrr[105];
-//int n, s;
-//int minx = 300, miny = 300, maxx = -300, maxy = -300;
-//bool judge(int x, int y)
+// int xrr[105];
+// int yrr[105];
+// int n, s;
+// int minx = 300, miny = 300, maxx = -300, maxy = -300;
+// bool judge(int x, int y)
 //{
 
 //    return false;
 //}
-//int main()
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 0; i < n; ++i) {
@@ -2097,12 +2097,12 @@ using std::max;
 
 // 求和
 // 像这种很多项相加的题目，首先需要想到前缀和
-//int n;
-//long long brr[200005];
-//long long arr[200005]; // 存储前缀和
-//long long sum;
-//long long ans;
-//int main()
+// int n;
+// long long brr[200005];
+// long long arr[200005]; // 存储前缀和
+// long long sum;
+// long long ans;
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 1; i <= n; ++i) {
@@ -2121,9 +2121,9 @@ using std::max;
 
 // 选数异或
 // ^异或符号
-//long long n, m, x;
-//long long arr[300005];
-//int main()
+// long long n, m, x;
+// long long arr[300005];
+// int main()
 //{
 //    cin >> n >> m >> x;
 //    for (int i = 1; i <= n; ++i) {
@@ -2211,7 +2211,7 @@ using std::max;
 
 
 // 刷题统计
-//int main()
+// int main()
 //{
 //    long long a, b, n;
 //    cin >> a >> b >> n;
@@ -2234,7 +2234,7 @@ using std::max;
 // 修剪灌木
 // 感觉就是模拟，剪三趟出结果
 // 也可以找规律直接出结果
-//int main()
+// int main()
 //{
 //    int n;
 //    cin >> n;
@@ -2252,13 +2252,13 @@ using std::max;
 
 // x进制法
 // 过了50%
-//int n; // 表示最高进制
-//int mod = 1000000007;
-//int wa, wb;
-//int ma[100005];
-//int mb[100005];
-//int res[100005]; // 存储每一位的进制
-//int main()
+// int n; // 表示最高进制
+// int mod = 1000000007;
+// int wa, wb;
+// int ma[100005];
+// int mb[100005];
+// int res[100005]; // 存储每一位的进制
+// int main()
 //{
 //    cin >> n;
 //    cin >> wa;
@@ -2288,15 +2288,15 @@ using std::max;
 
 
 // 统计子矩阵
-//过了50%
-//int n, m; // n行m列
-//long long k;
+// 过了50%
+// int n, m; // n行m列
+// long long k;
 // 在一段区间内快速求和，首先想到前缀和
 // 并且前缀和相减最好是一个矩形的区间
-//int land[505][505];
-//int f[505][505]; // 存储前缀和
-//int cnt;
-//int main()
+// int land[505][505];
+// int f[505][505]; // 存储前缀和
+// int cnt;
+// int main()
 //{
 //    cin >> n >> m >> k;
 //    for (int i = 1; i <= n; ++i) {
@@ -2332,32 +2332,32 @@ using std::max;
 // 可以看出实际上就是5种摆法，然后直接搜索的话肯定超时，正确的做法应该是动规
 // 看题解
 //
-//long long mod = 1000000007;
-//long long n;
-//long long dp[10000005][3];    //dp[i][0]表示铺了i个并且上下都铺满，dp[i][1]表示上面差一个,dp[i][2]表示下面差一个
-//得到状态转移方程
-//dp[i][0] = dp[i-2][0] + dp[i-1][1] + dp[i-1][2] + dp[i-1][0]
-//dp[i][1] = dp[i-2][0] + dp[i-1][2]
-//dp[i][2] = dp[i-2][0] + dp[i-1][1]
+// long long mod = 1000000007;
+// long long n;
+// long long dp[10000005][3];    //dp[i][0]表示铺了i个并且上下都铺满，dp[i][1]表示上面差一个,dp[i][2]表示下面差一个
+// 得到状态转移方程
+// dp[i][0] = dp[i-2][0] + dp[i-1][1] + dp[i-1][2] + dp[i-1][0]
+// dp[i][1] = dp[i-2][0] + dp[i-1][2]
+// dp[i][2] = dp[i-2][0] + dp[i-1][1]
 
-//int main()
+// int main()
 //{
-//    cin >> n;
-//    dp[1][0] = 1;
-//    dp[2][1] = 1;
-//    dp[2][2] = 1;
-//    dp[0][0] = 1;
-//    dp[1][1] = 1;
-//    dp[1][2] = 1;
-//    dp[2][0] = 2;
-//    for (int i = 3; i <= n; ++i) {
-//        dp[i][0] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod + dp[i - 1][2] % mod + dp[i - 1][0]) % mod;
-//        dp[i][1] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod) % mod;
-//        dp[i][2] = (dp[i - 2][0] % mod + dp[i - 1][2] % mod) % mod;
-//    }
-//    cout << dp[n][0] << endl;
-//    return 0;
-//}
+//     cin >> n;
+//     dp[1][0] = 1;
+//     dp[2][1] = 1;
+//     dp[2][2] = 1;
+//     dp[0][0] = 1;
+//     dp[1][1] = 1;
+//     dp[1][2] = 1;
+//     dp[2][0] = 2;
+//     for (int i = 3; i <= n; ++i) {
+//         dp[i][0] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod + dp[i - 1][2] % mod + dp[i - 1][0]) % mod;
+//         dp[i][1] = (dp[i - 2][0] % mod + dp[i - 1][1] % mod) % mod;
+//         dp[i][2] = (dp[i - 2][0] % mod + dp[i - 1][2] % mod) % mod;
+//     }
+//     cout << dp[n][0] << endl;
+//     return 0;
+// }
 
 
 
@@ -2368,9 +2368,9 @@ using std::max;
 // （1）3及3以上的所有奇数都可以表示为两个平方数的差。
 // （2）8及8以上所有4k形式的偶数都可以表示为两个不同平方数的差。
 // （3）除(1)和(2)以外的其他正整数都不可能表示成两平方数的差。
-//long long cnt;
-//long long l, r;
-//int main()
+// long long cnt;
+// long long l, r;
+// int main()
 //{
 //    cin >> l >> r;
 //    // 先判断奇数有多少个
@@ -2401,9 +2401,9 @@ using std::max;
 // 思想是小结果影响大结果, 就是说当小的范围判定之后，只要大的范围是相等的，也是符合要求的
 // 方法是中心扩散
 // 直接暴力试试看
-//std::string num;
-//int cnt;
-//bool judge(int x, int y)
+// std::string num;
+// int cnt;
+// bool judge(int x, int y)
 //{
 //    while (x < y && num[x] <= num[y]) {
 //        if (num[x] < num[y]) {
@@ -2419,32 +2419,32 @@ using std::max;
 //    }
 //}
 
-//int main()
+// int main()
 //{
-//    std::ios::sync_with_stdio(false);
-//    cin.tie(0), cout.tie(0);
-//    cin >> num;
-//    for (int i = 0; i < num.size() - 1; ++i) {
-//        for (int j = i + 1; j < num.size(); ++j) {
-//            if (judge(i, j)) {
-//                ++cnt;
-//            }
-//        }
-//    }
-//    cout << cnt << endl;
-//    return 0;
-//}
+//     std::ios::sync_with_stdio(false);
+//     cin.tie(0), cout.tie(0);
+//     cin >> num;
+//     for (int i = 0; i < num.size() - 1; ++i) {
+//         for (int j = i + 1; j < num.size(); ++j) {
+//             if (judge(i, j)) {
+//                 ++cnt;
+//             }
+//         }
+//     }
+//     cout << cnt << endl;
+//     return 0;
+// }
 
 
 
 // 颜色平衡树
 // 感觉是从根部向上遍历
-//int n;
-//int c[200005]; // 存储每个节点的color
-//int f[200005]; // 存储每个节点的father
-//std::vector<int> dp[200005]; // 存储每个节点构成的树的节点颜色情况
-//int cnt;
-//int main()
+// int n;
+// int c[200005]; // 存储每个节点的color
+// int f[200005]; // 存储每个节点的father
+// std::vector<int> dp[200005]; // 存储每个节点构成的树的节点颜色情况
+// int cnt;
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -2475,10 +2475,10 @@ using std::max;
 
 // 单调队列
 // 快速求出每一段区间内的最值
-//std::deque<int> q;
-//int arr[100005];
-//int n, m;
-//int main()
+// std::deque<int> q;
+// int arr[100005];
+// int n, m;
+// int main()
 //{
 //    cin >> n >> m;
 //    for (int i = 0; i < n; ++i) {
@@ -2508,54 +2508,54 @@ using std::max;
 
 // 三国游戏
 // 过了100%
-//long long x, y, z;
-//int n;
-//struct Thing {
+// long long x, y, z;
+// int n;
+// struct Thing {
 //    int a;
 //    int b;
 //    int c;
 //};
-//int cnt;
-//Thing thing[100005];
-//bool compare1(const Thing& t1, const Thing& t2)
+// int cnt;
+// Thing thing[100005];
+// bool compare1(const Thing& t1, const Thing& t2)
 //{
 //    return t1.a - t1.b - t1.c > t2.a - t2.b - t2.c;
 //}
-//bool compare2(const Thing& t1, const Thing& t2)
+// bool compare2(const Thing& t1, const Thing& t2)
 //{
 //    return t1.b - t1.a - t1.c > t2.b - t2.a - t2.c;
 //}
-//bool compare3(const Thing& t1, const Thing& t2)
+// bool compare3(const Thing& t1, const Thing& t2)
 //{
 //    return t1.c - t1.a - t1.b > t2.c - t2.a - t2.b;
 //}
 
-//int main()
+// int main()
 //{
-//    cin >> n;
-//    for (int i = 0; i < n; ++i) {
-//        cin >> thing[i].a;
-//    }
-//    for (int i = 0; i < n; ++i) {
-//        cin >> thing[i].b;
-//    }
-//    for (int i = 0; i < n; ++i) {
-//        cin >> thing[i].c;
-//    }
-//    // 分三种情况讨论
-//    // 分别是魏国win,蜀国win,吴国win
-//    std::sort(thing, thing + n, compare1);
-//    x = y = z = 0;
-//    int i;
-//    for (i = 0; i < n; ++i) {
-//        x += thing[i].a;
-//        y += thing[i].b;
-//        z += thing[i].c;
-//        if (x <= y + z) {
-//            break;
-//        }
-//    }
-//    cnt = std::max(cnt, i);
+//     cin >> n;
+//     for (int i = 0; i < n; ++i) {
+//         cin >> thing[i].a;
+//     }
+//     for (int i = 0; i < n; ++i) {
+//         cin >> thing[i].b;
+//     }
+//     for (int i = 0; i < n; ++i) {
+//         cin >> thing[i].c;
+//     }
+//     // 分三种情况讨论
+//     // 分别是魏国win,蜀国win,吴国win
+//     std::sort(thing, thing + n, compare1);
+//     x = y = z = 0;
+//     int i;
+//     for (i = 0; i < n; ++i) {
+//         x += thing[i].a;
+//         y += thing[i].b;
+//         z += thing[i].c;
+//         if (x <= y + z) {
+//             break;
+//         }
+//     }
+//     cnt = std::max(cnt, i);
 
 //    std::sort(thing, thing + n, compare2);
 //    x = y = z = 0;
@@ -2617,9 +2617,9 @@ using std::max;
 
 // 翻转
 // 过了100%
-//std::string str1, str2;
-//int D;
-//int main()
+// std::string str1, str2;
+// int D;
+// int main()
 //{
 //    cin >> D;
 //    while (D--) {
@@ -2674,9 +2674,9 @@ using std::max;
 
 
 // 快速幂,求x的n次幂
-//long long x;
-//int n;
-//long long my_pow(int x, int n)
+// long long x;
+// int n;
+// long long my_pow(int x, int n)
 //{
 //    if (n > 1) {
 //        long long tmp = my_pow(x, n / 2);
@@ -2690,13 +2690,13 @@ using std::max;
 //    }
 //}
 
-//int main()
+// int main()
 //{
-//    cin >> x >> n;
-//    long long res = my_pow(x, n);
-//    cout << res <<endl;
-//    return 0;
-//}
+//     cin >> x >> n;
+//     long long res = my_pow(x, n);
+//     cout << res <<endl;
+//     return 0;
+// }
 
 
 
@@ -2704,7 +2704,7 @@ using std::max;
 // floodfill算法
 // 本质是在找性质相同的一个连通块
 // dfs
-//int main()
+// int main()
 //{
 
 //    return 0;
@@ -2715,68 +2715,304 @@ using std::max;
 
 // 拉马车
 // 模拟
-std::string str1, str2;
-std::vector<char> v1, v2, v3;
-void judge(std::vector<char>& v, std::vector<char>& v_add)
-{
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] == v[v.size() - 1]) {
-            for (int k = v.size() - 1; k >= i; --k) {
-                v_add.push_back(v[k]);
-            }
-            v.erase(v.begin() + i, v.end());
-            break;
-        }
-    }
-}
-int main()
-{
-    cin >> str1 >> str2;
-    for (int i = 0; i < str1.length(); ++i) {
-        v1.push_back(str1[i]);
-    }
-    for (int i = 0; i < str1.length(); ++i) {
-        v2.push_back(str2[i]);
-    }
-    while (v1.size() > 0 && v2.size() > 0) {
-        char temp = v1[0];
-        v1.erase(v1.begin());
-        v3.push_back(temp);
-        judge(v3, v1);
-        if (v1.size() == 0) {
-            break;
-        }
-//        cout << "111:  ";
+// 通过100%
+// std::string str1, str2;
+// std::vector<char> v1, v2, v3;
+// bool judge(std::vector<char>& v, std::vector<char>& v_add)
+//{
+//    for (int i = v.size() - 2; i >= 0; --i) {
+//        if (v[i] == v[v.size() - 1]) {
+//            for (int k = v.size() - 1; k >= i; --k) {
+//                v_add.push_back(v[k]);
+//            }
+//            v.erase(v.begin() + i, v.end());
+//            return true;
+//        }
+//    }
+//    return false;
+//}
+// int main()
+//{
+//    cin >> str1 >> str2;
+//    for (int i = 0; i < str1.length(); ++i) {
+//        v1.push_back(str1[i]);
+//    }
+//    for (int i = 0; i < str1.length(); ++i) {
+//        v2.push_back(str2[i]);
+//    }
+//    bool f2 = false; // 记录b有没有赢牌
+//    while (v1.size() > 0 && v2.size() > 0) {
+//        // A出牌
+//        if (!f2) {
+//            char temp = v1[0];
+//            v1.erase(v1.begin());
+//            v3.push_back(temp);
+//            if (judge(v3, v1)) {
+//                continue;
+//            }
+//            if (v1.size() == 0) {
+//                break;
+//            }
+//        }
+//        //        cout << "111:  ";
+//        //        for (const char& e : v1) {
+//        //            cout << e;
+//        //        }
+//        //        cout << endl;
+//        // B出牌
+//        f2 = false;
+//        char temp = v2[0];
+//        v2.erase(v2.begin());
+//        v3.push_back(temp);
+//        if (f2 = judge(v3, v2)) {
+//            f2 = true;
+//            continue;
+//        }
+//        if (v2.size() == 0) {
+//            break;
+//        }
+//        //        cout << "222:  ";
+//        //        for (const char& e : v2) {
+//        //            cout << e;
+//        //        }
+//        //        cout << endl;
+//    }
+//    if (v1.size()) {
 //        for (const char& e : v1) {
 //            cout << e;
 //        }
-//        cout << endl;
-        temp = v2[0];
-        v2.erase(v2.begin());
-        v3.push_back(temp);
-        judge(v3, v2);
-        if (v2.size() == 0) {
-            break;
-        }
-//        cout << "222:  ";
+//    } else {
 //        for (const char& e : v2) {
 //            cout << e;
 //        }
-//        cout << endl;
-    }
-    if (v1.size()) {
-        for (const char& e : v1) {
-            cout << e;
-        }
-    } else {
-        for (const char& e : v2) {
-            cout << e;
-        }
-    }
-    cout << endl;
+//    }
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+
+
+
+// 取模
+// 直接暴力感觉会超时
+// 这题还没有写完
+// 方法是中国剩余定理
+// int n, m;
+// int main()
+//{
+//    int T;
+//    cin >> T;
+//    while (T--) {
+//        bool f = false;
+//        cin >> n >> m;
+//        for (int i = 1; i <= m; ++i) {
+//            int mod = n % i;
+//            if ((n - mod) / i <= m) {
+//                f = true;
+//                break;
+//            }
+//        }
+//        if (f) {
+//            cout << "Yes" << endl;
+//        } else {
+//            cout << "No" << endl;
+//        }
+//    }
+//    return 0;
+//}
+
+
+
+// 出差
+// 过了65%
+// int n, m; // 城市数量，路线数量
+// int times[1005]; // 每个城市需要隔离的时间
+// int route[1005][1005]; // 为0表示路线不通，>0表示通过的时间
+// int sum_time[1005]; // 记录到达每个城市需要花费的路线时间和隔离时间
+// int visit[1005];
+// int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> m;
+//    int temp = n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> times[i];
+//    }
+//    for (int i = 1; i <= m; ++i) {
+//        int u, v, c;
+//        cin >> u >> v >> c;
+//        route[u][v] = route[v][u] = c;
+//    }
+//    // 使用最短路径的算法
+//    visit[1] = 1;
+//    memset(sum_time, 127, sizeof(sum_time));
+//    sum_time[1] = 0;
+//    int u = 1;
+//    while (--temp) {
+//        int min_now = 10e9;
+//        int min_now_u = 0;
+//        for (int i = 2; i <= n; ++i) {
+//            // 没有是已经最优并且路径可通
+//            if (!visit[i] && route[u][i] > 0) {
+//                if (i != n) {
+//                    sum_time[i] = std::min(sum_time[i], sum_time[u] + times[i] + route[u][i]);
+//                    if (sum_time[i] < min_now) {
+//                        min_now = sum_time[i];
+//                        min_now_u = i;
+//                    }
+//                } else {
+//                    sum_time[i] = std::min(sum_time[i], sum_time[u] + route[u][i]);
+//                    if (sum_time[i] < min_now) {
+//                        min_now = sum_time[i];
+//                        min_now_u = i;
+//                    }
+//                }
+//            }
+//        }
+//        visit[min_now_u] = 1; // 标记为已经是最优
+//        u = min_now_u; // 标记为下次的起点
+//    }
+//    if (n == 0) {
+//        cout << 0 << endl;
+//    } else {
+//        cout << sum_time[n] << endl;
+//    }
+//    return 0;
+//}
+
+
+// 单源最短路径，迪杰斯拉算法
+// 发现全部超时
+// int n, m, s; // n个点,m条边,s为出发点
+// int visit[100005]; // 某个点是否已经是最优
+// int d[100005]; // 到达某个点的距离
+// struct Edge {
+//    int v;
+//    int d;
+//};
+// std::list<Edge> edges[100005]; // 记录以每个点为起点的所有边
+// int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n >> m >> s;
+//    memset(d, 127, sizeof(d));
+//    for (int i = 0; i < m; ++i) {
+//        Edge e;
+//        int u;
+//        cin >> u >> e.v >> e.d;
+//        edges[u].push_back(e);
+//    }
+//    memset(d, 127, sizeof(d));
+//    //    cout << "d[3] = " << d[3] << endl;
+//    d[s] = 0;
+//    visit[s] = 1;
+//    int temp = n;
+//    while (--temp) {
+//        int now_d = 10e9;
+//        int now_d_u;
+//        for (int i = 1; i <= n; ++i) {
+//            if (!visit[i]) {
+//                for (Edge& e : edges[s]) {
+//                    d[e.v] = std::min(d[e.v], d[s] + e.d);
+////                    cout << "d[e.v] = " << d[e.v] << endl;
+//                    if (now_d > d[e.v]) {
+//                        now_d = d[e.v];
+//                        now_d_u = e.v;
+//                    }
+//                }
+//            }
+//        }
+//        s = now_d_u; // 更新出发点
+//        visit[now_d_u] = 1; // 表示已经是最优
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        cout << d[i] << " ";
+//    }
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+
+// 别人的迪杰斯拉算法,学习用
+// int head[100000],cnt;
+// long long ans[1000000];
+// bool vis[1000000];
+// int m,n,s;
+// struct edge
+//{
+//     int to;
+//     int nextt;
+//     int wei;
+// }edge[1000000];
+// void addedge(int x,int y,int z)
+//{
+//     edge[++cnt].to=y;
+//     edge[cnt].wei=z;
+//     edge[cnt].nextt=head[x];
+//     head[x]=cnt;
+// }
+// int main()
+//{
+//     cin>>m>>n>>s;
+//     for(int i=1;i<=n;i++)
+//     {
+//         ans[i]=2147483647;
+//     }
+//     ans[s]=0;
+//     for(int i=1;i<=n;i++)
+//     {
+//         int a,b,c;
+//         cin>>a>>b>>c;
+//         addedge(a,b,c);
+//     }
+//     int pos=s;
+//     while(vis[pos]==0)
+//     {
+//         long long minn=2147483647;
+//         vis[pos]=1;
+//         for(int i=head[pos];i!=0;i=edge[i].nextt)
+//         {
+//             if(!vis[edge[i].to]&&ans[edge[i].to]>ans[pos]+edge[i].wei)
+//             {
+//                 ans[edge[i].to]=ans[pos]+edge[i].wei;
+//             }
+//         }
+//         for(int i=1;i<=m;i++)
+//         {
+//             if(ans[i]<minn&&vis[i]==0)
+//             {
+//                 minn=ans[i];
+//                 pos=i;
+//             }
+//         }
+//     }
+//     for(int i=1;i<=m;i++)
+//     {
+//         cout<<ans[i]<<' ';
+//     }
+// }
+
+
+
+
+// 灌水
+int main()
+{
+
 
     return 0;
 }
+
+
+
+
+
 
 
 
