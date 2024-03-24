@@ -2649,6 +2649,7 @@ using std::max;
 
 
 
+
 // 子矩阵
 // 使用单调队列
 // int mod = 998244353;
@@ -2826,13 +2827,13 @@ using std::max;
 
 
 // 出差
-// 过了65%
-// int n, m; // 城市数量，路线数量
-// int times[1005]; // 每个城市需要隔离的时间
-// int route[1005][1005]; // 为0表示路线不通，>0表示通过的时间
-// int sum_time[1005]; // 记录到达每个城市需要花费的路线时间和隔离时间
-// int visit[1005];
-// int main()
+// 过了100%
+//int n, m; // 城市数量，路线数量
+//int times[1005]; // 每个城市需要隔离的时间
+//int route[1005][1005]; // 为0表示路线不通，>0表示通过的时间
+//int sum_time[1005]; // 记录到达每个城市需要花费的路线时间和隔离时间
+//int visit[1005];
+//int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -2859,17 +2860,15 @@ using std::max;
 //            if (!visit[i] && route[u][i] > 0) {
 //                if (i != n) {
 //                    sum_time[i] = std::min(sum_time[i], sum_time[u] + times[i] + route[u][i]);
-//                    if (sum_time[i] < min_now) {
-//                        min_now = sum_time[i];
-//                        min_now_u = i;
-//                    }
 //                } else {
 //                    sum_time[i] = std::min(sum_time[i], sum_time[u] + route[u][i]);
-//                    if (sum_time[i] < min_now) {
-//                        min_now = sum_time[i];
-//                        min_now_u = i;
-//                    }
 //                }
+//            }
+//        }
+//        for (int i = 2; i <= n;++i){
+//            if(sum_time[i] < min_now && !visit[i]){
+//                min_now = sum_time[i];
+//                min_now_u = i;
 //            }
 //        }
 //        visit[min_now_u] = 1; // 标记为已经是最优
@@ -2886,15 +2885,16 @@ using std::max;
 
 // 单源最短路径，迪杰斯拉算法
 // 发现全部超时
-// int n, m, s; // n个点,m条边,s为出发点
-// int visit[100005]; // 某个点是否已经是最优
-// int d[100005]; // 到达某个点的距离
-// struct Edge {
+//int cannot = 2139062143;
+//int n, m, s; // n个点,m条边,s为出发点
+//int visit[10005]; // 某个点是否已经是最优
+//int d[10005]; // 到达某个点的距离
+//struct Edge {
 //    int v;
 //    int d;
 //};
-// std::list<Edge> edges[100005]; // 记录以每个点为起点的所有边
-// int main()
+//std::list<Edge> edges[10005]; // 记录以每个点为起点的所有边
+//int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -2914,23 +2914,27 @@ using std::max;
 //    while (--temp) {
 //        int now_d = 10e9;
 //        int now_d_u;
+//        // 遍历所有从s出发的边
+//        for (Edge& e : edges[s]) {
+//            if (visit[e.v] == 0) {
+//                d[e.v] = std::min(d[e.v], d[s] + e.d);
+//            }
+//        }
 //        for (int i = 1; i <= n; ++i) {
-//            if (!visit[i]) {
-//                for (Edge& e : edges[s]) {
-//                    d[e.v] = std::min(d[e.v], d[s] + e.d);
-////                    cout << "d[e.v] = " << d[e.v] << endl;
-//                    if (now_d > d[e.v]) {
-//                        now_d = d[e.v];
-//                        now_d_u = e.v;
-//                    }
-//                }
+//            if (!visit[i] && d[i] < now_d) {
+//                now_d = d[i];
+//                now_d_u = i;
 //            }
 //        }
 //        s = now_d_u; // 更新出发点
 //        visit[now_d_u] = 1; // 表示已经是最优
 //    }
 //    for (int i = 1; i <= n; ++i) {
-//        cout << d[i] << " ";
+//        if (d[i] == cannot) {
+//            cout << (long long)(std::pow(2, 31) - 1) << " ";
+//        } else {
+//            cout << d[i] << " ";
+//        }
 //    }
 //    cout << endl;
 
@@ -2940,44 +2944,43 @@ using std::max;
 
 
 // 别人的迪杰斯拉算法,学习用
-// int head[100000],cnt;
-// long long ans[1000000];
-// bool vis[1000000];
-// int m,n,s;
-// struct edge
+//主要就是模拟链表的方式，所有链表的头存放在head[100000]数组中
+//int head[100000], cnt;
+//long long ans[1000000];
+//bool vis[1000000];
+//int m, n, s;
+//struct edge {
+//    int to; // 表示边的终点
+//    int nextt; // 上一条边的索引
+//    int wei; // 权重
+//} edge[1000000];
+//void addedge(int x, int y, int z)
 //{
-//     int to;
-//     int nextt;
-//     int wei;
-// }edge[1000000];
-// void addedge(int x,int y,int z)
+//    edge[++cnt].to = y;
+//    edge[cnt].wei = z;
+//    edge[cnt].nextt = head[x];    //记录上一条边的编号
+//    head[x] = cnt;     //head[x] = cnt 表示以x为起点的边的最后一条边的编号
+//}
+//int main()
 //{
-//     edge[++cnt].to=y;
-//     edge[cnt].wei=z;
-//     edge[cnt].nextt=head[x];
-//     head[x]=cnt;
-// }
-// int main()
-//{
-//     cin>>m>>n>>s;
-//     for(int i=1;i<=n;i++)
-//     {
-//         ans[i]=2147483647;
+//    cin >> m >> n >> s; // 输入点的个数，边的个数，出发点的编号
+//    for (int i = 1; i <= m; i++) {
+//        ans[i] = 2147483647; // ans存放到到每一个点的距离，一开始初始化为无穷大
+//    }
+//    ans[s] = 0;
+//    for (int i = 1; i <= n; i++) {
+//        int a, b, c;      //a到b长为c的路
+//        cin >> a >> b >> c;
+//        addedge(a, b, c);
 //     }
-//     ans[s]=0;
-//     for(int i=1;i<=n;i++)
-//     {
-//         int a,b,c;
-//         cin>>a>>b>>c;
-//         addedge(a,b,c);
-//     }
-//     int pos=s;
+//     int pos=s;     //记录每次的出发点
 //     while(vis[pos]==0)
 //     {
 //         long long minn=2147483647;
-//         vis[pos]=1;
+//         vis[pos]=1;    //表示当前的pos点已经是最优的状态了
 //         for(int i=head[pos];i!=0;i=edge[i].nextt)
 //         {
+//             //遍历所有起点为pos的边，直到0表示结束
 //             if(!vis[edge[i].to]&&ans[edge[i].to]>ans[pos]+edge[i].wei)
 //             {
 //                 ans[edge[i].to]=ans[pos]+edge[i].wei;
@@ -2985,6 +2988,7 @@ using std::max;
 //         }
 //         for(int i=1;i<=m;i++)
 //         {
+//             //找出这一轮的遍历中最近的点
 //             if(ans[i]<minn&&vis[i]==0)
 //             {
 //                 minn=ans[i];
@@ -3002,27 +3006,158 @@ using std::max;
 
 
 // 灌水
+// 深搜
+// 通过,答案为541
+//std::string land[32];
+//int dx[4] = { 1, 0, -1, 0 };
+//int dy[4] = { 0, 1, 0, -1 };
+
+//void dfs(int x, int y)
+//{
+
+//    for (int i = 0; i < 4; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 0 && xx < 30 && yy >= 0 && yy < 40 && land[xx][yy] == '0') {
+//            land[xx][yy] = '2';
+//            dfs(xx, yy);
+//        }
+//    }
+//}
+//int main()
+//{
+//    for (int i = 0; i < 30; ++i) {
+//        cin >> land[i];
+//    }
+//    land[0][0] = '2';
+//    dfs(0, 0);
+//    int cnt = 0;
+//    for (int i = 0; i < 30; ++i) {
+//        for (int j = 0; j < 40; ++j) {
+//            if (land[i][j] == '2') {
+//                ++cnt;
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+// 包子凑数
+// 通过率100
+//int n;
+//int arr[105];
+//int dp[30005]; // dp[i]=1表示能够凑出i个包子，否则表示凑不出i个包子
+//int cnt;
+// // 求最大公因数
+//int gcd(int x, int y)
+//{
+//    return y == 0 ? x : gcd(y, x % y);
+//}
+// // 求所有数字的最大公因数
+//int all_gcd()
+//{
+//    int res = arr[1];
+//    for (int i = 2; i <= n; ++i) {
+//        res = gcd(res, arr[i]);
+//    }
+//    return res;
+//}
+
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        dp[arr[i]] = 1;
+//    }
+//    if (all_gcd() != 1) {
+//        cout << "INF" << endl;
+//        return 0;
+//    }
+//    dp[0] = 1;
+//    for (int i = 1; i <= 30000; ++i) {
+//        for (int j = 1; j <= i / 2; ++j) {
+//            if (dp[j] != 0 && dp[i - j] != 0) {
+//                dp[i] = 1;
+//            }
+//        }
+//    }
+//    for (int i = 1; i <= 30000; ++i) {
+//        if (dp[i] == 0) {
+//            ++cnt;
+
+//        }
+//    }
+//    cout << cnt << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 最大子段和
+// 一般的想法就是当前的维护的字段<=0的时候将其丢弃，但是情况只存在于至少有一个正数
+//int n;
+//int arr[200005];
+//int main()
+//{
+//    cin >> n;
+//    bool f = false;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        if (arr[i] > 0) {
+//            f = true;
+//        }
+//    }
+//    if (!f) {
+//        int max_x = -10e9;
+//        for (int i = 1; i <= n; ++i) {
+//            max_x = std::max(max_x, arr[i]);
+//        }
+//        cout << max_x << endl;
+//        return 0;
+//    }
+//    int s = 0; // 记录当前维护的字段的和
+//    int ss = 0; // 记录最终输出的结果
+//    for (int i = 1; i <= n; ++i) {
+//        s += arr[i];
+//        ss = std::max(ss, s - arr[i]);
+//        if (s <= 0) {
+//            s = 0;
+//        } else {
+//        }
+//    }
+//    ss = std::max(ss, s);
+//    cout << ss << endl;
+//    return 0;
+//}
+
+
+
+// 油漆面积
+// 感觉暴力可以拿部分分数
+int n;
+struct Rectangle {
+    int x1, y1, x2, y2;
+};
+Rectangle r[10005];
+long long squre;    //面积
 int main()
 {
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> r[i].x1 >> r[i].y1 >> r[i].x2 >> r[i].y2;
+//        for(int j)
+    }
+    for (int i = 1; i <= n;++i){
 
-
+    }
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
