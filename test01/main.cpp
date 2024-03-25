@@ -26,6 +26,7 @@ using std::max;
 // int w; // 多少组数据
 // int n; // 每次的比赛时长
 // string str;  //输入的字符串
+// string str;  //输入的字符串
 // int main()
 //{
 //    cin >> w;
@@ -3137,27 +3138,412 @@ using std::max;
 //}
 
 
+// 线段树
+// 与二叉树不同的是
+// 线段树的每个节点表示一个区间
+// 根节点是最大的那个区间
+// 叶子节点是区间为1的节点
+//int main()
+//{
+
+
+//    return 0;
+//}
+
+
 
 // 油漆面积
 // 感觉暴力可以拿部分分数
-int n;
-struct Rectangle {
-    int x1, y1, x2, y2;
-};
-Rectangle r[10005];
-long long squre;    //面积
+// 方法是线段树
+//int n;
+//struct Rectangle {
+//    int x1, y1, x2, y2;
+//};
+//Rectangle r[10005];
+//long long squre;    //面积
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> r[i].x1 >> r[i].y1 >> r[i].x2 >> r[i].y2;
+//        for(int j)
+//    }
+//    for (int i = 1; i <= n;++i){
+
+//    }
+//    return 0;
+//}
+
+
+
+// 低价购买
+// 思路是最长下降子序列
+// 只过了30%,我的思路是把所有的list存起来统一去重
+//int n;
+//int arr[5005];
+//int dp[5005]; // dp[i]表示以i为结尾的种类数
+//int qz[5005];
+//std::vector<std::list<int>> list_vector;
+//int isDelete[10000];
+//bool isSame(const std::list<int>& list1,const std::list<int>& list2)
+//{
+//    // 首先比较两个列表的大小，如果不同，直接返回false
+//    if (list1.size() != list2.size()) {
+//        return false;
+//    }
+//    return std::equal(list1.begin(), list1.end(), list2.begin());
+//}
+
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        dp[i] = 1;
+//    }
+//    int max_l = 0; // 记录当前的最大长度
+//    for (int i = 2; i <= n; ++i) {
+//        for (int j = 1; j < i; ++j) {
+//            if (arr[j] > arr[i] && dp[i] <= dp[j] + 1) {
+//                dp[i] = dp[j] + 1;
+//                qz[i] = j;
+//                int k = i;
+//                std::list<int> temp_list;
+//                temp_list.push_back(arr[i]);
+//                if (dp[i] == max_l) {
+//                    while (qz[k]) { // 构造一个列表
+//                        temp_list.push_back(arr[qz[k]]);
+//                        k = qz[k];
+//                    }
+//                    list_vector.push_back(temp_list); // 将列表加入到set中
+//                } else if (dp[i] > max_l) {
+//                    list_vector.clear();
+//                    max_l = dp[i];
+//                    while (qz[k]) { // 构造一个列表
+//                        temp_list.push_back(arr[qz[k]]);
+//                        k = qz[k];
+//                    }
+//                    list_vector.push_back(temp_list); // 将列表加入到set中
+//                }
+//            }
+//        }
+//    }
+//    int len = 0;
+//    for (int i = 1; i <= n; ++i) {
+//        len = std::max(len, dp[i]);
+//    }
+
+//    for (int i = 0; i < list_vector.size(); ++i) {
+//        for (int j = i + 1; j < list_vector.size(); ++j) {
+//            if (!isDelete[i] && !isDelete[j] && isSame(list_vector[i], list_vector[j])) {
+//                isDelete[j] = 1; // 删除一个列表
+//            }
+//        }
+//    }
+//    int cnt = 0;
+//    for (int i = 0; i < 10000; ++i) {
+//        if (isDelete[i]) {
+//            ++cnt;
+//        }
+//    }
+//    cout << len << " " << list_vector.size() - cnt << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 低价购买(重置版)
+// 这里的思路是将t数组(存放种数的数组，也当作一个dp来做)
+// int n;
+// int arr[5005];
+// int dp[5005]; // dp[i]表示以i为结尾的最大长度
+// int t[5005]; // 记录以i为结尾的种类数
+
+// int main()
+//{
+//     cin >> n;
+//     for (int i = 1; i <= n; ++i) {
+//         cin >> arr[i];
+//     }
+//     int max_l = 0; // 记录当前的最大长度
+//     for (int i = 1; i <= n; ++i) {
+//         for (int j = 1; j < i; ++j) {
+//             if (arr[j] > arr[i] && dp[i] <= dp[j] + 1) {
+//                 dp[i] = dp[j] + 1;
+//             }
+//         }
+//         if (dp[i] == 0) {
+//             dp[i]++;
+//         }
+//         if (dp[i] > max_l) {
+//             max_l = dp[i];
+//         }
+//         for (int j = 1; j < i; ++j) {
+//             if (dp[i] == dp[j] && arr[i] == arr[j]) {
+//                 t[j] = 0;
+
+//            } else if (dp[i] == dp[j] + 1 && arr[i] < arr[j]) {
+//                t[i] += t[j];
+//            }
+//        }
+//        if (t[i] == 0) {
+//            t[i] = 1;
+//        }
+//    }
+
+//    int sum = 0;
+//    for (int i = 1; i <= n; i++) {
+//        if (dp[i] == max_l) {
+//            sum += t[i];
+//        }
+//    }
+//    cout << max_l << " " << sum << endl;
+
+
+//    return 0;
+//}
+
+
+
+// 回文数
+// 模拟
+// 过了 75%
+// int n;
+// std::string m; // n进制，数m
+// char ch[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+// void change(char& c)
+//{
+//    if (c == 'a') {
+//        c = '9' + 1;
+//    }
+//    if (c == 'b') {
+//        c = '9' + 2;
+//    }
+//    if (c == 'c') {
+//        c = '9' + 3;
+//    }
+//    if (c == 'd') {
+//        c = '9' + 4;
+//    }
+//    if (c == 'e') {
+//        c = '9' + 5;
+//    }
+//    if (c == 'f') {
+//        c = '9' + 6;
+//    }
+//}
+
+// string getRes(string str)
+//{
+//     string str1;
+//     for (int i = str.length() - 1; i >= 0; --i) {
+//         str1.push_back(str[i]);
+//     }
+//     string res;
+//     res.push_back('0');
+//     // 得到和
+//     for (int i = 0; i < str.length(); ++i) {
+//         change(str[i]);
+//         change(str1[i]);
+//         int c = str[i] - '0' + str1[i] - '0' + res[i] - '0';
+//         //        cout << str[i] << "  " << str1[i] << "  " << res[i] << endl;
+//         //        cout << "c = " << c << endl;
+//         if (c >= n) {
+//             c = c - n;
+//             res[i] = ch[c];
+//             res.push_back('1');
+//         } else {
+//             res[i] = ch[c];
+//             res.push_back('0');
+//         }
+//     }
+//     string res1;
+//     for (int i = res.length() - 1; i >= 0; --i) {
+//         if (res.length() - 1 == i && res[i] == '0') {
+//             continue;
+//         }
+//         res1.push_back(res[i]);
+//     }
+//     return res1;
+// }
+
+// bool judge(const string& str)
+//{
+
+//    int l = 0;
+//    int r = str.length() - 1;
+//    while (l < r) {
+//        if (str[l] != str[r]) {
+//            break; // 不是回文
+//        }
+//        ++l;
+//        --r;
+//    }
+//    return l >= r;
+//}
+
+// void test01()
+//{
+//     n = 16;
+//     //    string str = ""
+// }
+
+// int main()
+//{
+//     cin >> n >> m;
+//     int i;
+//     if (judge(m)) {
+//         cout << 0 << endl;
+//         return 0;
+//     }
+//     for (i = 0; i < 30; ++i) {
+//         string res = getRes(m); // 得到结果
+//         m = res;
+//         if (judge(res)) {
+//             break; // 找到
+//         }
+//     }
+//     if (i >= 30) {
+//         cout << "Impossible!" << endl;
+//     } else {
+//         cout << "STEP=" << i + 1 << endl;
+//     }
+
+//    return 0;
+//}
+
+
+
+// 方格取数
+// 感觉就是暴力破解,模拟走两次，每次走都按最多的选
+// 贪心的思想,过了20%,但是具体的思想应该不是贪心
+// int dx[2] = { 0, 1 };
+// int dy[2] = { 1, 0 };
+// int n;
+// int arr[10][10]; // 地图
+// std::vector<int> max_v;    //存储最大路径的vector
+// void dfs(int x, int y, std::vector<int>& v)
+//{
+//    if (v.size() > 0) {
+//        cout << "当前首个是:" << v[0] << "   " << v[1] << endl;
+//    }
+//    if (x == n && y == n) {
+//        int max_now = 0;
+//        for (int e : max_v) {
+//            max_now += e;
+//        }
+//        int sum = 0;
+//        for (int e : v) {
+//            sum += e;
+//        }
+//        if (sum > max_now) {
+//            max_now = sum;
+//            max_v = v;
+//        }
+//    }
+//    for (int i = 0; i < 2; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 1 && xx <= n && yy >= 1 && yy <= n) {
+//            if (arr[xx][yy] != 0) {
+////                cout << "加入" << arr[xx][yy] << endl;
+//                v.push_back(xx);
+//                v.push_back(yy);
+//                v.push_back(arr[xx][yy]);
+//            }
+//            dfs(xx, yy, v);
+//            if (arr[xx][yy] != 0) {
+//                v.pop_back();
+//                v.pop_back();
+//                v.pop_back();
+//            }
+//        }
+//    }
+//}
+
+
+// int main()
+//{
+//     int ssum = 0;
+//     cin >> n;
+//     while (1) {
+//         int x, y, c;
+//         cin >> x >> y >> c;
+//         if (x == 0 && y == 0 && c == 0) {
+//             break;
+//         }
+//         arr[x][y] = c;
+//     }
+//     // 在深搜的过程中，如果取到了最优解，需要将最优解所带的数字删除
+//     // 第一次深搜
+//     std::vector<int> v;
+//     if (arr[0][0] != 0) {
+//         v.push_back(0);
+//         v.push_back(0);
+//         v.push_back(arr[0][0]);
+//     }
+//     dfs(1, 1, v);
+//     int yx, yy;
+//     for (int i = 0; i < max_v.size(); ++i) {
+//         if (i % 3 == 0) {
+//             yx = max_v[i];
+//         }
+//         if (i % 3 == 1) {
+//             yy = max_v[i];
+//         }
+//         if (i % 3 == 2) {
+//             ssum += max_v[i];
+//             arr[yx][yy] = 0;
+//         }
+//     }
+//     // 第二次深搜
+//     max_v.clear();
+//     dfs(1, 1, v);
+//     for (int i = 0; i < max_v.size(); ++i) {
+//         if (i % 3 == 0) {
+//             yx = max_v[i];
+//         }
+//         if (i % 3 == 1) {
+//             yy = max_v[i];
+//         }
+//         if (i % 3 == 2) {
+//             ssum += max_v[i];
+//             arr[yx][yy] = 0;
+//         }
+//     }
+//     cout << ssum << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 九宫幻方
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i) {
-        cin >> r[i].x1 >> r[i].y1 >> r[i].x2 >> r[i].y2;
-//        for(int j)
-    }
-    for (int i = 1; i <= n;++i){
 
-    }
+
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
