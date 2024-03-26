@@ -3683,9 +3683,99 @@ using std::max;
 
 
 
+// 穿越雷区
+// 最短路径，选择广搜
+// 通过100%,题目给的意思不是很清楚，实际上交替通过都是可以的
+//int n;
+//char strs[105][105];
+//int xa, ya, xb, yb;
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//int visit[105][105];
+//struct Point {
+//    int x;
+//    int y;
+//    Point(int zx, int zy)
+//    {
+//        x = zx;
+//        y = zy;
+//    }
+//};
+//std::queue<Point> que;
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < n; ++j) {
+//            cin >> strs[i][j];
+//        }
+//    }
+
+
+//    // 找a点和b点的位置
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < n; ++j) {
+//            if (strs[i][j] == 'A') {
+//                xa = i;
+//                ya = j;
+//            }
+//            if (strs[i][j] == 'B') {
+//                xb = i;
+//                yb = j;
+//            }
+//        }
+//    }
+//    // 开始广搜
+//    bool f = false;
+//    que.push(Point(xa, ya));
+//    visit[xa][ya] = 1;
+//    while (!que.empty()) {
+//        Point p = que.front();
+//        que.pop();
+//        for (int i = 0; i < 4; ++i) {
+//            int xx = p.x + dx[i];
+//            int yy = p.y + dy[i];
+//            if (xx >= 0 && xx < n && yy >= 0 && yy < n && !visit[xx][yy]) {
+//               if (strs[xx][yy] == 'B') {
+//                    f = true; // 表示找到了
+//                    visit[xx][yy] = visit[p.x][p.y] + 1;
+//                    while (!que.empty()) {
+//                        que.pop(); // 清空队列
+//                    }
+//                    break;
+//                }else if(strs[p.x][p.y] != strs[xx][yy]){
+//                    visit[xx][yy] = visit[p.x][p.y] + 1;
+//                    que.push(Point(xx, yy));
+//               }
+//            }
+//        }
+//    }
+//    if (f) {
+//        cout << visit[xb][yb] - 1 << endl;
+//    } else {
+//        cout << -1 << endl;
+//    }
+//    return 0;
+//}
 
 
 
+
+// 广度优先搜索再学习
+
+
+
+
+
+
+// 密码脱落
+string str;
+int main()
+{
+    cin >> str;
+
+    return 0;
+}
 
 
 
