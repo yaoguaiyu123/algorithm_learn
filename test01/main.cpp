@@ -22,6 +22,8 @@ using std::max;
 #include <queue>
 #include <set>
 
+
+
 // 问题解决日志
 // int w; // 多少组数据
 // int n; // 每次的比赛时长
@@ -2829,12 +2831,12 @@ using std::max;
 
 // 出差
 // 过了100%
-//int n, m; // 城市数量，路线数量
-//int times[1005]; // 每个城市需要隔离的时间
-//int route[1005][1005]; // 为0表示路线不通，>0表示通过的时间
-//int sum_time[1005]; // 记录到达每个城市需要花费的路线时间和隔离时间
-//int visit[1005];
-//int main()
+// int n, m; // 城市数量，路线数量
+// int times[1005]; // 每个城市需要隔离的时间
+// int route[1005][1005]; // 为0表示路线不通，>0表示通过的时间
+// int sum_time[1005]; // 记录到达每个城市需要花费的路线时间和隔离时间
+// int visit[1005];
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -2886,16 +2888,16 @@ using std::max;
 
 // 单源最短路径，迪杰斯拉算法
 // 发现全部超时
-//int cannot = 2139062143;
-//int n, m, s; // n个点,m条边,s为出发点
-//int visit[10005]; // 某个点是否已经是最优
-//int d[10005]; // 到达某个点的距离
-//struct Edge {
+// int cannot = 2139062143;
+// int n, m, s; // n个点,m条边,s为出发点
+// int visit[10005]; // 某个点是否已经是最优
+// int d[10005]; // 到达某个点的距离
+// struct Edge {
 //    int v;
 //    int d;
 //};
-//std::list<Edge> edges[10005]; // 记录以每个点为起点的所有边
-//int main()
+// std::list<Edge> edges[10005]; // 记录以每个点为起点的所有边
+// int main()
 //{
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
@@ -2945,24 +2947,24 @@ using std::max;
 
 
 // 别人的迪杰斯拉算法,学习用
-//主要就是模拟链表的方式，所有链表的头存放在head[100000]数组中
-//int head[100000], cnt;
-//long long ans[1000000];
-//bool vis[1000000];
-//int m, n, s;
-//struct edge {
+// 主要就是模拟链表的方式，所有链表的头存放在head[100000]数组中
+// int head[100000], cnt;
+// long long ans[1000000];
+// bool vis[1000000];
+// int m, n, s;
+// struct edge {
 //    int to; // 表示边的终点
 //    int nextt; // 上一条边的索引
 //    int wei; // 权重
 //} edge[1000000];
-//void addedge(int x, int y, int z)
+// void addedge(int x, int y, int z)
 //{
 //    edge[++cnt].to = y;
 //    edge[cnt].wei = z;
 //    edge[cnt].nextt = head[x];    //记录上一条边的编号
 //    head[x] = cnt;     //head[x] = cnt 表示以x为起点的边的最后一条边的编号
 //}
-//int main()
+// int main()
 //{
 //    cin >> m >> n >> s; // 输入点的个数，边的个数，出发点的编号
 //    for (int i = 1; i <= m; i++) {
@@ -3009,11 +3011,11 @@ using std::max;
 // 灌水
 // 深搜
 // 通过,答案为541
-//std::string land[32];
-//int dx[4] = { 1, 0, -1, 0 };
-//int dy[4] = { 0, 1, 0, -1 };
+// std::string land[32];
+// int dx[4] = { 1, 0, -1, 0 };
+// int dy[4] = { 0, 1, 0, -1 };
 
-//void dfs(int x, int y)
+// void dfs(int x, int y)
 //{
 
 //    for (int i = 0; i < 4; ++i) {
@@ -3025,7 +3027,7 @@ using std::max;
 //        }
 //    }
 //}
-//int main()
+// int main()
 //{
 //    for (int i = 0; i < 30; ++i) {
 //        cin >> land[i];
@@ -3048,17 +3050,17 @@ using std::max;
 
 // 包子凑数
 // 通过率100
-//int n;
-//int arr[105];
-//int dp[30005]; // dp[i]=1表示能够凑出i个包子，否则表示凑不出i个包子
-//int cnt;
+// int n;
+// int arr[105];
+// int dp[30005]; // dp[i]=1表示能够凑出i个包子，否则表示凑不出i个包子
+// int cnt;
 // // 求最大公因数
-//int gcd(int x, int y)
+// int gcd(int x, int y)
 //{
 //    return y == 0 ? x : gcd(y, x % y);
 //}
 // // 求所有数字的最大公因数
-//int all_gcd()
+// int all_gcd()
 //{
 //    int res = arr[1];
 //    for (int i = 2; i <= n; ++i) {
@@ -3067,28 +3069,28 @@ using std::max;
 //    return res;
 //}
 
-//int main()
+// int main()
 //{
-//    cin >> n;
-//    for (int i = 1; i <= n; ++i) {
-//        cin >> arr[i];
-//        dp[arr[i]] = 1;
-//    }
-//    if (all_gcd() != 1) {
-//        cout << "INF" << endl;
-//        return 0;
-//    }
-//    dp[0] = 1;
-//    for (int i = 1; i <= 30000; ++i) {
-//        for (int j = 1; j <= i / 2; ++j) {
-//            if (dp[j] != 0 && dp[i - j] != 0) {
-//                dp[i] = 1;
-//            }
-//        }
-//    }
-//    for (int i = 1; i <= 30000; ++i) {
-//        if (dp[i] == 0) {
-//            ++cnt;
+//     cin >> n;
+//     for (int i = 1; i <= n; ++i) {
+//         cin >> arr[i];
+//         dp[arr[i]] = 1;
+//     }
+//     if (all_gcd() != 1) {
+//         cout << "INF" << endl;
+//         return 0;
+//     }
+//     dp[0] = 1;
+//     for (int i = 1; i <= 30000; ++i) {
+//         for (int j = 1; j <= i / 2; ++j) {
+//             if (dp[j] != 0 && dp[i - j] != 0) {
+//                 dp[i] = 1;
+//             }
+//         }
+//     }
+//     for (int i = 1; i <= 30000; ++i) {
+//         if (dp[i] == 0) {
+//             ++cnt;
 
 //        }
 //    }
@@ -3102,9 +3104,9 @@ using std::max;
 
 // 最大子段和
 // 一般的想法就是当前的维护的字段<=0的时候将其丢弃，但是情况只存在于至少有一个正数
-//int n;
-//int arr[200005];
-//int main()
+// int n;
+// int arr[200005];
+// int main()
 //{
 //    cin >> n;
 //    bool f = false;
@@ -3143,7 +3145,7 @@ using std::max;
 // 线段树的每个节点表示一个区间
 // 根节点是最大的那个区间
 // 叶子节点是区间为1的节点
-//int main()
+// int main()
 //{
 
 
@@ -3155,13 +3157,13 @@ using std::max;
 // 油漆面积
 // 感觉暴力可以拿部分分数
 // 方法是线段树
-//int n;
-//struct Rectangle {
+// int n;
+// struct Rectangle {
 //    int x1, y1, x2, y2;
 //};
-//Rectangle r[10005];
-//long long squre;    //面积
-//int main()
+// Rectangle r[10005];
+// long long squre;    //面积
+// int main()
 //{
 //    cin >> n;
 //    for (int i = 1; i <= n; ++i) {
@@ -3179,13 +3181,13 @@ using std::max;
 // 低价购买
 // 思路是最长下降子序列
 // 只过了30%,我的思路是把所有的list存起来统一去重
-//int n;
-//int arr[5005];
-//int dp[5005]; // dp[i]表示以i为结尾的种类数
-//int qz[5005];
-//std::vector<std::list<int>> list_vector;
-//int isDelete[10000];
-//bool isSame(const std::list<int>& list1,const std::list<int>& list2)
+// int n;
+// int arr[5005];
+// int dp[5005]; // dp[i]表示以i为结尾的种类数
+// int qz[5005];
+// std::vector<std::list<int>> list_vector;
+// int isDelete[10000];
+// bool isSame(const std::list<int>& list1,const std::list<int>& list2)
 //{
 //    // 首先比较两个列表的大小，如果不同，直接返回false
 //    if (list1.size() != list2.size()) {
@@ -3194,44 +3196,44 @@ using std::max;
 //    return std::equal(list1.begin(), list1.end(), list2.begin());
 //}
 
-//int main()
+// int main()
 //{
-//    cin >> n;
-//    for (int i = 1; i <= n; ++i) {
-//        cin >> arr[i];
-//        dp[i] = 1;
-//    }
-//    int max_l = 0; // 记录当前的最大长度
-//    for (int i = 2; i <= n; ++i) {
-//        for (int j = 1; j < i; ++j) {
-//            if (arr[j] > arr[i] && dp[i] <= dp[j] + 1) {
-//                dp[i] = dp[j] + 1;
-//                qz[i] = j;
-//                int k = i;
-//                std::list<int> temp_list;
-//                temp_list.push_back(arr[i]);
-//                if (dp[i] == max_l) {
-//                    while (qz[k]) { // 构造一个列表
-//                        temp_list.push_back(arr[qz[k]]);
-//                        k = qz[k];
-//                    }
-//                    list_vector.push_back(temp_list); // 将列表加入到set中
-//                } else if (dp[i] > max_l) {
-//                    list_vector.clear();
-//                    max_l = dp[i];
-//                    while (qz[k]) { // 构造一个列表
-//                        temp_list.push_back(arr[qz[k]]);
-//                        k = qz[k];
-//                    }
-//                    list_vector.push_back(temp_list); // 将列表加入到set中
-//                }
-//            }
-//        }
-//    }
-//    int len = 0;
-//    for (int i = 1; i <= n; ++i) {
-//        len = std::max(len, dp[i]);
-//    }
+//     cin >> n;
+//     for (int i = 1; i <= n; ++i) {
+//         cin >> arr[i];
+//         dp[i] = 1;
+//     }
+//     int max_l = 0; // 记录当前的最大长度
+//     for (int i = 2; i <= n; ++i) {
+//         for (int j = 1; j < i; ++j) {
+//             if (arr[j] > arr[i] && dp[i] <= dp[j] + 1) {
+//                 dp[i] = dp[j] + 1;
+//                 qz[i] = j;
+//                 int k = i;
+//                 std::list<int> temp_list;
+//                 temp_list.push_back(arr[i]);
+//                 if (dp[i] == max_l) {
+//                     while (qz[k]) { // 构造一个列表
+//                         temp_list.push_back(arr[qz[k]]);
+//                         k = qz[k];
+//                     }
+//                     list_vector.push_back(temp_list); // 将列表加入到set中
+//                 } else if (dp[i] > max_l) {
+//                     list_vector.clear();
+//                     max_l = dp[i];
+//                     while (qz[k]) { // 构造一个列表
+//                         temp_list.push_back(arr[qz[k]]);
+//                         k = qz[k];
+//                     }
+//                     list_vector.push_back(temp_list); // 将列表加入到set中
+//                 }
+//             }
+//         }
+//     }
+//     int len = 0;
+//     for (int i = 1; i <= n; ++i) {
+//         len = std::max(len, dp[i]);
+//     }
 
 //    for (int i = 0; i < list_vector.size(); ++i) {
 //        for (int j = i + 1; j < list_vector.size(); ++j) {
@@ -3522,24 +3524,162 @@ using std::max;
 
 
 // 九宫幻方
-int main()
-{
+// 找到规律
+// 感觉直接暴力就行了
+// 过了75%
+// 题解基本是全排列的思路
+// int arr[4][4];
+// int dj[10] = { 0, 9, 8, 7, 6, 5, 4, 3, 2, 1 }; // 存储对角
+// int main()
+//{
+//    memset(arr, 0, sizeof(arr));
+//    for (int i = 1; i <= 3; ++i) {
+//        for (int j = 1; j <= 3; ++j) {
+//            cin >> arr[i][j];
+//        }
+//    }
+//    arr[2][2] = 5;
+//    // 更新对角
+//    for (int i = 1; i <= 3; ++i) {
+//        for (int j = 1; j <= 3; ++j) {
+//            if (arr[i][j]) {
+//                arr[4 - i][4 - j] = dj[arr[i][j]];
+//            }
+//        }
+//    }
+
+//    // 更新每一行每一列每一斜行
+//    int xx = 1;
+//    while (xx) {
+//        for (int i = 1; i <= 3; ++i) {
+//            int count = 0, sum = 0;
+//            int tj;
+//            for (int j = 1; j <= 3; ++j) {
+//                if (arr[i][j] == 0) {
+//                    tj = j;
+//                } else {
+//                    ++count;
+//                }
+//                sum += arr[i][j];
+//            }
+//            if (count == 2) {
+//                arr[i][tj] = 15 - sum;
+//                xx = 2;
+//            }
+//        }
 
 
-    return 0;
-}
+//        for (int i = 1; i <= 3; ++i) {
+//            int count = 0, sum = 0;
+//            int tj;
+//            for (int j = 1; j <= 3; ++j) {
+//                if (arr[j][i] == 0) {
+//                    tj = j;
+//                } else {
+//                    ++count;
+//                }
+//                sum += arr[j][i];
+//            }
+//            if (count == 2) {
+//                arr[tj][i] = 15 - sum;
+//                xx = 2;
+//            }
+//        }
+
+//        int count = 0, sum = 0, ti;
+//        for (int i = 1; i <= 3; ++i) {
+//            if (arr[i][i] == 0) {
+//                ti = i;
+//            } else {
+//                ++count;
+//            }
+//            sum += arr[i][i];
+//        }
+//        if (count == 2) {
+//            arr[ti][ti] = 15 - sum;
+//            xx = 2;
+//        }
+
+//        count = 0, sum = 0;
+//        for (int i = 1; i <= 3; ++i) {
+//            if (arr[i][4 - i] == 0) {
+//                ti = i;
+//            } else {
+//                ++count;
+//            }
+//            sum += arr[i][4 - i];
+//        }
+//        if (count == 2) {
+//            arr[ti][4 - ti] = 15 - sum;
+//            xx = 2;
+//        }
+//        --xx;
+//    }
+//    int count = 0;
+//    for (int i = 1; i <= 3; ++i) {
+//        for (int j = 1; j <= 3; ++j) {
+//            if (arr[i][j]) {
+//                ++count;
+//            }
+//        }
+//    }
+//    if (count < 9) {
+//        cout << "Too Many" << endl;
+//    } else {
+//        for (int i = 1; i <= 3; ++i) {
+//            for (int j = 1; j <= 3; ++j) {
+//                cout << arr[i][j] << " ";
+//            }
+//            cout << endl;
+//        }
+//    }
+//    return 0;
+//}
 
 
 
 
 
 
+// 导弹拦截
+// 感觉是暴力
+// 暴力不行
+//int x1, y_1, x2, y2;
+//int n;
+//int x[100005];
+//int y[100005];
+//struct Dis {
+//    int d1 = 0, d2 = 0;
+//};
+//Dis dis[100005];
+//bool compare(const Dis& a, const Dis& b)
+//{
+//    return a.d1 < b.d1;
+//}
 
-
-
-
-
-
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> x1 >> y_1 >> x2 >> y2;
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> x[i] >> y[i];
+//        dis[i].d1 = std::pow(x[i] - x1, 2) + std::pow(y[i] - y_1, 2);
+//        dis[i].d2 = std::pow(x[i] - x2, 2) + std::pow(y[i] - y2, 2);
+//    }
+//    std::sort(dis + 1, dis + n + 1, compare);
+//    int xt1 = dis[n].d1, xt2 = 0, ans = dis[n].d1;
+//    // 逐渐判断是不是能更小
+//    // 逐渐缩小系统1的范围，调大系统2的范围，看看是不是有种方法能达到最优，本质还是枚举
+//    for (int i = n; i > 0; --i) {
+//        xt1 = dis[i - 1].d1;
+//        xt2 = std::max(dis[i].d2, xt2);
+//        ans = std::min(ans, xt1 + xt2);
+//    }
+//    cout << ans << endl;
+//    return 0;
+//}
 
 
 
