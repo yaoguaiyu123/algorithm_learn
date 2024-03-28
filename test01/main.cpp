@@ -1332,6 +1332,7 @@ using std::max;
 // 基本思路就是暴力，找当前所有人依次判断是否能组成一队
 // 通过一个链表串联起来
 // 实际上这种思路是不够严谨的，能过40%已经很不错了
+// judge函数挑选与当前group中不认识的人加入
 // void judge(std::list<int>& group, int index)
 //{
 //    for (int i = index; i <= n; ++i) {
@@ -1354,11 +1355,11 @@ using std::max;
 
 // int main()
 //{
-//     cin >> n >> m;   //n个人，m行数据
+//     cin >> n >> m; // n个人，m行数据
 //     for (int i = 0; i < m; ++i) {
 //         int a, b;
 //         cin >> a >> b;
-//         land[a][b] = land[b][a] = 1;   //两个人认识标记为1
+//         land[a][b] = land[b][a] = 1; // 两个人认识标记为1
 //     }
 //     for (int i = 1; i <= n; ++i) { // 依次遍历n个人
 //         if (!visit[i]) {
@@ -1372,6 +1373,57 @@ using std::max;
 //     return 0;
 // }
 
+
+
+// 分考场再战
+// 过了100%
+// 总之，就是当一个学生面临多个考场或者一个考场可以去的时候，都要分情况讨论要不要去，还是自己重新再开一个考场
+//int n, m;
+//int cnt;
+//int minN = 105;
+//int land[105][105];
+//int mp[105][105]; // mp[i][j]表示第i个考场的第j个同学的编号
+//void dfs(int x, int y)
+//{
+//    // 所有同学已经分配完毕
+//    if (x > n) {
+//        minN = std::min(y, minN);
+//        return;
+//    }
+//    if (y > minN) {
+//        return;
+//    }
+//    // 遍历每一个考场
+//    for (int i = 1; i <= y; ++i) {
+//        // 遍历每一个考场里面的每一个人
+//        int j = 1;
+//        while (mp[i][j] && land[mp[i][j]][x] == 0) {
+//            ++j;
+//        }
+//        // 如果没有认识的人
+//        if (!mp[i][j]) {
+//            mp[i][j] = x;
+//            dfs(x + 1, y);
+//            mp[i][j] = 0;
+//        }
+//    }
+//    // 自己新开一个考场
+//    mp[y + 1][1] = x;
+//    dfs(x + 1, y + 1);
+//    mp[y + 1][1] = 0;
+//}
+//int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 0; i < m; ++i) {
+//        int u, v;
+//        cin >> u >> v;
+//        land[u][v] = land[v][u] = 1;
+//    }
+//    dfs(1, 0); // 第1个同学，此时有0个考场
+//    cout << minN << endl;
+//    return 0;
+//}
 
 
 
@@ -3766,16 +3818,96 @@ using std::max;
 
 
 
+// 最长公共子串
+// 要求动态规划，第一步就是求状态转移方程和basecase
+// 这里要求的是两个字符串的公共子串，得到dp 是dp[i][j]
+// dp[i][j] 表示第一个子串以第i个字符结尾，第二个子串以第j个字符结尾的最长公共子串
+// 然后求状态转移方程
+// dp[i][j] = dp[i-1][j -1] + 1
+// 最后是base case,即dp[i][0] = dp[0][j] = 0
+//int dp[1000][1000];
+//std::string str1, str2;
+//int main()
+//{
+//    int m, n;
+//    cin >> str1 >> str2;
+//    str1.insert(0, " ");
+//    str2.insert(0, " ");
+//    m = str1.length() - 1;
+//    n = str2.length() - 1;
+//    int maxl = 0;
+//    for (int i = 1; i <= m; ++i) {
+//        for (int j = 1; j <= n; ++j) {
+//            if (str1[i] == str2[j]) {
+//                dp[i][j] = dp[i - 1][j - 1] + 1;
+//                maxl = std::max(maxl, dp[i][j]);
+//            }
+//        }
+//    }
+//    cout << maxl << endl;
+//    return 0;
+//}
+
+
+
+// 最长公共子序列
+// dp[i][j] 表示第一个字符串以i为截止,第二个字符串以j为截止,得到的最长公共子序列
+// 状态转移方程就是，如果str[i] == str[j] ,dp[i][j] = dp[i - 1][j - 1] + 1
+// 如果str[i] != str[j] dp[i][j] = max(dp[i][j-1],dp[i-1][j])
+//int dp[1005][1005];
+//std::string str1, str2;
+//int main()
+//{
+//    int m, n;
+//    cin >> str1 >> str2;
+//    str1.insert(0, " ");
+//    str2.insert(0, " ");
+//    m = str1.length() - 1;
+//    n = str2.length() - 1;
+//    for (int i = 1; i <= m; ++i) {
+//        for (int j = 1; j <= n; ++j) {
+//            if (str1[i] == str1[j]) {
+//                dp[i][j] = dp[i - 1][j - 1] + 1;
+//            } else {
+//                dp[i][j] = std::max(dp[i - 1][j], dp[i][j - 1]);
+//            }
+//        }
+//    }
+//    cout << dp[m][n] << endl;
+//    return 0;
+//}
 
 
 // 密码脱落
-string str;
-int main()
-{
-    cin >> str;
+// 本质上是最长公共子序列问题，
+// 求出str1和str2的最长公共子序列，要增加的字符的数量就是这当前长度减去
+// 求出的最长公共子序列的长度
+// 过了100%
+//int dp[1000][1000];
+//string str1, str2;
+//int main()
+//{
+//    cin >> str1;
+//    int n = str1.length();
+//    for (int i = n - 1; i >= 0; --i) {
+//        str2.push_back(str1[i]);
+//    }
+//    str1.insert(0, " ");
+//    str2.insert(0, " ");
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= n; ++j) {
+//            if (str1[i] == str2[j]) {
+//                dp[i][j] = dp[i - 1][j - 1] + 1;
+//            } else {
+//                dp[i][j] = std::max(dp[i - 1][j], dp[i][j - 1]);
+//            }
+//        }
+//    }
+//    cout << n - dp[n][n] << endl;
 
-    return 0;
-}
+
+//    return 0;
+//}
 
 
 
