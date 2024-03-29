@@ -18,10 +18,11 @@ using std::max;
 #include <limits>
 #include <list>
 #include <stack>
-#include <deque>
+#include <deque>     //双向的队列
 #include <queue>
 #include <set>
-
+#include <ctime>
+#include <cstdlib>
 
 
 // 问题解决日志
@@ -3908,6 +3909,276 @@ using std::max;
 
 //    return 0;
 //}
+
+
+
+
+// 整数删除
+// 使用log n的方法锁定最小值的下标 (优先队列 或者 线段树)
+// 这里使用优先队列锁定最小值的下标
+// 使用链表来维护所有的答案序列
+//typedef long long LL;
+//typedef std::pair<LL, int> PLT; // 这个pair第一位用来维护值，第二位用来维护下标
+//int n, k;
+//const int MAX_N = 5e5 + 5;
+//LL arr[MAX_N];
+//int pre[MAX_N], next_1[MAX_N];
+//std::priority_queue<PLT> q; // 创建一个优先队列
+
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    int n;
+//    cin >> n >> k;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        pre[i] = i - 1;
+//        next_1[i] = i + 1;
+//        q.push({ -arr[i], -i }); // 初始化优先队列
+//    }
+//    pre[1] = -1;
+//    next_1[n] = -1;
+//    while (k--) {
+//        PLT now;
+//        //
+//        do {
+//            now = q.top();
+//            q.pop();
+//            now.second = -now.second;
+//            now.first = -now.first;
+//        } while (arr[now.second] != now.first);
+//        int Pre = pre[now.second];
+//        int Next = next_1[now.second];
+//        if (Pre != -1) {
+//            arr[Pre] += now.first;
+//            q.push({ -arr[Pre], -Pre });
+//            next_1[Pre] = Next;
+//        }
+//        if (Next != -1) {
+//            arr[Next] += now.first;
+//            q.push({ -arr[Next], -Next });
+//            pre[Next] = Pre;
+//        }
+//        arr[now.second] = -1;
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        if (arr[i] != -1) {
+//            cout << arr[i] << " ";
+//        }
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+// 上一题使用了优先队列
+// 这里学习一下优先队列的api
+// 优先队列是一种特殊的队列，其中每个元素都有一定的优先级，
+// 元素被按优先级顺序处理，优先级最高的元素最先被移除。
+// 在 std::priority_queue 中，默认情况下，元素是根据
+// 它们的值进行排序的，值最大的元素被视为优先级最高。
+// 优先队列通常用来做变化的序列最小值的查找
+// std::pair<int, int> Pair;
+//std::priority_queue<int> que_int;
+//std::priority_queue<std::pair<int, int>> que_pair;
+//创建一个优先队列，元素是int类型的，底层容器是vector(也是默认的),使用std::greater作为比较函数
+//std::priority_queue<int,std::vector<int>,std::greater<int>> que_int_1;
+
+//int main()
+//{
+//    srand(static_cast<unsigned int>(time(0)));
+//    //如果是int的priority，就会按照int的值从大到小排序
+//    cout << "que_int的测试" << endl;
+//    for (int i = 0; i < 100; ++i) {
+//        que_int.push(rand() % 100);
+//    }
+//    for (int i = 0; i < 100; ++i) {
+//        cout << que_int.top() << " ";
+//        que_int.pop();
+//    }
+//    cout << endl;
+//    //如果是std::pair的priority,就会按照pair.first从大到小排序
+//    cout << "que_pair的测试" << endl;
+//    for (int i = 0; i < 100; ++i) {
+//        que_pair.push({ rand() % 100, rand() % 100 });
+//    }
+//    for (int i = 0; i < 100; ++i) {
+//        cout << que_pair.top().first << " " << que_pair.top().second << endl;
+//        que_pair.pop();
+//    }
+//    cout << endl;
+
+//    cout << "que_int_1的测试" << endl;
+//        for (int i = 0; i < 100; ++i) {
+//        que_int_1.push(rand() % 100);
+//    }
+//    for (int i = 0; i < 100; ++i) {
+//        cout << que_int_1.top() << " ";
+//        que_int_1.pop();
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+
+
+// 景区导游
+// 只过了30%
+//int n, k; // n个景点，编号从1到n
+//int arr[100005];
+//int visit[100005];
+//struct Dest {
+//    int v;
+//    int t;
+//    Dest(int wv, int wt)
+//        : v(wv)
+//        , t(wt)
+//    {
+//        ;
+//    }
+//};
+//std::list<Dest> lists[100005]; // 存放所有路线
+// 求从u到v
+//void dfs(int u, int v, int t, int& r)
+//{
+//    for (const Dest& e : lists[u]) {
+//        if (e.v == v) {
+//            // 找到终点
+//            r = t + e.t;
+//            //            cout << "return "<< v << " " << r  << endl;
+//            return;
+//        } else if (visit[e.v] == 0) {
+//            visit[e.v] = 1;
+//            dfs(e.v, v, t + e.t, r);
+//            visit[e.v] = 0;
+//        }
+//    }
+//}
+
+//int main()
+//{
+//    cin >> n >> k; // n个景点,k个今天要浏览的景点
+//    for (int i = 1; i <= n - 1; ++i) {
+//        int u, v, t;
+//        cin >> u >> v >> t;
+//        lists[u].push_back(Dest(v, t)); // 初始化路线
+//        lists[v].push_back(Dest(u, t)); // 初始化路线
+//    }
+//    for (int i = 1; i <= k; ++i) {
+//        cin >> arr[i]; // 输入要浏览的景点的编号
+//    }
+//    // 遍历丢弃什么节点
+//    for (int i = 1; i <= k; ++i) {
+//        int sumt = 0;
+//        // 遍历所有要走的节点
+//        for (int j = 1; j <= k; ++j) {
+//            if (j == i) {
+//                continue;
+//            }
+//            if (j + 1 == i) {
+//                if (j + 2 > k) {
+//                    break;
+//                }
+//                // 直接走下下个景点
+//                int u = arr[j];
+//                int v = arr[j + 2];
+//                visit[u] = 1;
+//                int res = 0;
+//                dfs(u, v, 0, res); // 深搜寻找路线
+//                sumt += res;
+//                visit[u] = 0;
+
+//            } else {
+//                int u = arr[j];
+//                int v = arr[j + 1];
+//                visit[u] = 1;
+//                int res = 0;
+//                dfs(u, v, 0, res);
+//                sumt += res;
+//                visit[u] = 0;
+//            }
+//        }
+//        cout << sumt << " ";
+//    }
+//    cout << endl;
+//    return 0;
+//}
+
+
+
+
+// 最大比例
+// 只过了50%,有机会再看看
+//int n;
+//std::vector<int> arr;
+//int gcd(int x, int y)
+//{
+//    if (x % y == 0) {
+//        return y;
+//    } else {
+//        return gcd(y, x % y);
+//    }
+//}
+//int main()
+//{
+
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        int t;
+//        cin >> t;
+//        arr.push_back(t);
+//    }
+//    int l, r;
+//    double smin = 10e9;
+//    std::sort(arr.begin(), arr.end());
+//    int len = arr.size();
+//    for (int i = 1; i < len; ++i) {
+//        if (arr[i] == arr[i - 1]) {
+//            arr.erase(arr.begin() + i, arr.begin() + i + 1); // 删除第i个
+//            --i;
+//            --len;
+//        }
+//    }
+
+//    len = arr.size();
+//    for (int i = 0; i < len - 1; ++i) {
+//        if (double(arr[i + 1]) / arr[i] < smin) {
+//            smin = double(arr[i + 1]) / arr[i];
+//            l = i;
+//            r = i + 1;
+//        }
+//    }
+//    // 求arr[l] ,arr[r]的最大公因数
+//    int res = gcd(arr[l], arr[r]);
+//    cout << arr[r] / res << "/" << arr[l] / res << endl;
+//    return 0;
+//}
+
+
+
+// 全球变暖
+//int main()
+//{
+
+//    return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
