@@ -23,6 +23,7 @@ using std::max;
 #include <set>
 #include <ctime>
 #include <cstdlib>
+#include <cstdio>
 
 
 // 问题解决日志
@@ -4161,11 +4162,237 @@ using std::max;
 
 
 // 全球变暖
+// 通过100%
+//int n;
+//std::string land[1005];
+//int visit[1005][1005];
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//bool judge(int x, int y)
+//{
+//    if (land[x - 1][y] == '#' && land[x + 1][y] == '#' && land[x][y + 1] == '#' && land[x][y - 1] == '#') {
+//        return true;
+//    }
+//    return false;
+//}
+
+//void dfs(int x, int y, bool& f)
+//{
+//    // 查看是否不会淹没
+//    if (judge(x, y)) {
+//        f = true;
+//    }
+//    for (int i = 0; i < 4; ++i) {
+//        int xx = x + dx[i];
+//        int yy = y + dy[i];
+//        if (xx >= 0 && xx < n && yy >= 0 && yy < n && !visit[xx][yy] && land[xx][yy] == '#') {
+//            visit[xx][yy] = 1;
+//            dfs(xx, yy, f);
+//        }
+//    }
+//}
+//int cnt;
 //int main()
 //{
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> land[i];
+//    }
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < n; ++j) {
+//            if (land[i][j] == '#' && !visit[i][j]) {
+//                bool f = false;
+//                ++cnt; // 岛屿数量+1
+//                visit[i][j] == 1;
+//                dfs(i, j, f);
+//                if (f) {   //如果不会淹没就--
+//                    --cnt;
+//                }
+//            }
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+///dp路径问题
+
+// 不同路径
+// dp的经典
+// 1.状态表示，以i,j为结尾时，走到i,j的时候，一共多少种方式
+// 2.状态转移方程，走到[i,j]位置的时候，一共有多少种方式
+//  dp[i][j] = dp[i-1][j] + dp[i][j-1]
+//int dp[505][505];
+//int main()
+//{
+//    int n, m;
+//    cin >> n >> m;
+//    dp[0][1] = 1;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+//            printf("dp[%d][%d] = %d\n", i, j, dp[i][j]);
+//        }
+//    }
+//    cout << dp[n][m] << endl;
 
 //    return 0;
 //}
+
+
+// 不同路径2
+//int dp[505][505];
+//int main()
+//{
+//    int n, m;
+//    int x, y; // 障碍物坐标
+//    cin >> n >> m >> x >> y;
+//    dp[0][1] = 1;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            if (i == x && j == y) {
+//                continue;
+//            }
+//            dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+
+//            //            printf("dp[%d][%d] = %d\n", i, j, dp[i][j]);
+//        }
+//    }
+//    cout << dp[n][m] << endl;
+//    return 0;
+//}
+
+
+
+// 礼物最大价值
+//int dp[505][505];
+//int arr[505][505];
+//int main()
+//{
+//    int n, m;
+//    cin >> n >> m;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            cin >> arr[i][j];
+//        }
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            dp[i][j] = std::max(dp[i][j - 1] + arr[i][j], dp[i - 1][j] + arr[i][j]);
+//        }
+//    }
+//    cout << dp[n][m] << endl;
+//    return 0;
+//}
+
+
+/// dp简单多状态
+// 按摩师
+// 每个位置可以选或者不选
+// dp[i]表示前i个的最大时长
+// 又划分为两个状态
+// f[i]表示选择到i位置的时候，nums[i]必选
+// g[i]表示选择到i位置的时候，nums[i]不选
+//int n;
+//int arr[50005];
+//int f[50005];
+//int g[50005];
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    f[1] = arr[1];
+//    for (int i = 2; i <= n; ++i) {
+//        f[i] = g[i - 1] + arr[i];    //选的转移方程
+//        g[i] = std::max(f[i - 1], g[i - 1]);   //不选的转移方程
+//    }
+//    cout << std::max(f[n], g[n]) <<endl;
+//    return 0;
+//}
+
+
+
+// 打家劫舍
+// int n;
+// int arr[5005];
+// int f[5005]; // f[i]表示选择到i位置的时候，nums[i]必选
+// int g[5005];
+// int main()
+//{
+//    // 唯一的不同就是加了一个环形，只要加一个特判就行了
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    // 假设先偷1位置的
+//    f[3] = arr[3];
+//    // 把2位置和n位置的刨除在外
+//    for (int i = 4; i < n; ++i) {
+//        f[i] = g[i - 1] + arr[i];
+//        g[i] = std::max(f[i - 1], g[i - 1]);
+//    }
+//    int x1 = arr[1] + std::max(f[n - 1], g[n - 1]);
+//    // 不偷1位置,那么2到n就随便了
+//    memset(f, 0, sizeof(f));
+//    memset(g, 0, sizeof(g));
+//    f[2] = arr[2];
+//    for (int i = 3; i <= n; ++i) {
+//        f[i] = g[i - 1] + arr[i];
+//        g[i] = std::max(f[i - 1], g[i - 1]);
+//    }
+//    int x2 = std::max(g[n], f[n]);
+
+//    cout << std::max(x1, x2) << endl;
+//    return 0;
+//}
+
+
+
+
+// 菜药,dp练手
+//int T, M;
+//int t[105], w[105];
+//int dp[1005][105]; // dp[i][j]表示在i分钟时间限制的情况下,对于前j个药材的最大价值
+//int main()
+//{
+//    cin >> T >> M;
+//    for (int i = 1; i <= M; ++i) {
+//        cin >> t[i] >> w[i];
+//    }
+//    for (int i = 1; i <= M; ++i) {
+//        for (int j = 1; j <= T; ++j) {
+//            if (j >= t[i]) {
+//                dp[j][i] = std::max(dp[j][i - 1], dp[j - t[i]][i - 1] + w[i]);
+//            } else {
+//                dp[j][i] = dp[j][i - 1];
+//            }
+//        }
+//    }
+//    cout << dp[T][M] << endl;
+//    return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
