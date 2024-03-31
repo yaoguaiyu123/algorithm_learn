@@ -4379,7 +4379,167 @@ using std::max;
 
 
 
+// 删数并获得点数
+//const int Max = 5e5 + 5;
+//int arr[Max]; // arr[i]表示i这个数字出现的总和
+//int f[Max]; // f[i]表示必选这个数
+//int g[Max]; // g[i]表示不选这个数
+//int main()
+//{
+//    int n;
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        int a;
+//        cin >> a;
+//        arr[a] += a;
+//    }
+//    for (int i = 1; i <= Max; ++i) {
+//        f[i] = g[i - 1] + arr[i];
+//        g[i] = std::max(g[i - 1], f[i - 1]);
+//    }
+//    cout << std::max(f[Max], g[Max]) << endl;
 
+//    return 0;
+//}
+
+
+
+
+// 最佳买卖股票时机含冷冻期
+// 1.状态表示的思路(经验+题目要求)
+// 以某一个位置为结尾....
+// dp[i]表示第i天结束的时候所能拿到的最大利润
+// dp[i]可以继续细分(持股，未持股，冷冻)
+// dp[i][0]表示第i天结束处于持股状态
+// dp[i][1]表示第i天结束处于未持股状态
+// dp[i][2]表示第i天结束处于冷冻状态
+//  2.状态转移方程
+//  dp[i][0] = std::max(dp[i - 1][0],dp[i - 1][1] - arr[i])
+//  dp[i][1] = std::max(dp[i - 1][1],dp[i - 1][2])
+//  dp[i][2] = dp[i - 1][0] + arr[i]
+//int dp[100005][3];
+//int arr[100005];
+//int main()
+//{
+//    int n;
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    dp[1][0] = -arr[1];
+//    dp[1][1] = 0;
+//    for (int i = 2; i <= n; ++i) {
+//        dp[i][0] = std::max(dp[i - 1][0], dp[i - 1][1] - arr[i]);
+//        dp[i][1] = std::max(dp[i - 1][1], dp[i - 1][2]);
+//        dp[i][2] = dp[i - 1][0] + arr[i];
+//    }
+//    cout << std::max(dp[n][0], std::max(dp[n][1], dp[n][2])) << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 过河卒,dp练手
+//int dx[8] = { -1, -1, -2, -2, 1, 1, 2, 2 };
+//int dy[8] = { -2, 2, -1, 1, 2, -2, 1, -1 };
+//int land[30][30];
+//int n, m, hx, hy;
+//long long dp[30][30]; // dp[i][j]表示到达i,j时的路线
+//int main()
+//{
+//    cin >> n >> m >> hx >> hy;
+//    land[hx][hy] = 1;
+//    for (int i = 0; i < 8; ++i) {
+//        int xx = hx + dx[i];
+//        int yy = hy + dy[i];
+//        if (xx >= 0 && xx <= n && yy >= 0 && yy <= m) {
+//            land[xx][yy] = 1;
+//        }
+//    }
+//    for (int i = 0; i <= n; ++i) {
+//        if (land[i][0] == 1) {
+//            break;
+//        }
+//        dp[i][0] = 1;
+//    }
+//    for (int i = 0; i <= m; ++i) {
+//        if (land[0][i] == 1) {
+//            break;
+//        }
+//        dp[0][i] = 1;
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            if (land[i][j] == 0) {
+//                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+//            }
+//        }
+//    }
+//    cout << dp[n][m] << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 滑雪,dp练手
+//int n, m;
+//int land[105][105];
+//struct Point {
+//    int x;
+//    int y;
+//    int h;
+//    Point(int i, int j, int w_h)
+//        : x(i)
+//        , y(j)
+//        , h(w_h)
+//    {
+//        ;
+//    }
+//};
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//std::vector<Point> points;
+//bool compare(const Point& p1, const Point& p2)
+//{
+//    return p1.h > p2.h;
+//}
+
+//int dp[105][105]; // dp[i][j]表示滑到i,j位置时的最大距离
+//int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            cin >> land[i][j];
+//            dp[i][j] = 1;
+//            points.push_back(Point(i, j, land[i][j]));
+//        }
+//    }
+//    std::sort(points.begin(), points.end(), compare);
+//    for (int i = 0; i < points.size(); ++i) {
+//        Point p = points[i];
+//        for (int j = 0; j < 4; ++j) {
+//            int xx = p.x + dx[j];
+//            int yy = p.y + dy[j];
+//            if (xx >= 1 && xx <= n && yy >= 1 && yy <= m && p.h < land[xx][yy]) {
+//                dp[p.x][p.y] = std::max(dp[p.x][p.y], dp[xx][yy] + 1);
+//            }
+//        }
+//    }
+//    int Max = 0;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            Max = std::max(Max, dp[i][j]);
+//        }
+//    }
+//    cout << Max << endl;
+
+//    return 0;
+//}
 
 
 
