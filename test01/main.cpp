@@ -4544,8 +4544,195 @@ using std::max;
 
 
 
+// 股票交易含手续费
+// dp[i]表示到第i天的一个最大利润，再进行状态划分
+// dp[i][0]表示到第i天结束的时候持股
+// dp[i][1]表示到第i天结束的时候不持股
+// dp[i][0] = std::max(dp[i-1][0],dp[i-1][1] - arr[i])
+// dp[i][1] = std::max(dp[i-1][1],dp[i-1][0] + arr[i] -fee)
+//int n;
+//int arr[5005];
+//int fee;
+//int dp[5005][2];
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    cin >> fee;
+//    dp[1][0] = -arr[1];
+//    dp[1][1] = 0;
+//    for (int i = 2; i <= n; ++i) {
+//        dp[i][0] = std::max(dp[i - 1][0], dp[i - 1][1] - arr[i]);
+//        dp[i][1] = std::max(dp[i - 1][1], dp[i - 1][0] + arr[i] - fee);
+//    }
+
+//    cout << std::max(dp[n][0], dp[n][1]) << endl;
+//    return 0;
+//}
 
 
+
+
+// 股票交易，限制最大交易次数为2次
+// 动规的思想就是当前最优+批判性继承
+// dp[i][0]  表示到第i天结束的时候是持股,并且交易次数0
+// dp[i][1]  表示到第i天结束的时候是持股,并且交易次数1
+// dp[i][2]  表示到第i天结束的时候是持股,并且交易次数2
+// dp[i][3]  表示到第i天结束的时候是未持股,并且交易次数0
+// dp[i][4]  表示到第i天结束的时候是未持股,并且交易次数1
+// dp[i][5]  表示到第i天结束的时候是未持股,并且交易次数2
+//int n;
+//int arr[5005];
+//int dp[5005][6];
+
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n;++i){
+//        cin >> arr[i];
+//    }
+//    dp[1][0] = -arr[1];
+//    for (int i = 2; i <= n; ++i) {
+//        dp[i][0] = std::max(dp[i - 1][3] - arr[i], dp[i - 1][0]);
+//        if (i > 3) {
+//            dp[i][1] = std::max(dp[i - 1][4] - arr[i], dp[i - 1][1]);
+//        }else if(i == 3){
+//            dp[i][1] = dp[i - 1][4] - arr[i];
+//        }
+//        dp[i][3] = dp[i - 1][3];
+//        dp[i][4] = std::max(dp[i - 1][4], dp[i - 1][0] + arr[i]);
+//        if (i > 4) {
+//            dp[i][5] = std::max(dp[i - 1][5], dp[i - 1][1] + arr[i]);
+//        }else if(i ==4 ){
+//            dp[i][5] = dp[i - 1][1] + arr[i];
+//        }
+//    }
+//    int MAX = 0;
+//    for (int i = 0; i <= 5; ++i) {
+//        MAX = std::max(MAX, dp[n][i]);
+//    }
+//    cout << MAX << endl;
+//    return 0;
+//}
+
+
+
+/// dp子数组系列
+// 最大子数组和
+// dp[i]表示以i元素为结尾的所有子数组中的最大和
+// 状态转移,dp[i] = std::max(dp[i - 1] + nums[i],nums[i])
+//int n;
+//int nums[50005];
+//int dp[50005];
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> nums[i];
+//    }
+//    dp[1] = nums[1];
+//    for (int i = 2; i <= n; ++i) {
+//        dp[i] = std::max(dp[i - 1] + nums[i], nums[i]);
+//    }
+//    int MAX = -10e9;
+//    for (int i = 1; i <= n; ++i) {
+//        MAX = std::max(dp[i], MAX);
+//    }
+//    cout << MAX << endl;
+//    return 0;
+//}
+
+
+
+
+
+/// dp背包系列
+
+// 01背包
+// dp[i][j]表示对于前i个物品，在j的体积限制下，能装的最大价值
+//int dp[1005][10005];
+//int N, V;
+//int v[1005];
+//int main()
+//{
+//    cin >> N >> V;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> v[i] >> w[i];
+//    }
+//    for (int i = 1; i <= N; ++i) {
+//        for (int j = 1; j <= V; ++j) {
+//            if (j >= v[i]) {
+//                dp[i][j] = std::max(dp[i - 1][j], dp[i - 1][j - v[i]] + w[i]);
+//            } else {
+//                dp[i][j] = dp[i - 1][j];
+//            }
+//        }
+//    }
+//    cout << dp[N][V] << endl;
+
+//    return 0;
+//}
+
+
+
+// 完全背包,每种物品有无限多个
+// 选法:1.不选  2.选1个  3.选2个 ......
+// dp[i][j]表示对前i个物品，在j的体积限制下，能装的最大价值
+//int N, V;
+//int dp[1005][10005];
+//int v[1005];
+//int w[1005];
+//int main()
+//{
+//    cin >> N >> V;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> v[i] >> w[i];
+//    }
+//    for (int i = 1; i <= N; ++i) {
+//        for (int j = 1; j <= V; ++j) {
+//            dp[i][j] = dp[i - 1][j];
+//            // 和01背包不同的就是后面的判断是针对dp[i][j - v[i]] + w[i]
+//            if (j >= v[i]) {
+//                dp[i][j] = std::max(dp[i][j], dp[i][j - v[i]] + w[i]);
+//            }
+
+//        }
+//    }
+//    cout << dp[N][V] << endl;
+//    return 0;
+//}
+
+
+
+// 疯狂的采药,dp练手,完全背包+滚动数组
+//int T, M; // 采药的时间T,药的种类M
+//int t[10005], w[10005];
+//int dp[1000][10000];   //dp[i][j]表示在i时间的限制下，对于前j个药，能够采到的最大价值
+//int main()
+//{
+//    cin >> T >> M;
+//    for (int i = 1; i <= m; ++i) {
+//        cin >> t[i] >> w[i];
+//    }
+
+
+//    return 0;
+//}
+
+
+
+
+
+// 七段码,真题练手
+// 枚举，枚举所有情况，找出符合的(连通在一起的)
+//int arr[7] = { 0, 1, 2, 3, 4, 5, 6 };
+//int main()
+//{
+//    cout << 7 + 10 + 16 + 20 + 19 + 7 + 1 << endl;
+//    return 0;
+//}
 
 
 
