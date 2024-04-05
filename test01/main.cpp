@@ -4706,25 +4706,7 @@ using std::max;
 
 
 
-// 疯狂的采药,dp练手,完全背包+滚动数组
-//int T, M; // 采药的时间T,药的种类M
-//int t[10005], w[10005];
-//int dp[1000][10000];   //dp[i][j]表示在i时间的限制下，对于前j个药，能够采到的最大价值
-//int main()
-//{
-//    cin >> T >> M;
-//    for (int i = 1; i <= m; ++i) {
-//        cin >> t[i] >> w[i];
-//    }
-
-
-//    return 0;
-//}
-
-
-
-
-
+////刷题
 // 七段码,真题练手
 // 枚举，枚举所有情况，找出符合的(连通在一起的)
 //int arr[7] = { 0, 1, 2, 3, 4, 5, 6 };
@@ -4734,6 +4716,512 @@ using std::max;
 //    return 0;
 //}
 
+
+
+
+// 01串的熵
+//double getAn(double x)
+//{
+//    //返回的是p(xi​)/log2​(p(xi​))
+//    return x * std::log(x) / std::log(2);
+//}
+//double res = 11625907.5798;
+
+//int main()
+//{
+//    // 二分0的次数
+//    int l = 0, r = 23333333 / 2, m;
+//    while (l <= r) {
+//        m = (l + r) / 2;
+
+//        double res1 = -m * getAn(m / 23333333.0) - (23333333 - m) * getAn(1 - m / 23333333.0);
+//        if (res == res1) {
+//            break;
+//        }
+//        if (res1 < res) {
+//            l = m + 1;
+//        } else if (res1 > res) {
+//            r = m - 1;
+//        }
+//    }
+//    cout << m << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 冶炼金属
+// 过了100%
+// int N;
+// int arr[10005], brr[10005];
+// int resmin;
+// int resmax;
+// int main()
+//{
+//    cin >> N;
+//    for (int i = 0; i < N; ++i) {
+//        cin >> arr[i] >> brr[i];
+//    }
+//    resmin = arr[0] / (brr[0] + 1) + 1;
+//    resmax = arr[0] / brr[0];
+//    for (int i = 1; i < N; ++i) {
+//        resmin = std::max(resmin, arr[i] / (brr[i] + 1) + 1);
+//        resmax = std::min(resmax, arr[i] / brr[i]);
+//    }
+//    cout << resmin << " " << resmax << endl;
+//    return 0;
+//}
+
+
+
+
+// 青蛙过河
+// 过了65%
+//int N, X; // 河的宽度，要过河的次数
+//std::vector<int> vec;
+//int res;
+// 判断x的跳跃能力是否能过
+//bool judge(int x)
+//{
+//    std::vector<int> tempVec(vec);
+//    for (int i = 0; i < X; ++i) {
+//        if (i % 2 == 0) {
+//            // 正向走
+//            int now = 0;
+//            while (now < N) {
+//                int j;
+//                // 每次都枚举长度
+//                // 从大到小枚举
+//                for (j = x; j > 0; --j) {
+//                    if (now + j >= N) {
+//                        now += j;
+//                        break;
+//                    } else {
+//                        if (tempVec[now + j] > 0) {
+//                            now += j;
+//                            tempVec[now]--;
+//                            // 找到能走的点也退出
+//                            break;
+//                        }
+//                    }
+//                }
+//                if (j == 0) {
+//                    return false;
+//                }
+//            }
+
+//        } else {
+//            // 返回
+//            int now = N;
+//            while (now > 0) {
+//                int j;
+//                for (j = x; j > 0; --j) {
+//                    if (now - j <= 0) {
+//                        now -= j;
+//                        break;
+//                    } else {
+//                        if (tempVec[now - j] > 0) {
+//                            now -= j;
+//                            tempVec[now]--;
+//                            break;
+//                        }
+//                    }
+//                }
+//                if (j == 0) {
+//                    return false;
+//                }
+//            }
+
+//        }
+//    }
+//    return true;
+//}
+//int main()
+//{
+//    cin >> N >> X;
+//    X *= 2;
+//    vec.push_back(0);
+//    for (int i = 1; i < N; ++i) { // 输入N - 1块石头的高度
+//        int a;
+//        cin >> a;
+//        vec.push_back(a);
+//    }
+//    // 二分+枚举
+//    int l = 1, r = N, m;
+//    while (l < r) {
+//        m = (l + r) / 2;
+//        if (judge(m)) {
+//            r = m;
+//        } else {
+//            l = m + 1;
+//        }
+//    }
+//    cout << r << endl;
+//    return 0;
+//}
+
+
+
+
+// 钟表
+//double myAbs(double x)
+//{
+//    if (x < 0) {
+//        return -x;
+//    } else {
+//        return x;
+//    }
+//}
+
+//bool judge(int s, int f, int m)
+//{
+//    double md, fd, sd;
+//    md = m * 6;
+//    fd = f * 6 + m * 0.1;
+//    sd = s * 30 + f * 0.5 + m * 0.5 / 60;
+//    double A = myAbs(fd - sd);
+//    //    cout << A << " " << fd << " " << sd << endl;
+//    double B = myAbs(fd - md);
+//    if (A > 180) {
+//        A = 360 - A;
+//    }
+//    if (B > 180) {
+//        B = 360 - B;
+//    }
+
+//    if (myAbs(A - 2 * B) < 0.0001) {
+//        return true;
+//    }
+//    return false;
+//}
+
+//int main()
+//{
+//    // 枚举所有时间
+//        int s = 0, f = 0, m = 1;
+//        while (s < 7) {
+//            m++;
+//            if (m >= 60) {
+//                m = 0;
+//                f++;
+//                if (f >= 60) {
+//                    f = 0;
+//                    s++;
+//                }
+//            }
+//            if (judge(s, f, m)) {
+//                cout << s << " " << f << " " << m << endl;
+//                return 0;
+//            }
+//        }
+//    return 0;
+//}
+
+
+
+// 小A点菜
+// 搜索+剪枝
+// 过了90%
+// int N, M; // N种菜，剩M元
+// int arr[105];
+// int cnt;
+// void dfs(int n, int m)
+//{
+//    if (m > M) {
+//        return;
+//    }
+//    if (m == M) {
+//        ++cnt;
+//        return;
+//    }
+//    if (n >= N) {
+//        return;
+//    }
+
+//    dfs(n + 1, m + arr[n]);
+//    dfs(n + 1, m);
+//}
+
+// int main()
+//{
+//     cin >> N >> M;
+//     for (int i = 0; i < N; ++i) {
+//         cin >> arr[i];
+//     }
+//     dfs(0, 0);
+//     cout << cnt << endl;
+//     return 0;
+// }
+
+
+
+// 小A点菜
+// dp
+// int N, M; // N种菜，剩M元
+// int arr[105];
+// int dp[105][10005]; // dp[i][j]前i道菜把j元花光的方法数量
+// int main()
+//{
+//    cin >> N >> M;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> arr[i];
+//    }
+//    dp[1][arr[1]] = 1;
+//    for (int i = 2; i <= N; ++i) {
+//        for (int j = 1; j <= M; ++j) {
+//            if (j == arr[i]) {
+//                dp[i][j] = dp[i - 1][j] + 1;
+//            } else if (j > arr[i]) {
+//                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - arr[i]];
+//            } else {
+//                dp[i][j] = dp[i - 1][j];
+//            }
+//        }
+//    }
+//    cout << dp[N][M] << endl;
+//    return 0;
+//}
+
+
+
+
+// 数楼梯
+// int n;
+// struct Long {
+//    std::string str;
+//};
+
+// Long operator+(const Long& a, const Long& b)
+//{
+//     Long res;
+//     int la = a.str.length();
+//     int lb = b.str.length();
+//     int l1 = std::max(a.str.length(), b.str.length());
+//     int l2 = std::min(a.str.length(), b.str.length());
+//     res.str.resize(l1 + 1, '0');
+//     for (int i = 0; i < l1; ++i) {
+//         if (i < l2) {
+//             res.str[i] = res.str[i] + a.str[i] + b.str[i] - '0' - '0';
+//             if (res.str[i] > '9') {
+//                 res.str[i] -= 10;
+//                 res.str[i + 1] += 1;
+//             }
+//         } else {
+//             if (la > lb) {
+//                 res.str[i] = res.str[i] + a.str[i] - '0';
+//             } else {
+//                 res.str[i] = res.str[i] + b.str[i] - '0';
+//             }
+//             if (res.str[i] > '9') {
+//                 res.str[i] -= 10;
+//                 res.str[i + 1] += 1;
+//             }
+//         }
+//     }
+//     return res;
+// }
+// Long dp[5005];
+// void myPrint(const Long& a)
+//{
+//     bool f = false;
+//     int l = a.str.length();
+//     for (int i = l - 1; i >= 0; --i) {
+//         if (a.str[i] != '0') {
+//             f = true;
+//         }
+//         if (f) {
+//             cout << a.str[i];
+//         }
+//     }
+//     cout << endl;
+// }
+
+// int main()
+//{
+//     cin >> n;
+//     dp[0].str = "1";
+//     dp[1].str = "1";
+//     for (int i = 2; i <= n; ++i) {
+//         dp[i] = dp[i - 1] + dp[i - 2];
+//     }
+//     myPrint(dp[n]);
+//     return 0;
+// }
+
+
+
+
+// 蜜蜂路线
+// int m, n;
+
+// struct Long {
+//     std::string str;
+// };
+
+// Long operator+(const Long& a, const Long& b)
+//{
+//     Long res;
+//     int la = a.str.length();
+//     int lb = b.str.length();
+//     int l1 = std::max(a.str.length(), b.str.length());
+//     int l2 = std::min(a.str.length(), b.str.length());
+//     res.str.resize(l1 + 1, '0');
+//     for (int i = 0; i < l1; ++i) {
+//         if (i < l2) {
+//             res.str[i] = res.str[i] + a.str[i] + b.str[i] - '0' - '0';
+//             if (res.str[i] > '9') {
+//                 res.str[i] -= 10;
+//                 res.str[i + 1] += 1;
+//             }
+//         } else {
+//             if (la > lb) {
+//                 res.str[i] = res.str[i] + a.str[i] - '0';
+//             } else {
+//                 res.str[i] = res.str[i] + b.str[i] - '0';
+//             }
+//             if (res.str[i] > '9') {
+//                 res.str[i] -= 10;
+//                 res.str[i + 1] += 1;
+//             }
+//         }
+//     }
+//     return res;
+// }
+// void myPrint(const Long& a)
+//{
+//     bool f = false;
+//     int l = a.str.length();
+//     for (int i = l - 1; i >= 0; --i) {
+//         if (a.str[i] != '0') {
+//             f = true;
+//         }
+//         if (f) {
+//             cout << a.str[i];
+//         }
+//     }
+//     cout << endl;
+// }
+
+// Long dp[1005];
+// int main()
+//{
+//     cin >> m >> n;
+//     dp[m].str = "1";
+//     for (int i = m + 1; i <= n; ++i) {
+//         dp[i] = dp[i - 1] + dp[i - 2];
+//     }
+//     myPrint(dp[n]);
+//     return 0;
+// }
+
+
+
+
+// 栈
+// 没有找到什么规律
+// 模拟出栈入栈的过程
+// 过了80%
+// int n;
+// long long cnt;
+// std::stack<int> s;
+// void dfs(std::stack<int> s, int i)
+//{
+//    if (i == n + 1) {
+//        cnt++;
+//        return;
+//    }
+//    s.push(i);
+//    dfs(s, i + 1);
+//    s.pop();
+//    while (s.size() != 0) {
+//        dfs(s, i + 1);
+//        s.pop();
+//    }
+//}
+
+// int main()
+//{
+//     cin >> n;
+//     dfs(s, 1);
+//     cout << cnt << endl;
+//     return 0;
+// }
+
+
+
+
+
+// 栈
+// int dp[20][20]; // dp[i][j]表示i个进栈，j个出栈时的种数
+// int n;
+// int main()
+//{
+//    cin >> n;
+//    for (int i = 0; i <= n; ++i) {
+//        dp[i][0] = 1;
+//        dp[0][i] = 1;
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= i; ++j) {
+//            if (i == j) {
+//                dp[i][j] = dp[i][j - 1];
+//            } else {
+//                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+//            }
+//        }
+//    }
+//    cout << dp[n][n] << endl;
+//    return 0;
+//}
+
+
+
+
+// 接龙数列
+// int dp[10]; // dp[i]表示以i为结尾的接龙数列的最大长度
+// dp[tail] = std::max(dp[head] + 1,dp[tail])
+// int n;
+// int arr[100005];
+// int getHead(int x)
+//{
+//    while (x >= 10) {
+//        x /= 10;
+//    }
+//    return x;
+//}
+// int main()
+//{
+//    int n;
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//    }
+//    for (int i = 1; i <= n; ++i) {
+//        int head = getHead(arr[i]);
+//        int tail = arr[i] % 10;
+//        dp[tail] = std::max(dp[tail], dp[head] + 1);
+//    }
+//    int MAX = 0;
+//    for (int i = 0; i < 10; ++i) {
+//        MAX = std::max(MAX, dp[i]);
+//    }
+//    cout << n - MAX << endl;
+
+//    return 0;
+//}
+
+
+
+
+// 子串简写
+int main()
+{
+
+
+    return 0;
+}
 
 
 
