@@ -24,6 +24,7 @@ using std::max;
 #include <ctime>
 #include <cstdlib>
 #include <cstdio>
+#include <map>
 
 
 // 问题解决日志
@@ -1948,49 +1949,102 @@ using std::max;
 
 
 
+// 并查集
+// 蓝桥杯真题--合根植物
+//int fa[1000005]; // fa[i]表示i编号的植物的祖先
+//int m, n; // m行n列
+//int k;
+//long long cnt;
+// 查找祖先的函数
+//int find(int x)
+//{
+//    if (fa[x] != x) {
+//        fa[x] = find(fa[x]);
+//    }
+//    return fa[x];
+//}
+
+//int main()
+//{
+//    cin >> m >> n;
+//    cin >> k;
+//    for (int i = 1; i <= m * n; ++i) {
+//        fa[i] = i; // 初始化每个植物的祖先为自己
+//    }
+
+//    for (int i = 0; i < k; ++i) {
+//        int a, b;
+//        cin >> a >> b;
+//        int f1 = find(a);
+//        int f2 = find(b);
+//        fa[f1] = f2;
+//    }
+
+//    for(int i = 1; i<= m * n;++i){
+//        if(fa[i] == i){
+//            ++cnt;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
 
 // 赢球票
 // 思路感觉就是枚举
-// 只过了20%
-// int arr[105]; // 存储卡片排列
-// std::vector<int> tempV;
-// int n; // 卡片数量
-// int cnt;
-// int main()
+// 过了100%
+//int arr[105]; // 存储卡片排列
+//bool isDe[105]; // 为true表示已经删除
+//int n; // 卡片数量
+//int cnt;
+//int main()
 //{
 //    cin >> n;
-//    for (int i = 0; i < n; ++i) {
+//    for (int i = 1; i <= n; ++i) {
 //        cin >> arr[i];
 //    }
 //    // 枚举所有可能的起点
-//    for (int i = 0; i < n; ++i) {
+//    for (int i = 1; i <= n; ++i) {
+//        memset(isDe, 0, sizeof(isDe));
+//        int c = 1; // 从1开始数
+//        int j = i; // 遍历arr数组的索引
 //        int tempC = 0;
-//        int j = 1; // 从1开始数
-//        int p = i; // 记录当前的起点位置
-//        tempV.clear();
-//        for (int k = 0; k < n; k++) {
-//            tempV.push_back(arr[k]);
-//        }
-//        while (!tempV.empty()) {
-//            if (j > n) {
+
+//        while (true) {
+//            if (c > n) {
 //                break;
 //            }
-//            if (j == tempV[p]) {
-//                tempV.erase(tempV.begin() + p); // 删除下标为p的元素
-//                if (p == tempV.size()) {
-//                    p = 0;
+//            if (tempC == n * (n + 1) / 2) {
+//                break; // 全部删除完成
+//            }
+
+//            // 已经删除的
+//            if (isDe[j]) {
+//                j += 1;
+//                if (j == n + 1) {
+//                    j = 1;
 //                }
-//                j = 1;
-//                tempC++;
 //                continue;
 //            }
-//            ++j;
-//            ++p;
-//            if (p == tempV.size()) {
-//                p = 0;
+//            if (arr[j] == c) {
+//                isDe[j] = true;
+//                c = 1;
+//                tempC += arr[j];
+//                j += 1;
+//                if (j == n + 1) {
+//                    j = 1;
+//                }
+//            } else {
+//                ++c;
+//                j += 1;
+//                if (j == n + 1) {
+//                    j = 1;
+//                }
 //            }
 //        }
-//        cnt = std::max(cnt, tempC);
+//        cnt = std::max(tempC, cnt);
+
 //    }
 //    cout << cnt << endl;
 //    return 0;
@@ -2030,6 +2084,7 @@ using std::max;
 
 // 花生采摘
 // 思路感觉就是模拟
+// 过了100%
 // int m, n, k; // m行n列
 // struct Point {
 //    int x;
@@ -2064,7 +2119,7 @@ using std::max;
 //        }
 //    }
 
-//        int t = 0;
+//    int t = 0;
 //    t += points[0].x + 1;
 //    cnt += land[points[0].x][points[0].y];
 //    for (int i = 1; i < points.size(); ++i) {
@@ -2084,11 +2139,11 @@ using std::max;
 
 
 // 第k小的数
-// 二分过了50%
+// 二分过了70%
 // 有时间可以再想想
 // int n, k;
 // int a;
-// int brr[1005];
+// int brr[10005];
 // int main()
 //{
 //    cin >> n >> k;
@@ -2396,15 +2451,15 @@ using std::max;
 // 可以看出实际上就是5种摆法，然后直接搜索的话肯定超时，正确的做法应该是动规
 // 看题解
 //
-// long long mod = 1000000007;
-// long long n;
-// long long dp[10000005][3];    //dp[i][0]表示铺了i个并且上下都铺满，dp[i][1]表示上面差一个,dp[i][2]表示下面差一个
+//long long mod = 1000000007;
+//long long n;
+//long long dp[10000005][3];    //dp[i][0]表示铺了i个并且上下都铺满，dp[i][1]表示上面差一个,dp[i][2]表示下面差一个
 // 得到状态转移方程
 // dp[i][0] = dp[i-2][0] + dp[i-1][1] + dp[i-1][2] + dp[i-1][0]
 // dp[i][1] = dp[i-2][0] + dp[i-1][2]
 // dp[i][2] = dp[i-2][0] + dp[i-1][1]
 
-// int main()
+//int main()
 //{
 //     cin >> n;
 //     dp[1][0] = 1;
@@ -2421,7 +2476,7 @@ using std::max;
 //     }
 //     cout << dp[n][0] << endl;
 //     return 0;
-// }
+//}
 
 
 
@@ -3925,16 +3980,16 @@ using std::max;
 // 使用log n的方法锁定最小值的下标 (优先队列 或者 线段树)
 // 这里使用优先队列锁定最小值的下标
 // 使用链表来维护所有的答案序列
-//typedef long long LL;
-//typedef std::pair<LL, int> PLT; // 这个pair第一位用来维护值，第二位用来维护下标
-//int n, k;
-//const int MAX_N = 5e5 + 5;
-//LL arr[MAX_N];
-//int pre[MAX_N], next_1[MAX_N];
-//std::priority_queue<PLT> q; // 创建一个优先队列
-
-//int main()
-//{
+// typedef long long LL;
+// typedef std::pair<LL, int> PLT; // 这个pair第一位用来维护值，第二位用来维护下标
+// int n, k;
+// const int MAX_N = 5e5 + 5;
+// LL arr[MAX_N];
+// int pre[MAX_N], next_1[MAX_N];
+// std::priority_queue<PLT> q; // 创建一个优先队列
+// 
+// int main()
+// {
 //    std::ios::sync_with_stdio(false);
 //    cin.tie(0), cout.tie(0);
 //    int n;
@@ -3977,7 +4032,7 @@ using std::max;
 //    }
 //    cout << endl;
 //    return 0;
-//}
+// }
 
 
 // 上一题使用了优先队列
@@ -4352,7 +4407,6 @@ using std::max;
 //        g[i] = std::max(f[i - 1], g[i - 1]);
 //    }
 //    int x2 = std::max(g[n], f[n]);
-
 //    cout << std::max(x1, x2) << endl;
 //    return 0;
 //}
@@ -5822,12 +5876,64 @@ using std::max;
 
 
 // AB路线
-// int main()
-// {
-
-
-//     return 0;
-// }
+// 只过了30%
+//struct Point {
+//    int x;
+//    int y;
+//    int d; // 当前已经走了多少个现在的字母
+//};
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//std::string land[1005];
+//int N, M, k;
+//std::queue<Point> que;
+//int mapLen[1005][1005];
+//int main()
+//{
+//    memset(mapLen, 127, sizeof(mapLen));
+//    cin >> N >> M >> k;
+//    for (int i = 0; i < N; ++i) {
+//        cin >> land[i];
+//    }
+//    Point p;
+//    p.x = 0;
+//    p.y = 0;
+//    p.d = 1;
+//    mapLen[0][0] = 0;
+//    que.push(p);
+//    bool f = false;
+//    while (!que.empty()) {
+//        Point nowp = que.front();
+//        que.pop();
+//        for (int i = 0; i < 4; ++i) {
+//            int xx = nowp.x + dx[i];
+//            int yy = nowp.y + dy[i];
+//            if (xx >= 0 && yy >= 0 && xx < N && yy < M && mapLen[xx][yy] > mapLen[nowp.x][nowp.y] + 1) {
+//                if(nowp.d < k && land[xx][yy] == 'A' || nowp.d >= k && land[xx][yy] == 'B'){
+//                    mapLen[xx][yy] = mapLen[nowp.x][nowp.y] + 1;
+//                    Point newp;
+//                    newp.x = xx;
+//                    newp.y = yy;
+//                    newp.d = (nowp.d + 1) %  (2 * k);
+//                    que.push(newp);
+//                    if (xx == N - 1 && yy == M - 1) {
+//                        f = true;
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        if (f) {
+//            break;
+//        }
+//    }
+//    if (mapLen[N - 1][M - 1] < 1000001) {
+//        cout << mapLen[N - 1][M - 1] << endl;
+//    } else {
+//        cout << -1 << endl;
+//    }
+//    return 0;
+//}
 
 
 
@@ -5984,14 +6090,314 @@ using std::max;
 
 
 
+// 离开中山路
+//struct Point {
+//    int x;
+//    int y;
+//};
+//string land[1005];
+//int mapLen[1005][1005];
+//int dx[4] = { 0, 0, 1, -1 };
+//int dy[4] = { 1, -1, 0, 0 };
+//int x1, y1_, x2, y2;
+//int N;
+//std::queue<Point> que;
+//int main()
+//{
+//    memset(mapLen, 127, sizeof(mapLen));
+//    cin >> N;
+//    for (int i = 0; i < N; ++i) {
+//        cin >> land[i];
+//    }
+//    cin >> x1 >> y1_ >> x2 >> y2;
+//    x1 -= 1;
+//    y1_ -= 1;
+//    x2 -= 1;
+//    y2 -= 1;
+//    Point p;
+//    p.x = x1;
+//    p.y = y1_;
+//    que.push(p);
+//    mapLen[x1][y1_] = 0;
+//    bool f = false;
+//    while (!que.empty()) {
+//        Point nowp = que.front();
+//        que.pop();
+//        for (int i = 0; i < 4; ++i) {
+//            int xx = nowp.x + dx[i];
+//            int yy = nowp.y + dy[i];
+//            if (xx >= 0 && yy >= 0 && xx < N && yy < N && land[xx][yy] != '1' &&mapLen[xx][yy] > mapLen[nowp.x][nowp.y] + 1) {
+//                mapLen[xx][yy] = mapLen[nowp.x][nowp.y] + 1;
+//                Point newp;
+//                newp.x = xx;
+//                newp.y = yy;
+//                que.push(newp);
+//                if (xx == x2 && yy == y2) {
+//                    f = true;
+//                    break;
+//                }
+//            }
+//        }
+//        if (f) {
+//            break;
+//        }
+//    }
+//    cout << mapLen[x2][y2] << endl;
+//    return 0;
+//}
 
 
 
 
 
+// A - B数对
+// 过了100%
+//long long N, c;
+//int arr[200005];
+//std::map<long long, int> ma; // 记录出现的次数
+//long long cnt;
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> N >> c;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> arr[i];
+//        ++ma[arr[i]];
+//    }
+//    for (int i = 1; i <= N; ++i) {
+//        cnt = cnt + ma[arr[i] - c];
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
 
 
 
+// A - B数对
+//long long N, c;
+//int arr[200005];
+//long long cnt;
+//int main()
+//{
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(0), cout.tie(0);
+//    cin >> N >> c;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> arr[i];
+//    }
+//    std::sort(arr + 1, arr + N + 1);
+//    // i遍历右边,j遍历左边
+//    for (int i = 2, j = 1; i <= N && j <= N;) {
+//        if (arr[i] - arr[j] == c) {
+//            // 判断是否有重复的数
+//            int ni = 1, nj = 1;
+//            while (arr[i + 1] == arr[i]) {
+//                ++i;
+//                ++ni;
+//            }
+//            while (arr[j + 1] == arr[j]) {
+//                ++j;
+//                ++nj;
+//            }
+//            cnt = cnt + ni * nj;
+//            ++j;
+//        } else if (arr[i] - arr[j] < c) {
+//            ++i;
+//        } else {
+//            ++j;
+//        }
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+
+// 最大食物链计数
+// 思路就是构建单向图，还有防止重复搜索，第一次搜完的时候就要存下数字，下次可以直接返回
+// 以顶级的掠食者为起点，单向图
+//int mod = 80112002;
+//int N, M; // 生物总数N,关系数M
+//std::list<int> routes[5005]; // routes[i]表示以i为起点能到达哪些点
+//bool flags[5005]; // 为true表示该点不是起点
+//long long cnt;
+//long long res[5005]; // res[i]存放以i为起点的所有路线条数 % mod
+
+//int dfs(int x)
+//{
+//    if (res[x]) {
+//        return res[x];
+//    }
+//    if (routes[x].size() == 0) {
+//        return 1;
+//    }
+//    int r = 0;
+//    for (int e : routes[x]) {
+//        r = (r + dfs(e)) % mod;
+//    }
+//    res[x] = r;
+//    return r;
+//}
+
+//int main()
+//{
+//    cin >> N >> M;
+//    for (int i = 0; i < M; ++i) {
+//        int a, b;
+//        cin >> a >> b;
+//        flags[a] = true;
+//        routes[b].push_back(a);
+//    }
+//    for (int i = 1; i <= N; ++i) {
+//        if (!flags[i]) {
+//            int rr = dfs(i);
+//            cnt = (cnt + rr) % mod;
+//        }
+//    }
+//    cout << cnt << endl;
+
+//    return 0;
+//}
+
+
+
+// 整数删除
+// 做法是优先队列
+// 这是自己再做了一遍，只过了80%
+// 缺点是没有使用一个数组来进行存放一个下标的下一个下标和上一个下标 ,增加了遍历的时间
+//int N, K;
+//int arr[500005];
+//std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> que;
+//int main()
+//{
+//    cin >> N >> K;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> arr[i];
+//        que.push({ arr[i], i });
+//    }
+//    for (int i = 0; i < K; ++i) {
+//        std::pair<int, int> pa;
+//        do {
+//            pa = que.top();
+//            que.pop();
+//        } while (arr[pa.second] != pa.first); // 这个do while循环会将过期的数字筛选出去
+//        int l = pa.second - 1, r = pa.second + 1;
+//        while (l > 0 && arr[l] == -1) {
+//            --l;
+//        }
+//        if (l > 0) {
+//            arr[l] += pa.first;
+//            //            cout << "l = " << l << "   arr[l] = " << arr[l] << endl;
+//            que.push({ arr[l], l }); // 加入更新之后的数字
+//        }
+//        while (r <= N && arr[r] == -1) {
+//            ++r;
+//        }
+//        if (r <= N) {
+//            arr[r] += pa.first;
+//            que.push({ arr[r], r }); // 加入更新之后的数字
+//            //            cout << "r = " << r << "   arr[r] = " << arr[r] << endl;
+//        }
+//        arr[pa.second] = -1; // 删除该数
+//    }
+//    for (int i = 1; i <= N; ++i) {
+//        if (arr[i] != -1) {
+//            cout << arr[i] << " ";
+//        }
+//    }
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+// 取球博弈
+// 尝试的问题的时候就需要用到dfs
+// 博弈问题的dfs需要交换变量
+// 博弈的问题在于，但是当我无法选择的时候，就可以知道当前的对局情况
+// 只过了25%
+//int M = 5;
+//int n[4];
+//int minN;
+//int arr[6]; // 存放初始球数
+// me是准备抓球的人的当前的数目，you是当前对手的数目
+//char dfs(int sum, int me, int you)
+//{
+//    if (sum < minN) {
+//        // 已经无法取球
+//        if (me % 2 == 0 && you % 2 == 1) {
+//            return '-';
+//        } else if (me % 2 == 1 && you % 2 == 0) {
+//            return '+';
+//        } else {
+//            return '0';
+//        }
+//    }
+//    cout << "sum = " << sum << endl;
+//    bool f = false;
+//    for (int i = 1; i <= 3; ++i) {
+//        if (sum >= n[i]) {
+//            char res = dfs(sum - n[i], you, me + n[i]); // 这边要交换变量
+//            if (res == '-') {
+//                return '+';
+//            }
+//            if (res == '0') {
+//                f = true;
+//            }
+//        }
+//    }
+//    if (f) {
+//        return '0';
+//    } else {
+//        return '-';
+//    }
+//}
+//int main()
+//{
+//    cin >> n[1] >> n[2] >> n[3]; // 可以选择的取球的数目
+//    for (int i = 1; i <= 5; ++i) {
+//        cin >> arr[i];
+//    }
+//    while (M--) {
+//        minN = std::min(n[1], std::min(n[2], n[3]));
+//        char res = dfs(arr[5 - M], 0, 0);
+//        cout << res << " ";
+//    }
+
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+
+// 回文数个数
+//int n;
+//long long cnt;
+//int main()
+//{
+//    cin >> n;
+//    // 枚举2到n
+//    cnt = 9;
+//    for (int i = 2; i <= n; ++i) {
+//        long long res = 1;
+//        int l = (i + 1) / 2;
+//        for (int j = 0; j < l; ++j) {
+//            if (j == 0) {
+//                res = res * 9;
+//            } else {
+//                res = res * 10;
+//            }
+//        }
+//        cnt += res;
+//    }
+//    cout << cnt << endl;
+//    return 0;
+//}
+
+
+//优先队列的大小比较函数
 
 
 
