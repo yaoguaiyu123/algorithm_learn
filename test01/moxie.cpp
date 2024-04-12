@@ -1,39 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
+// next_permutation
 
-//积木画
-int N;  //画布大小
-long long dp[10000005][3];
-long long mod = 1000000007;
-// dp[i][0]表示填充到i但是上面缺一块
-// dp[i][1]表示正好
-// dp[i][2]表示下面缺一块
-// dp[i][0] = dp[i - 2][1] + dp[i - 1][2]
-// dp[1][1] = dp[i - 1][1] + dp[i - 2][1] + dp[i - 1][0] + dp[i - 1][2]
-// dp[i][2] = dp[i - 2][1] + dp[i - 1][0]
-
-
-int main(){
-	cin >> N;
-	dp[1][1] = 1;
-	dp[2][1] = 2;
-	dp[2][0] = 1;
-	dp[2][2] = 1;
-	for(int i  =3;i<=N;++i){
-		dp[i][1] = (dp[i - 1][1] + dp[i - 2][1] + dp[i - 1][0] + dp[i - 1][2])%mod;
-		dp[i][0] = (dp[i - 2][1] + dp[i - 1][2]) % mod;
-		dp[i][2] = (dp[i - 2][1] + dp[i - 1][0]) % mod;
-	}
-	cout << dp[N][1] <<endl;
-
-	return 0;
+struct Point {
+    int x;
+    int y;
+};
+bool compare(const Point& p1, const Point& p2)
+{
+    return p1.x < p2.x;
 }
+Point arr[10];
+int n;
+int main()
+{
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i].x;
+        cin >> arr[i].y;
+    }
+    do{
+        for(int i = 0;i < n;++i){
+            cout << arr[i].x <<" ";
+        }
+        cout <<endl;
+    }while(std::next_permutation(arr,arr+n,compare));   //默认
 
 
-
-	
-
-
+    return 0;
+}
 
 
 

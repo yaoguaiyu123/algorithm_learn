@@ -15,7 +15,6 @@ using std::min;
 using std::max;
 #include <vector>
 #include <string.h>
-#include <limits>
 #include <list>
 #include <stack>
 #include <deque>     //双向的队列
@@ -25,6 +24,7 @@ using std::max;
 #include <cstdlib>
 #include <cstdio>
 #include <map>
+#include <climits>
 
 
 // 问题解决日志
@@ -3122,6 +3122,63 @@ using std::max;
 // }
 
 
+// 迪杰斯拉考前再复习
+// 出差 ,邻接链表的形式存放数据
+//int N, M; // 城市数量和路线数量
+//bool visit[1005]; // 标记最优城市
+//int res[1005]; // 记录到达每个城市所需路程时间和隔离时间
+//struct Edge {
+//    int v;
+//    int c;
+//};
+
+//std::list<Edge> lists[10005]; // lists[i]存放的是以i为起点的路线
+//int times[1005]; // 存放隔离时间
+//int main()
+//{
+//    memset(res, 127, sizeof(res));
+//    cin >> N >> M;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> times[i];
+//    }
+//    for (int i = 1; i <= M; ++i) {
+//        int u;
+//        Edge edge;
+//        cin >> u >> edge.v >> edge.c;
+//        Edge edge2;
+//        edge2.v = u;
+//        edge2.c = edge.c;
+//        lists[u].push_back(edge);
+//        lists[edge.v].push_back(edge2);
+//    }
+//    int temp = N;
+//    int nowS = 1; // 每次的起点
+//    res[1] = 0;
+//    while (temp--) {
+//        int now_min = 99999999;
+//        visit[nowS] = true;
+//        for (const Edge& e : lists[nowS]) {
+//            if (!visit[e.v]) {
+//                if (e.v == N) {
+//                    res[e.v] = std::min(res[e.v], res[nowS] + e.c);
+//                } else {
+//                    res[e.v] = std::min(res[e.v], res[nowS] + e.c + times[e.v]);
+//                }
+//            }
+//        }
+//        // 找出当前城市中可以走的最近城市
+//        for (int i = 1; i <= N; ++i) {
+//            if (!visit[i] && res[i] < now_min) {
+//                now_min = res[i];
+//                nowS = i;
+//            }
+//        }
+//    }
+//    cout << res[N] << endl;
+
+//    return 0;
+//}
+
 
 
 // 灌水
@@ -3419,6 +3476,34 @@ using std::max;
 //    }
 //    cout << max_l << " " << sum << endl;
 
+
+//    return 0;
+//}
+
+
+// 低价购买低等版(最长下降子序列)
+// 经验:线性动态规划的时候要考虑是否是以i为结尾还是到i为止的
+//int N;
+//int arr[5005];
+//int dp[5005]; // dp[i]表示以i为结尾的最长下降子序列
+//int t[5005]; // 表示种类数
+//int main()
+//{
+//    cin >> N;
+//    for (int i = 1; i <= N; ++i) {
+//        cin >> arr[i];
+//        dp[i] = 1;
+//    }
+//    int maxl = 0;
+//    for (int i = 2; i <= N; ++i) {
+//        for (int j = 1; j < i; ++j) {
+//            if (arr[i] < arr[j]) {
+//                dp[i] = std::max(dp[j] + 1, dp[i]);
+//                maxl = std::max(maxl, dp[i]);
+//            }
+//        }
+//    }
+//    cout << maxl << endl;
 
 //    return 0;
 //}
@@ -3873,6 +3958,7 @@ using std::max;
 //    }
 //    return 0;
 //}
+
 
 
 
@@ -6397,7 +6483,368 @@ using std::max;
 //}
 
 
-//优先队列的大小比较函数
+// 编辑距离
+// int dp[1005][1005]; // dp[i][j]表示从str1的前i个字符改变到str2的前j个字符的最小步数
+// string str1, str2;
+// int main()
+//{
+//    cin >> str1 >> str2;
+//    str1 = " " + str1;
+//    str2 = " " + str2;
+//    int len1 = str1.length();
+//    int len2 = str2.length();
+//    for (int i = 0; i < 1005; ++i) {
+//        dp[0][i] = dp[i][0] = i;
+//    }
+//    for (int i = 1; i < len1; ++i) {
+//        for (int j = 1; j < len2; ++j) {
+//            if (str1[i] == str2[j]) {
+//                dp[i][j] = dp[i - 1][j - 1];
+//            } else {
+//                dp[i][j] = dp[i - 1][j - 1] + 1;
+//                dp[i][j] = std::min(dp[i][j], dp[i - 1][j] + 1);
+//                dp[i][j] = std::min(dp[i][j], dp[i][j - 1] + 1);
+//            }
+//        }
+//    }
+//    cout << dp[len1 - 1][len2 - 1] << endl;
+//    return 0;
+//}
+
+
+// 最优包含
+// int dp[1005][1005]; // dp[i][j] 表示str1中的前i个字符，修改到包含str2中的前j个字符的最短步数
+// string str1, str2;
+// int main()
+//{
+//    cin >> str1 >> str2;
+//    str1 = " " + str1;
+//    str2 = " " + str2;
+//    int len1 = str1.length();
+//    int len2 = str2.length();
+//    for(int i=1;i<str1.size();i++){
+//        dp[0][i]=0x3f3f;    //这里将赋值为一个非常大的整数
+//    }
+
+
+//    for (int i = 1; i <= len1; ++i) {
+//        for (int j = 1; j <= len2; ++j) {
+//            if (str1[i] == str2[j]) {
+//                dp[i][j] = dp[i - 1][j - 1];
+//            } else {
+//                dp[i][j] = std::min(dp[i - 1][j - 1] + 1, dp[i - 1][j]);
+//            }
+//        }
+//    }
+//    cout << dp[len1 - 1][len2 - 1] << endl;
+//    return 0;
+//}
+
+
+
+
+// int main()
+//{
+
+
+//    return 0;
+//}
+
+
+// 单调栈(重要)
+// 单调栈用于寻找一个序列中的一个元素的下一个更大元素或者下一个更小元素
+
+
+// 优先队列的大小比较函数1（重要)
+//struct compare1 {
+//    bool operator()(int a, int b)
+//    {
+//        return a > b;     //定义了优先队列中较小的元素具有较高的优先级
+//    }
+//};
+
+//struct compare2 {
+//    bool operator()(int a, int b)
+//    {
+//        return a < b;     //定义了优先队列中较大的元素具有较高的优先级
+//    }
+//};
+
+//int main()
+//{
+//    std::priority_queue<int, std::vector<int>, compare2> pq;
+//    pq.push(22);
+//    pq.push(6);
+//    pq.push(51);
+//    pq.push(89);
+//    pq.push(100);
+//    cout << pq.top() << endl;
+
+
+//    return 0;
+//}
+
+//优先队列的大小比较函数2（重要)
+//struct Point {
+//    int x;
+//    int y;
+//    bool operator <(const Point &p1){
+//        return x < p1.x;
+//    }
+//};
+//Point points[10005];
+//bool compare(const Point& p1, const Point& p2)
+//{
+//    return p1.x < p1.y;
+//}
+
+//std::priority_queue<Point, std::vector<Point>> que;
+//int main()
+//{
+//    int n;
+//    cin >> n;
+//    for (int i = 1; i <= n;++i){
+
+//    }
+
+//    return 0;
+//}
+
+
+// 单调栈（找下一个更大的数字）
+// 当栈为空或者下一个数字大于栈顶的元素，就入栈
+//int n;
+//int arr[1005];
+//std::stack<int> st;
+//int main()
+//{
+
+//    cin >> n;
+//    for (int i = 0; i < n; ++i) {
+//        cin >> arr[i];
+//        if (st.empty() || arr[i] > st.top()) {
+//            st.push(arr[i]);
+//        } else {
+//            while (!st.empty() && arr[i] <= st.top()) {
+//                st.pop();
+//            }
+//            st.push(arr[i]);   //当前元素入栈
+//        }
+//    }
+
+//    return 0;
+//}
+
+
+
+
+// 每日温度
+// 单调栈应用  快速找出每个元素后面下一个比ta大的元素
+// 有着一定的问题
+//int n;
+//int arr[500005];
+//std::vector<int> vec;
+//std::stack<int> st; // 栈中存放下标
+//int main()
+//{
+//    cin >> n;
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        if (st.empty() || arr[st.top()] < arr[i]) {
+//            st.push(i);
+//        } else {
+//            while (!st.empty() && arr[i] <= arr[st.top()]) {
+//                st.pop();
+//            }
+//            st.push(i); // 当前元素入栈
+//        }
+//    }
+
+//    while (!st.empty()) {
+//        vec.push_back(st.top());
+//        st.pop();
+//    }
+//    for (int i = 0; i < vec.size(); ++i) {
+//        cout << vec[i] << " ";
+//    }
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+
+
+// floyd算法
+// void floydWarshall(int arr[4][4])
+//{
+//    int n = 4; // n是路径点的数量
+//    for (int k = 0; k < n; k++) {
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (arr[i][k] != 2100000000 && arr[k][j] != 2100000000 && arr[i][k] + arr[k][j] < arr[i][j]) {
+//                    arr[i][j] = arr[i][k] + arr[k][j];
+//                }
+//            }
+//        }
+//    }
+//}
+// int main()
+//{
+//    const int INF = 2100000000;
+//    // 初始化地图
+//    int arr[4][4] = {
+//        { 0, 5, INF, 10 },
+//        { INF, 0, 3, INF },
+//        { INF, INF, 0, 1 },
+//        { INF, INF, INF, 0 }
+//    };
+//    floydWarshall(arr);
+//    for (int i = 0; i < 4; i++) {
+//        for (int j = 0; j < 4; j++) {
+//            if (arr[i][j] == INF)
+//                cout << "INF ";
+//            else
+//                cout << arr[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
+//    return 0;
+//}
+
+
+// 差分
+// 问题:对一个数字进行m次操作，每次操作选定一个l 和 r
+// 对[l,r]区间内的每个元素加上一个value
+// 打印m次操作之后的数组
+// 差分数组的性质:差分数组的前缀和等于原数组
+// 方法:差分
+// 1.先求一个差分数组
+// 比如 1 3 7 5 2对应的差分数组是d[] = 1 2 4 -2 -3(后一位减前一位)
+// 2.使用差分的结论转换原来的操作 [l,r]区间加上v 等价于 d[l] + v,d[r + 1] - v
+// 3. 对差分操作进行前缀和得到原数组
+//int n, m;
+//int arr[50005];
+//int d[50005];
+//int main()
+//{
+//    cin >> n >> m;
+//    // 初始化
+//    for (int i = 1; i <= n; ++i) {
+//        cin >> arr[i];
+//        d[i] = arr[i] - arr[i - 1];
+//    }
+//    // 修改差分数组
+//    for (int i = 0; i < m; ++i) {
+//        int l, r, v;
+//        cin >> l >> r >> v;
+//        d[l] += v;
+//        d[r + 1] -= v;
+//    }
+//    // 使用前缀和还原数组
+//    for (int i = 1; i <= n; ++i) {
+//        arr[i] = d[i] + arr[i - 1];
+//        cout << arr[i] << " ";
+//    }
+//    cout << endl;
+
+//    return 0;
+//}
+
+
+// 二维前缀和
+//int n, m, w; // w个问询
+//int arr[1005][1005];
+//int sum[1005][1005]; // sum[i][j]是1,1到i,j元素的和
+//// 如果我要求 x1,y1到x2,y2的元素的和
+//// sum[x2][y2] - sum[x2][y1 - 1] - sum[x1 - 1][y2] + sum[x1 - 1][y1 - 1]
+
+//// 这个函数用于初始化二维前缀和
+//void pre_sum()
+//{
+//    sum[1][1] = arr[1][1];
+//    for (int i = 2; i <= n; ++i) {
+//        sum[i][1] = sum[i - 1][1] + arr[i][1];
+//    }
+//    for (int i = 2; i <= m; ++i) {
+//        sum[1][i] = sum[1][i - 1] + arr[1][i];
+//    }
+//    for (int i = 2; i <= n; ++i) {
+//        for (int j = 2; j <= m; ++j) {
+//            sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + arr[i][j];
+//        }
+//    }
+//}
+
+//int main()
+//{
+//    cin >> n >> m >> w;
+//    for (int i = 1; i <= n; ++i) {
+//        for (int j = 1; j <= m; ++j) {
+//            cin >> arr[i][j];
+//        }
+//    }
+//    pre_sum();   //初始化前缀和
+//    for (int i = 0; i < w; ++i) {
+//        int x1, x2, y1, y2;
+//        cin >> x1 >> y1 >> x2 >> y2;
+//        int res = sum[x2][y2] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x1 - 1][y1 - 1];
+//        cout << res << endl;
+//    }
+
+//    return 0;
+//}
+
+
+
+// 最大加权矩形
+// 二维前缀和刷题
+//int arr[150][150];
+//int sum[150][150];
+//int N;
+//void pre_sum()
+//{
+//    sum[1][1] = arr[1][1];
+//    for (int i = 2; i <= N; ++i) {
+//        sum[i][1] = sum[i - 1][1] + arr[i][1];
+//    }
+//    for (int i = 2; i <= N; ++i) {
+//        sum[1][i] = sum[1][i - 1] + arr[1][i];
+//    }
+//    for (int i = 2; i <= N; ++i) {
+//        for (int j = 2; j <= N; ++j) {
+//            sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + arr[i][j];
+//        }
+//    }
+//}
+//int main()
+//{
+//    cin >> N;
+//    for (int i = 1; i <= N; ++i) {
+//        for (int j = 1; j <= N; ++j) {
+//            cin >> arr[i][j];
+//        }
+//    }
+//    pre_sum();
+//    // 遍历每一个左上  右下的点
+//    int maxS = -9999999;
+//    for (int x1 = 1; x1 <= N; ++x1) {
+//        for (int y1 = 1; y1 <= N; ++y1) {
+//            for (int x2 = x1; x2 <= N; ++x2) {
+//                for (int y2 = y1; y2 <= N; ++y2) {
+//                    int res = sum[x2][y2] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x1 - 1][y1 - 1];
+//                    maxS = std::max(maxS, res);
+//                }
+//            }
+//        }
+//    }
+//    cout << maxS << endl;
+//    return 0;
+//}
+
+
+
+
 
 
 
